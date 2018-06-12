@@ -1,0 +1,192 @@
+/* pages/pay/pay.wxss */
+.pay{
+  width: 750rpx;
+  height: 100%;
+  background: #f4f4f4;
+  font-size: 32rpx;
+  padding-top: 20rpx;
+}
+.pay_sum{
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  background: #fff;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-top: 20rpx;
+}
+.pay_sum view:nth-of-type(1){
+  padding-left: 40rpx;
+}
+.pay_sum view:nth-of-type(2){
+  padding-right: 40rpx;
+}
+.pay_way_title{
+  padding: 20rpx 0 20rpx 40rpx;
+}
+
+.ns{
+  background: #fff;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+.im{
+  padding-left: 40rpx;
+  padding-top: 18rpx;
+}
+.left{
+  float: left;
+  padding-left: 30rpx;
+}
+.right{
+  float: right;
+  padding-right: 40rpx;
+  padding-top: 20rpx;
+}
+.left text{
+  color: #999;
+  font-size: 28rpx;
+}
+.wx{
+  background: #fff;
+  padding: 20rpx 0;
+}
+.zsh_logo{
+  width: 52rpx;
+  height: 60rpx;
+}
+.wx_logo{
+  width: 58rpx;
+  height: 54rpx;
+}
+.tex{
+  font-size: 32rpx;
+}
+.pay_invoice{
+  background: #fff;
+  margin-top: 40rpx;
+}
+.invoice{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 40rpx;
+  border-bottom: 1px solid #dcdcdc;
+}
+.invoice_tit{
+  line-height: 70rpx;
+}
+
+.invoice_type{
+  padding: 20rpx 40rpx;
+  border-bottom: 1px solid #dcdcdc;
+}
+.lin{
+  line-height: 60rpx;
+}
+.inv{
+  float: left;
+}
+.inv label{
+  line-height: 25rpx;
+  margin-right: 30rpx;
+}
+.inv_icos{
+  margin-left: 60rpx;
+}
+.inv icon{
+  vertical-align: middle;
+}
+
+.invoice_header{
+  padding: 20rpx 40rpx;
+  border-bottom: 1px solid #dcdcdc;
+}
+.hed{
+  float: left;
+  min-width: 130rpx;
+}
+.header{
+  line-height: 50rpx;
+}
+.hed_inp{
+  margin-left: 60rpx;
+  font-size: 30rpx;
+}
+.active{
+  display: none;
+}
+.activeinvoice{
+   display: none;
+}
+.activeinvoiceblock{
+ display: block;
+}
+.activeblock{
+  display: block;
+}
+.my_invoice{
+  padding: 20rpx 40rpx;
+  border-bottom: 1px solid #dcdcdc;
+}
+.my_left{
+  float: left;
+}
+.my_right{
+  float: right;
+}
+.my_right_img{
+  width: 18rpx;
+  height: 31rpx;
+}
+.sub{
+  margin-top: 40rpx;
+  padding-bottom: 120rpx;
+  padding-top: 40rpx;
+  background-color: #fff;
+}
+.submit{
+  width: 680rpx;
+  background-color: #ceb173;
+  margin: 0 auto;
+}
+
+.shade{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color:#000;
+  opacity: .5;
+  width: 750rpx;
+  height: 100%; 
+}
+.shade_box{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  background-color: #f1f1f1;
+}
+.shade_nav{
+  padding: 20rpx 40rpx;
+}
+.shade_text{
+  font-size: 32rpx;
+  color: #000;
+  float: left;
+}
+.shade_list{
+  background-color: #fff;
+}
+.shade_close{
+  float: right;
+  width: 32rpx;
+  height: 32rpx;
+  padding-top: 5rpx;
+}
+.shade_del{
+  width: 25rpx;
+  height: 25rpx;
+}
+.list_invoice{
+  float: left;
+}

@@ -1,0 +1,34 @@
+/* pages/detail/detail.wxss */
+.banner{
+  width: 750rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.img:nth-of-type(1){
+  width: 750rpx;
+  height: 420rpx;
+}
+.img:nth-of-type(2){
+  width: 750rpx;
+  height: 380rpx;
+}
+.img:nth-of-type(3){
+  width: 750rpx;
+  height: 420rpx;
+}
+.img:nth-of-type(4){
+  width: 750rpx;
+  height: 432rpx;
+}
+.img:nth-of-type(5){
+  width: 750rpx;
+  height: 757rpx;
+}
+.link_pay{
+  position: absolute;
+  left:85rpx;
+  bottom:45rpx;
+  width: 589rpx;
+  height: 132rpx;
+}

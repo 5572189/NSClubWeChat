@@ -1,0 +1,34 @@
+/**app.wxss**/
+.container {
+        max-width: 750rpx;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+}
+swiper {
+        width: 100%;
+        height: 550rpx;
+}
+.clearfix:after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+.nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.floatLeft{
+  float: left;
+}
+   
+.more{
+  margin: 40rpx auto;
+  width: 100rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  border: 1rpx solid #000;
+}

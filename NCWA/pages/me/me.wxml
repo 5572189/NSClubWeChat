@@ -1,0 +1,77 @@
+<!--pages/me/me.wxml-->
+<!-- <view class='me'>
+  <view bindtap="tapindex" data-currents="0">
+    我的优惠券
+  </view> 
+  <view bindtap="tapindex" data-currents="1">
+    我的订座
+  </view> 
+  <view bindtap="tapindex" data-currents="2">
+    我的活动
+  </view> 
+</view> -->
+
+<view class='me_box'>
+  <view class='me_header'>
+    <view class='me_header_left'>
+      <image class="user_header" src="../../images/header.png"></image>
+      <view class='me_header_item'>
+        <view class='user_name'>CONNIE#0123</view>
+        <view class='user_phone' bindtap='bindingShow'>{{phone_text}}</view>
+      </view>
+    </view> 
+    <view class='me_header_right' bindtap='scan'>
+      <image class='scan' src="../../images/icons_scan.png"></image>
+    </view>
+  </view>
+
+  <view class='me_operation'>
+    <view class='operation_item'>
+      <image class='icons' src="../../images/icons_my.png"></image>
+      <text class='operation_te'>我的账户</text>
+      <image class='icons_left' src='../../images/icons_left.png'></image>
+    </view>
+    <view class='operation_item'>
+      <image class='icons' src="../../images/icons_table.png"></image>
+      <text class='operation_te'>订座记录</text>
+      <image class='icons_left' src='../../images/icons_left.png'></image>
+    </view>
+    <view class='operation_item'>
+      <image class='icons' src="../../images/icons_discount.png"></image>
+      <text class='operation_te'>我的优惠券</text>
+      <image class='icons_left' src='../../images/icons_left.png'></image>
+    </view>
+    <view class='operation_item'>
+      <image class='icons' src="../../images/icons_activity.png"></image>
+      <text class='operation_te'>我的活动</text>
+      <image class='icons_left' src='../../images/icons_left.png'></image>
+    </view>
+  </view>
+</view>
+ 
+ <view class="shade_phone" hidden="{{flag}}">
+    <view class='shade_box'>
+      <view class='box_title'>
+        <view class='tit'>绑定手机号</view>
+        <view bindtap='bindingHide'>
+          <image class='close' src="../../images/icons_close.png"></image>
+        </view>
+      </view>
+      <view class='import_ph'>
+        <input placeholder-class="phcolor" bindchange="bindChange" type='text' placeholder='输入手机号' value='{{phone}}'></input>
+      </view>
+      <view class='import_code'>
+        <view>
+          <input placeholder-class="phcolor" type='text' placeholder='输入验证码' value='{{code}}'></input>
+        </view>
+        <view>
+          <text bindtap='codeAcquire'>{{code_text}}</text>
+        </view>
+      </view>
+      <view class='btn'>
+        <button disabled='{{disabled}}'>
+          确定
+        </button>
+      </view>
+    </view>
+</view>  

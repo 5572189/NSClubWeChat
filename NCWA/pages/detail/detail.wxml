@@ -1,0 +1,11 @@
+<!--pages/detail/detail.wxml-->
+<view class='banner'>
+  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-1.jpg'></image>
+  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-2.jpg'></image>
+  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-3.jpg'></image>
+  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-4.jpg'></image>
+  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-5.jpg'></image>
+  <navigator url='../pay/pay'>
+    <image class='link_pay' src='http://ns.idea580.com/html/images/activity/grille_20180408/icon-get-btn.png'></image>
+  </navigator>  
+</view>
