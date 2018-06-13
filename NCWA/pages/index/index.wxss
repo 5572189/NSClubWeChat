@@ -90,7 +90,18 @@ swiper {
   top: 0;
   right: 20rpx;
 }
+.partner_name{
+  position: absolute;
+  left: 16rpx;
+  bottom: 60rpx;
+  font-size: 24rpx;
+  color: #fff;
+  width: 120rpx;
+  padding: 20rpx 0;
+  background: rgba(0,0,0,.7);
+  text-align: center;
 
+}
 /* 合作商家滑动 */
 .partner-list{
   width: 750rpx;
@@ -98,13 +109,35 @@ swiper {
 }
 
 .partner-list image{
-  width: 520rpx;
-  height: 400rpx;
-  position: absolute;
-  left: 50%;
-  margin-left: -260rpx;
-}
+  width: 520rpx !important ;
+  height: 400rpx !important;
 
+}
+.partner-list swiper-item{
+  position: relative;
+  max-width: 600rpx;
+  text-align: center;
+  overflow: hidden;
+  padding: 20rpx 0;
+  border-radius: 15% 15% 21% 22%;
+}
+.partner_item_title{
+  width: 485rpx;
+  position: absolute;
+  left: 30rpx;
+  bottom:65rpx;
+  font-size: 24rpx;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.shade{
+  position: absolute;
+  left: 16rpx;
+  top: 20rpx
+}
 /* 主题 */
 .theme-title-time{
   position: relative;

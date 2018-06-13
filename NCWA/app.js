@@ -38,6 +38,8 @@ App({
   },
 
   globalData: {
-    userInfo: null
+    userInfo: null,
+    flag:true,
+    link: 'http://nt.idea580.com/',
   }
 })

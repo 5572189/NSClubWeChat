@@ -2,15 +2,18 @@
 //获取应用实例
 var comment = require('../../utils/comment.js');
 const app = getApp()
-
+var link = app.globalData.link;
 Page({
   data: {
     headerImg: "",
+    link:link,
     swiperIndex: 0,
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
     duration: 1000,
+    color:"#ceb173",
+    colorALL:'#F3F3F3'
   },
   swiperChange(e) {
     this.setData({
@@ -21,38 +24,44 @@ Page({
     var token = comment.encryption();
     var self = this;
     wx.request({
-      url: 'http://nt.idea580.com/api.php?s=/index/getIndexSlider',
+      url: 'http://nt.idea580.com/api.php?s=/index/app_index',
       method: 'POST',
-      data:{
+      data: {
         token: token
       },
       dataType: 'json',
-      success: function(res) {
+      success: function (res) {
         if (res.data.data.code == 200){
           self.setData({
             headerImg: res.data.data.result
           })
         }
+      console.log(res)
       },
-      fail: function(res) {
+      fail: function (res) {
 
       },
     })
     // wx.request({
-    //   url: 'http://nt.idea580.com/api.php?s=/index/app_index',
+    //   url: 'http://nt.idea580.com/api.php?s=/index/getIndexSlider',
     //   method: 'POST',
-    //   data: {
+    //   data:{
     //     token: token
     //   },
     //   dataType: 'json',
-    //   success: function (res) {
-    //       console.log(res)
-          
+    //   success: function(res) {
+    //     if (res.data.data.code == 200){
+    //       self.setData({
+    //         headerImg: res.data.data.result
+    //       })
+    //     }
+    //     console.log(res)
     //   },
-    //   fail: function (res) {
+    //   fail: function(res) {
 
     //   },
     // })
+ 
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {

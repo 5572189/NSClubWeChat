@@ -1,0 +1,26 @@
+ <view class="shade_phone" hidden="{{flags}}">
+    <view class='shade_box'>
+      <view class='box_title'>
+        <view class='tit'>{{title}}</view>
+        <view bindtap='bindingHide'>
+          <image class='close' src="../../images/icons_close.png"></image>
+        </view>
+      </view>
+      <view class='import_ph'>
+        <input placeholder-class="phcolor" bindinput="bindCode" maxlength="11" bindchange="bindChange" type='text' placeholder='输入手机号' value='{{phone}}'></input>
+      </view>
+      <view class='import_code'>
+        <view>
+          <input placeholder-class="phcolor" type='text' bindchange="bindChangeCode" placeholder='输入验证码' value='{{code}}'></input>
+        </view>
+        <view>
+          <text bindtap='codeAcquire'>{{code_text}}</text>
+        </view>
+      </view>
+      <view class='btn' bindtap='submitBtn'>
+        <button>
+          确定
+        </button>
+      </view>
+    </view>
+</view>  

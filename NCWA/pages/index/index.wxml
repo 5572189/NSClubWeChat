@@ -5,11 +5,11 @@
     <view class='search'>
       <icon type="search" size="20"/><input type='text' placeholder='请输入商家名称或活动'></input>
     </view>
-    <swiper indicator-dots="{{indicatorDots}}"
+    <swiper indicator-dots="{{true}}" indicator-color="{{colorALL}}" indicator-active-color="{{color}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{headerImg}}">
+      <block wx:for="{{headerImg.arr_index_banner_data}}">
         <swiper-item>
-          <image src="{{item.cover}}" class="slide-image" width="355" height="150"/>
+          <image src="{{link+item.string_pic_url}}" class="slide-image" width="355" height="150"/>
         </swiper-item>
       </block>
     </swiper>
@@ -33,10 +33,11 @@
   </view>
   <!-- 合作商家滑动 -->
   <view class='list'>
-    <swiper class='partner-list' current='1' indicator-dots="{{true}}" autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}"        bindchange="swiperChange">
-      <block wx:for="{{headerImg}}" wx:key="{{index}}">
+    <swiper class='partner-list' current='1'  autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}" bindchange="swiperChange">
+      <block wx:for="{{headerImg.arr_index_cooperation_data}}" wx:key="{{index}}">
         <swiper-item>
-          <image src="{{item.cover}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+          <image src="{{link+item.string_pic_url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+          <view class='partner_name'>{{item.string_city_name}}</view>
         </swiper-item>
       </block>
     </swiper>
@@ -46,13 +47,13 @@
   <!-- 主题活动 -->
     <view class='business-partner'>
     <view class='partner-title'>
-      <view class='partner-title-item'>主题活动</view>
-      <view class='partner-title-index'>特色主题  好吃好玩</view>
+      <view class='partner-title-item'>品味生活</view>
+      <view class='partner-title-index'>樽享生活 品味不同</view>
     </view>
     <view class='theme-title-time'>
-        <view class='floatLeft time clock'>
+         <view class='floatLeft time clock'>
           <image src='../../images/clock.png'></image>
-        </view>
+        </view> 
         <view class='floatLeft time'>
           <view class='partner-title-month'>2018</view>
           <view class='partner-title-year'>5/2-5/10</view>
@@ -64,10 +65,12 @@
     </view>
   </view>
    <view class='list'>
-    <swiper class='partner-list' current='1' indicator-dots="{{true}}" autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}"        bindchange="swiperChange">
-      <block wx:for="{{headerImg}}" wx:key="{{index}}">
+    <swiper class='partner-list' current='1'  autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}"    bindchange="swiperChange">
+      <block wx:for="{{headerImg.arr_index_life_data}}" wx:key="{{index}}">
         <swiper-item>
-          <image src="{{item.cover}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+          <image src="{{link+item.string_pic_url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+           <image class='shade' src="../../images/mengbg.png" /> 
+          <view class='partner_item_title'>{{item.string_title}}</view>
         </swiper-item>
       </block>
     </swiper>
