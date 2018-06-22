@@ -1,0 +1,6 @@
+<view class="taste_life">
+    <view class='li' wx:for="{{headerImg}}">
+      <image src='{{link + item.string_pic_url}}'></image>
+      <view>{{item.string_title}}</view>
+    </view>
+</view>

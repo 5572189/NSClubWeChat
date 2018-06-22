@@ -1,0 +1,88 @@
+page{
+  background-color: #f4f4f4;
+}
+.order_record{
+  width: 100%;
+}
+.order_ul{
+  width: 100%;
+  padding: 30rpx 0;
+  height: 160rpx;
+  background: #fff;
+  margin: 20rpx auto;
+}
+.order_li{
+  margin: 0 auto;
+  width: 700rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.order_li_img image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.order_li_message{
+  width: 390rpx;
+  margin-left: 10rpx;
+}
+.shopName{
+  font-size: 30rpx;
+  color: #141414;
+  margin-bottom: 10rpx;
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.shopDate .date{
+  display: inline-block;
+  font-size: 22rpx;
+  color: #ceb173;
+  padding: 2rpx 5rpx;
+  border: 1rpx solid #ceb173;
+  border-radius: 10rpx;
+}
+.shopDate .time{
+  font-size: 26rpx;
+  color: #a9a9a9;
+  margin-left: 15rpx;
+}
+.number{
+  display: inline-block;
+  font-size: 22rpx;
+  color: #ceb173;
+  padding: 2rpx 5rpx;
+  border: 1rpx solid #ceb173;
+  border-radius: 10rpx;
+}
+.peo_num{
+  font-size: 26rpx;
+  color: #a9a9a9;
+  margin-left: 15rpx;
+}
+.order_li_status .icon_status{
+
+  padding-top:30rpx; 
+  width: 133rpx;
+  height: 133rpx;
+}
+.gary{
+  border:1rpx solid #a9a9a9 !important;
+  color: #a9a9a9 !important;
+}
+
+.order_record_no{
+  width: 100%;
+}
+.record_no_img{
+  display: block;
+  width: 155rpx;
+  height: 180rpx;
+  margin: 0 auto;
+  padding-top: 315rpx;
+}
+.order_record_no view{
+  text-align: center;
+  font-size: 30rpx;
+  color: #bebebe;
+  padding: 30rpx 0;
+}

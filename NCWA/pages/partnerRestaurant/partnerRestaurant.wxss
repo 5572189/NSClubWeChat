@@ -1,0 +1,134 @@
+.page{
+  position:fixed;
+  background-color: #fff;
+  height: 100%;
+}
+.partnerRestaurant{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #fff;
+}
+.partner{
+  width: 690rpx;
+  height: 70rpx;
+  line-height: 65rpx;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+  background-color: #f2f2f2;
+}
+.icon_edit{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 30rpx;
+  vertical-align: middle;
+}
+.partner text{
+  font-size: 28rpx;
+  color: #888888;
+  margin-left: 20rpx;
+}
+.partnerSelect{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10rpx 0 20rpx 0;
+}
+.partnerSelect text{
+  font-size: 30rpx;
+  color: #353535;
+}
+.icon_nav{
+    width: calc(36rpx/1.8);
+    height: calc(20rpx/1.8);
+    vertical-align: middle;
+    margin-left: 20rpx;
+}
+.selectAll{
+  color: #dac596 !important;
+}
+.selectOn{
+   color: #dac596 !important;
+}
+.selectKind{
+  color: #dac596 !important;
+}
+.dataSelect{
+  width: 100%;
+  position: fixed;
+  top: 190rpx;
+  height:calc(100% - 180rpx);
+  background: rgba(0,0,0,.5);
+  text-align: center;
+}
+.dataSelect_items{
+  background: #fff;
+  border-top: 1rpx solid #b2b2b2;
+}
+.dataSelect_items view{
+  font-size: 30rpx;
+  color: #353535;
+  padding: 20rpx 0;
+}
+.partner_box{
+  position: relative;
+  width: 100%;
+  margin-top: 210rpx;
+  height: 100%;
+}
+.partner_box .li{
+  position: relative;
+  margin-bottom: 20rpx;
+  height: 400rpx;
+}
+.title{
+  position: absolute;
+  left: 30rpx;
+  top: 40rpx;
+
+}
+.icon_title{
+  width: 70rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.title text{
+  font-size: 30rpx;
+  color: #fff;
+}
+.partner_img{
+  width: 750rpx;
+  height: 400rpx;
+}
+.city{
+  position: absolute;
+  left: 0;
+  bottom: 45rpx;
+  font-size: 24rpx;
+  color: #f7f7f7;
+  padding: 18rpx 14rpx;
+  background: rgba(0,0,0,.7);
+  border-radius: 0 10rpx 10rpx 0;
+}
+.partner_no{
+  width: 100%;
+  text-align: center;
+  margin-top: 400rpx;
+}
+.partner_no image{
+  width: 200rpx;
+  height: 190rpx;
+  margin: 0 auto;
+  display: block;
+}
+.partner_no view{
+  font-size: 30rpx;
+  color: #bebebe;
+  text-align: center;
+  padding-top: 20rpx;
+}
+.li:last-child{
+  margin-bottom: 0;
+}

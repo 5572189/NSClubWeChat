@@ -1,0 +1,6 @@
+{
+ "usingComponents": {
+    "selectDate": "/component/select-date/select-date"
+  },
+  "navigationBarTitleText": "合作餐厅"
+}

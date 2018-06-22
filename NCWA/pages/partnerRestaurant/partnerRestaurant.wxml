@@ -1,0 +1,46 @@
+<scroll-view scroll-y="{{isScroll}}" class='page'>
+  <view class='partnerRestaurant'>
+    <view class='partner' bindtap='bindingShow'>
+      <image class='icon_edit' src='../../images/icon_input_edit.png'></image>
+      <text>你好，什么时候，几位？</text>
+    </view>
+    <view class='partnerSelect'>
+      <view bindtap='selectNav'>
+        <text class='Select_all {{selectAll != true?"selectAll":""}}'>{{city}}</text>
+        <image hidden="{{!selectAll}}" class='icon_nav' src='../../images/icon-booking-nav.png'></image>
+        <image hidden="{{selectAll}}" class='icon_nav' src='../../images/icon-booking-nav-on.png'></image>
+      </view>
+      <view bindtap='selectKind'>
+        <text class='Select_kind {{selectKind != true?"selectKind":""}}'>{{kind}}</text>
+        <image hidden="{{!selectKind}}" class='icon_nav' src='../../images/icon-booking-nav.png'></image>
+        <image hidden="{{selectKind}}" class='icon_nav' src='../../images/icon-booking-nav-on.png'></image>
+      </view>
+      <view>
+        <text> 历史预定</text>
+      </view>
+    </view>
+    <view class='dataSelect' hidden='{{dataSelect}}'>
+      <view class='dataSelect_items'>
+        <view wx:for="{{selectCity}}" wx:key="{{index}}" data-cid="{{item.int_id}}" bindtap='citySelect' class='{{curIndex == index?"selectOn":""}}' data-city="{{item.string_name_short}}">{{item.string_name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='partner_box' hidden='{{!headeritems}}'>
+    <view class='li' wx:for="{{headerImg}}" wx:key="{{index}}" data-id="{{item.id}}">
+      <image class='partner_img' src='{{item.pic_logo}}'></image>
+      <view class='title'>
+        <image wx:if="{{item.is_recommend}}" class='icon_title' src="../../images/recommend.png"></image>
+        <image wx:if="{{item.is_new}}" class='icon_title' src="../../images/new.png"></image>
+        <text>{{item.title}}</text>
+      </view>
+
+      <view class='city'>{{item.city}}</view>
+    </view>
+  </view>
+  <view class='partner_no' hidden='{{headeritems}}'>
+    <image src='../../images/icon_node.png'></image>
+    <view>暂无餐厅信息，请修改筛选条件</view>
+  </view>
+</scroll-view>
+
+<selectDate id="timeComponent"></selectDate>

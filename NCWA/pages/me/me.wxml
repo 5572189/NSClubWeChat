@@ -26,17 +26,17 @@
   </view>
 
   <view class='me_operation'>
-    <view class='operation_item'>
+    <view class='operation_item' bindtap='linkMyaccount'>
       <image class='icons' src="../../images/icons_my.png"></image>
       <text class='operation_te'>我的账户</text>
       <image class='icons_left' src='../../images/icons_left.png'></image>
     </view>
-    <view class='operation_item'>
+    <navigator url='../mybooking/mybooking' class='operation_item'>
       <image class='icons' src="../../images/icons_table.png"></image>
       <text class='operation_te'>订座记录</text>
       <image class='icons_left' src='../../images/icons_left.png'></image>
-    </view>
-    <view class='operation_item'>
+    </navigator>
+    <!-- <view class='operation_item'>
       <image class='icons' src="../../images/icons_discount.png"></image>
       <text class='operation_te'>我的优惠券</text>
       <image class='icons_left' src='../../images/icons_left.png'></image>
@@ -45,7 +45,7 @@
       <image class='icons' src="../../images/icons_activity.png"></image>
       <text class='operation_te'>我的活动</text>
       <image class='icons_left' src='../../images/icons_left.png'></image>
-    </view>
+    </view> -->
   </view>
 </view>
  <popup id='popup' title='绑定手机号' phone="{{phone}}" bind:myevent="onGetCode" bind:myeventDelete="onGetCodeDelete"></popup> 

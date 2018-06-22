@@ -1,0 +1,229 @@
+page{
+  background-color: #f4f4f4;
+}
+.order_waiting{
+  width: 100%;
+}
+.order_status{
+  display: none;
+  width: 100%;
+  background: #333;
+  padding: 30rpx 0;
+}
+.order_status::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.order_status::before{
+  content: "";
+  display: block;
+  clear: both;
+}
+.status_hint{
+  float: left;
+  margin-left: 30rpx;
+}
+.status_img{
+  display: block;
+  float: left;
+  width: 95rpx;
+  height: 95rpx;
+  padding: 20rpx 0;
+  margin-left: 75rpx;
+}
+.status_img_cancel{
+  display: block;
+  margin: 0 auto;
+  width: 205rpx;
+  height: 205rpx;
+  padding: 20rpx 0;
+}
+.status_title_cancel{
+  font-size: 30rpx;
+  color: #ceb173;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.status_message_cancel{
+  font-size:24rpx;
+  color:#a9a9a9;
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+.status_title{
+  font-size: 30rpx;
+  color: #ceb173;
+  padding: 20rpx 0;
+}
+.status_message{
+  font-size:24rpx;
+  color:#a9a9a9;
+  padding-bottom: 20rpx;
+}
+.order_date{
+  width: 640rpx;
+  margin: 80rpx auto;
+  border-radius: 10rpx;
+  background: #fff; 
+}
+.shop_name{
+  font-size: 30rpx ;
+  color: #141414;
+  text-align: center;
+  padding: 30rpx 0;
+}
+.order_date .li{
+  padding: 15rpx 0 20rpx 0;
+  border-top:1rpx solid #f4f4f4;
+}
+.li_tit{
+  display: inline-block;
+  font-size: 22rpx;
+  color: #ceb173;
+  padding: 2rpx 6rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #ceb173;
+  margin-left: 70rpx;
+}
+
+.user_message{
+  font-size: 30rpx;
+  color: #a9a9a9;
+  margin-left: 20rpx;
+}
+.status_btn{
+  display: none;
+  width: 640rpx;
+  margin: 0 auto;
+  padding-top: 100rpx;
+}
+.status_btn_cancel{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.status_btn_cancel view{
+  width: 295rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+.status_btn_cancel .delete_order{
+  background-color: #888;
+}
+.status_btn_cancel .other{
+  background-color: #ceb173;
+}
+.status_btn_cancel::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.status_btn_cancel::before{
+  content: "";
+  display: block;
+  clear: both;
+}
+.cancel{
+  margin: 20rpx auto;
+  width: 640rpx;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #ceb173;
+  padding: 30rpx 0;
+  border-radius: 50rpx;
+}
+.cancel_button{
+  margin: 20rpx auto;
+  width: 640rpx;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #ceb173;
+  padding: 15rpx 0;
+  border-radius: 50rpx;
+}
+.service{
+  font-size: 24rpx;
+  color: #888888;
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.cancel_pop{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.7);
+}
+.cancel_pop_box{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -280rpx;
+  margin-top: -355rpx;
+  width: 560rpx;
+  height: 710rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.box_title{
+  text-align: center;
+  font-size: 36rpx;
+  color: #000000;
+  padding: 50rpx 0;
+}
+.radio-group{
+  width: 445rpx;
+  margin: 0 auto;
+}
+.radio{
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #999999;
+  padding: 20rpx 0;
+}
+.radio text{
+  vertical-align: middle;
+  padding-top: 3rpx;
+}
+.radio radio{
+  transform: scale(.8);
+  vertical-align: middle;
+}
+.cancel_btn{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  border-top:1rpx solid #d2d3d5;
+}
+.cancel_btn view{
+  width: 50%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+.think{
+  color: #000000;
+  border-right:1rpx solid #d2d3d5;
+}
+.cancelbtn{
+  color: #ceb173;
+}
+.gary{
+  color: #fff;
+}
+.show{
+  display: block;
+}

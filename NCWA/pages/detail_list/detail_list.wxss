@@ -1,15 +1,1 @@
 /* pages/detail_list/detail_list.wxss */
-.detail_list{
-  width: 750rpx;
-
-}
-.detail_list_nav{
-  display: flex;
-  justify-content:space-around;
-}
-.swiper-tab-list{
-  padding: 10rpx 0;
-}
-.on {
-        border-bottom: 2rpx solid #fbd92e;
-}

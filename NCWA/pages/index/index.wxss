@@ -73,9 +73,6 @@ swiper {
 .partner-title-year{
   font-size: 25rpx;
 }
-.partner-title-time {
-  position: relative;
-}
 .partner-title-time .time{
   margin-left: 55rpx;
   padding-top: 7rpx;
@@ -84,11 +81,12 @@ swiper {
 .partner-title-time .partner-title-number{
   padding-top: 10rpx;
   font-size: 50rpx;
+  text-align: right;
 }
 .partner-title-time .partner-title-add{
   position: absolute;
   top: 0;
-  right: 20rpx;
+  right: -25rpx;
 }
 .partner_name{
   position: absolute;
@@ -107,7 +105,10 @@ swiper {
   width: 750rpx;
   height: 400rpx;
 }
-
+.number{
+  width: 60rpx;
+  position: relative;
+}
 .partner-list image{
   width: 520rpx !important ;
   height: 400rpx !important;
@@ -151,17 +152,8 @@ swiper {
   padding-right: 20rpx;
   padding-left: 20rpx;
 }
-.theme-title-time .partner-title-number{
-  padding-top:10rpx;
-font-size:50rpx;
 
-}
-.theme-title-time .partner-title-add{
-  position: absolute;
-  top:0;
-  right:20rpx;
 
-}
 .theme-title-time .time{
   padding: 5rpx 18rpx;
 }

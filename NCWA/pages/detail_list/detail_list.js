@@ -5,32 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTabs: 0,
+  
   },
-  swichNavs: function (e) {
-    var that = this;
-    if (that.data.currentTabs === e.target.dataset.currents) {
-      return false;
-    } else {
-      var current = e.target.dataset.currents;
-      that.setData({
-        currentTabs: parseInt(current)
-      });
-    }
-  },
-  bindschoolChange: function (e) {
-    var that = this;
-    that.setData({ currentTabs: e.detail.current });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var num = options.value;
-    that.setData({
-      currentTabs: num
-    })
+  
   },
 
   /**

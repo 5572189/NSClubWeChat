@@ -1,7 +1,10 @@
 /* pages/me/me.wxss */
+page{
+  background-color: #f8f8f8;
+}
 .me_box{
   width: 100%;
-  background-color: #f8f8f8;
+  
 }
 .me_header{
   padding: 50rpx 40rpx;

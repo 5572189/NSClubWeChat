@@ -1,25 +1,2 @@
 <!--pages/detail_list/detail_list.wxml-->
-<view class='detail_list'> 
-    <view class='detail_list_nav'>
-          <view class="swiper-tab-list {{currentTabs==0 ? 'on' : ''}}" data-currents="0" data-otype="finish"                                      bindtap="swichNavs">
-                  我的优惠券
-          </view>
-          <view class="swiper-tab-list {{currentTabs==1 ? 'on' : ''}}" data-currents="1" bindtap="swichNavs">
-                  订座记录
-          </view>
-           <view class="swiper-tab-list {{currentTabs==2 ? 'on' : ''}}" data-currents="2" bindtap="swichNavs">
-                  我的活动
-          </view>
-</view>
-        <swiper current="{{currentTabs}}" class="swiper-box" duration="300" bindchange="bindschoolChange">
-            <swiper-item>
-                 我的优惠券
-            </swiper-item>
-            <swiper-item>
-                   订座记录
-            </swiper-item>
-            <swiper-item>
-                  我的活动 
-            </swiper-item>
-    </swiper>
-</view>
+<text>pages/detail_list/detail_list.wxml</text>

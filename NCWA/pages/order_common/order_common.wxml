@@ -1,0 +1,101 @@
+<view class="order_common">
+  <view class='order_common_box'>
+    <view class='order_common_item'>
+      <view class='order_common_title'>餐厅名称</view>
+      <view class='order_common_message'>{{shop_name}}</view>
+    </view>
+     <view class='order_common_item'>
+      <view class='order_common_title'>用餐人数</view>
+      <view class='order_common_message'>
+         <picker class="picker"  bindchange="bindPickerChange" value="{{index}}" range="{{arrayNumber}}">
+            <view>
+              {{arrayNumber[index]}}人
+            </view>
+          </picker>
+        <image class='icons_left' src="../../images/icons_left.png"></image> 
+      </view>
+    </view>
+    <view class='order_common_item'>
+      <view class='order_common_title'>用餐时间</view>
+      <view class='order_common_message' bindtap='changeDine'><text>{{dineTime}}</text>  <image class='icons_left' src="../../images/icons_left.png"></image> </view>
+    </view>
+   
+    <view class='order_common_item' hidden='{{!is_pay}}'>
+      <view class='order_common_title'>预订需每人支付{{deposit}}元订金</view>
+      <view class='order_common_message color'>¥{{deposit_num}}元</view>
+    </view>
+    <view class='order_common_item'>
+      <view class='order_common_title title'>需要包间</view>
+      <view class='order_common_message'>
+          <text>{{room_min}}人起订，最多{{room_max}}人</text>
+          <switch class='switch' checked="{{numberswitch}}"  bindchange="switch1Change" color="{{switchColor}}"/>
+          <view hidden='{{shadeswitch}}' class='shadeSwitch' bindtap='bindSwitch'></view>
+      </view>
+    </view>
+    <view class='order_common_item' hidden='{{hidden}}'>
+      <view class='order_common_title titleColor'>如订不到包间，可以接受大厅</view>
+      <view class='order_common_message'>
+          <switch checked class='switch' bindchange="switch2Change" color="{{switchColor}}"/>
+      </view>
+    </view>
+  </view>
+
+    <view class='user_message'>
+    <view class='ul'>
+      <view class='li'>
+        <text class="li_tit">姓名</text>
+        <input class='inp_na' type="text" placeholder='请填写用餐人姓名' placeholder-class='{{placeholderColor}}' bindchange="bindChangeName" value="{{username}}"></input>
+      </view>
+      <view class='li'>
+        <text class="li_tit">性别</text>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}">
+            <radio value="{{item.value}}" checked="{{item.checked}}" color="#ceb173" />{{item.title}}
+          </label>
+        </radio-group>
+      </view>
+      <view class='li'>
+        <text class="li_tit">电话</text>
+        <input class='inp_birthday' disabled="{{disabled}}" placeholder='请填写用餐人电话' placeholder-class='{{placeholderColor}}' bindchange="bindChangePhone" value="{{phone}}"></input>
+      </view>
+      <view class="li_bg"></view>
+      <view class='li'>
+        <text class="li_tit">备注</text>
+        <input type="text" class='inp_na' placeholder='填写您的附加要求，我们会尽量安排' placeholder-class='{{placeholderColor}}'  bindchange="bindChangeMailbox" value='{{user_mailbox}}'></input>
+      </view>
+    </view>
+  </view>
+
+  
+  <view class="btn_save" bindtap='btnSave'>立即订座</view>
+  <view class='message_title'>商家将于线上预订后做电话确认</view>
+
+</view>
+
+
+
+<!-- /* 组件 日期*/ -->
+<view class='time_component' hidden='{{timeHidden}}'>
+    <view class='time_component_box'>
+      <view class='time_component-title'>
+        <text>选择用餐时间</text>
+        <image src='../../images/icons_close_com.png' bindtap='dineTimeClose'></image>
+      </view>
+
+      <view class='time_component_item'>
+        <view class='date'>
+          <view  wx:for="{{date_time}}" class='{{curIndex == index ? "on":""}} ' wx:key="{{index}}" >
+            <text class='times' wx:if="{{item.book_status == true}}"  data-date="{{item.date_value}}" data-index="{{index}}" bindtap='changeDate' > {{item.date}}</text>
+            <text class='gary times' wx:else> {{item.date}} （已满）</text>
+          </view>
+          
+        </view>
+        <view class='time'>
+          <view wx:for="{{times}}" wx:key="{{index}}" class='{{curIndexTime == index ? "on":""}}' data-index="{{index}}"  bindtap='changeTimes'>
+            <text>{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+

@@ -1,0 +1,73 @@
+<view class='me_box'>
+  <view class='me_header'>
+    <view class='me_header_left'>
+      <image class="user_header" src="{{avatarUrl}}"></image>
+      <view class='me_header_item'>
+        <view class='user_name'>{{nickName}}</view>
+        <view class='user_phone' bindtap='bindingShow'>{{phone}}</view>
+      </view>
+    </view> 
+    <view class='me_header_right' >
+      <image class='scan' src="../../images/icons_editing.png"></image>
+      <view class='editing' bindtap='editing' hidden="{{editing}}">编辑</view>
+      <view class='editing' bindtap='cancle' hidden="{{cancle}}">取消</view>
+    </view>
+  </view>
+
+
+  <!-- 正常显示 -->
+  <view class="user_message" hidden='{{editing}}'>
+    <view class='ul'>
+      <view class='li'>
+        <text class="li_tit">姓名</text>
+        <text class='li_tit'>{{user_name}}</text>
+      </view>
+      <view class='li'>
+        <text class="li_tit">性别</text>
+        <text class='li_tit'>{{user_sex}}</text>
+      </view>
+      <view class='li'>
+        <text class="li_tit">生日</text>
+        <text class='li_tit'>{{user_birthday}}</text>
+        <text class='li_de'>(填写后不可修改)</text>
+      </view>
+      <view class='li'>
+        <text class="li_tit">邮箱</text>
+        <text class='li_tit'>{{user_mailbox}}</text>
+      </view>
+    </view>
+    <view class='exit' bindtap='userExit'>
+      <image class='exitImg' src='../../images/icons_exit.png'></image>
+      <text>退出当前账号</text>
+    </view>
+  </view>
+  <!-- 编辑显示 -->
+  <view class='user_message' hidden='{{cancle}}'>
+    <view class='ul'>
+      <view class='li'>
+        <text class="li_tit">姓名</text>
+        <input class='inp_na' type="text" bindchange="bindChangeName" value="{{user_name}}"></input>
+      </view>
+      <view class='li'>
+        <text class="li_tit">性别</text>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}">
+            <radio value="{{item.value}}" checked="{{item.checked}}" color="#ceb173" />{{item.title}}
+          </label>
+        </radio-group>
+      </view>
+      <view class='li'>
+        <text class="li_tit">生日</text>
+        <input class='inp_birthday' disabled="{{disabled}}" bindchange="bindChangeBirthday" value="{{user_birthday}}"></input>
+        <text class='li_de'>(填写后不可修改)</text>
+      </view>
+      <view class='li'>
+        <text class="li_tit">邮箱</text>
+        <input type="text" class='inp_na' bindchange="bindChangeMailbox" value='{{user_mailbox}}'></input>
+      </view>
+    </view>
+    <view class="btn_save" bindtap='btnSave'>保存</view>
+  </view>
+</view>
+
+

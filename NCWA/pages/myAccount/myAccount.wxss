@@ -1,0 +1,140 @@
+page{
+ background-color: #f8f8f8;
+}
+.me_box{
+  width: 100%;
+}
+.me_header{
+  padding: 50rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  vertical-align: middle;
+}
+.user_header{
+  width: 116rpx;
+  height: 116rpx;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+}
+.me_header_item{
+  float: left;
+  height: 116rpx;
+  margin-left: 40rpx;
+}
+.user_name{
+  font-size:34rpx;
+  color: #fff;
+  padding-top: 20rpx;
+}
+.user_phone{
+   font-size:28rpx;
+  color: #ceb173;
+}
+.me_operation{
+  margin-top: 40rpx;
+  background: #fff;
+}
+.me_header_left::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.scan{
+  width: 46rpx;
+  height: 46rpx;
+  padding-top: 20rpx;
+}
+.editing{
+  font-size: 24rpx;
+  color: #fff;
+}
+.me_header_right{
+  width: 60rpx;
+  position: relative;
+}
+.editing{
+  position: absolute;
+  padding-top: 60rpx;
+  bottom: 0;
+}
+
+.user_message{
+  width: 100%;
+  margin-top: 20rpx;
+}
+.user_message .ul{
+  background: #fff;
+}
+.user_message .ul .li{
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.li_tit{
+  font-size: 30rpx;
+  color: #353535;
+  margin-right: 60rpx;
+}
+.li_de{
+  font-size: 30rpx;
+  color: #b2b2b2
+}
+.exit{
+  padding: 30rpx 0;
+  text-align: center;
+  background: #fff;
+  margin-top: 40rpx;
+}
+.exitImg{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.exit text{
+  font-size: 30rpx;
+  color: #d65a55;
+}
+
+.inp_na{
+  display: inline-block;
+  width: 480rpx;
+  font-size: 30rpx;
+  color: #353535;
+  vertical-align: middle;
+}
+.inp_birthday{
+   display: inline-block;
+  width: 220rpx;
+  font-size: 30rpx;
+  color: #353535;
+  vertical-align: middle;
+}
+.radio-group{
+  display: inline-block;
+  width: 480rpx;
+  font-size: 30rpx;
+  color: #353535;
+  vertical-align: middle;
+}
+.radio{
+  vertical-align: middle;
+}
+.radio radio{
+  transform:scale(0.7); 
+  vertical-align: middle;
+  padding-bottom: 7rpx;
+}
+
+.btn_save{
+  width: 640rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #ceb173;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  margin: 435rpx auto 0;
+}

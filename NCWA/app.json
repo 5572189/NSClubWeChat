@@ -1,17 +1,23 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/pay/pay",
     "pages/me/me",
     "pages/detail/detail",
-    "pages/detail_list/detail_list"
-    
+    "pages/detail_list/detail_list",
+    "pages/myAccount/myAccount",
+    "pages/mybooking/mybooking",
+    "pages/order_common/order_common",
+    "pages/order_detail/order_detail",
+    "pages/order_waiting/order_waiting",
+    "pages/partnerRestaurant/partnerRestaurant",
+    "pages/tasteLife/tasteLife"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "樽尚汇",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#000000",

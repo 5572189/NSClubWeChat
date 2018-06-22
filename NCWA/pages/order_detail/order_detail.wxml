@@ -1,0 +1,107 @@
+
+<view class='order_waiting'>
+
+    <view class='order_status {{status == 0 ? "show":""}}'>
+      <image class='status_img' src='../../images/wait2.png'></image>
+      <view class='status_hint'>
+        <view class='status_title'>订单待确认...</view>
+        <view class='status_message'>请您按时到店就餐，座位最晚保留30分钟</view>
+      </view>
+    </view>
+    <view class='order_status {{status == 1 ? "show":""}}'>
+      <image class='status_img_cancel' src='../../images/i_status_notice.png'></image>
+        <view class='status_title_cancel'>订单已取消</view>
+        <view class='status_message_cancel'>您已取消该订单</view>
+    </view>
+    <view class='order_status {{status == 2 ? "show":""}}'>
+      <image class='status_img_cancel' src='../../images/i_status_success.png'></image>
+        <view class='status_title_cancel'>预定成功</view>
+        <view class='status_message_cancel'>祝您用餐愉快</view>
+    </view>
+    <view class='order_status {{status == 3 ? "show":""}}'>
+      <image class='status_img_cancel' src='../../images/i_status_fail.png'></image>
+        <view class='status_title_cancel'>预定失败</view>
+        <view class='status_message_cancel'>抱歉，商家本时段座位已满</view>
+    </view>
+    <view class='order_status {{status == 4 ? "show":""}}'>
+      <image class='status_img' src='../../images/i_status_no.png'></image>
+      <view class='status_hint'>
+        <view class='status_title'>订单已失效</view>
+        <view class='status_message'>未到店</view>
+      </view>
+    </view>
+    <view class='order_status {{status == 5 ? "show":""}}'>
+      <image class='status_img' src='../../images/i_status_notice.png'></image>
+      <view class='status_hint'>
+        <view class='status_title'>订单已完成</view>
+        <view class='status_message'>已到店</view>
+      </view>
+    </view>
+    <view class='order_date'>
+      <view class='shop_name'>{{shopName}}</view>
+      <view class='li'>
+        <text class="li_tit">就餐时间</text>
+        <text class='user_message'>{{time}}</text>
+      </view>
+      <view class='li'>
+        <text class="li_tit">就餐人数</text>
+        <text class='user_message'>{{usernumber}}</text>
+      </view>
+      <view class='li'>
+        <text class="li_tit">顾客信息</text>
+        <text class='user_message'>{{name}} {{mobile}}</text>
+      </view>
+      <view class='li' hidden='{{note == ""?"true":"false"}}'>
+        <text class="li_tit">顾客留言</text>
+        <text class='user_message'>{{note}}</text>
+      </view>
+    </view>
+
+
+    <view class='status_btn {{status == 0 ? "show":""}}'>
+      <view class='cancel' bindtap='cancelOrder'>取消订单</view>
+    </view>
+    <view class='status_btn {{status == 1 ? "show":""}}'>
+      <view class="status_btn_cancel">
+          <view class='delete_order' bindtap='delete_order'>删除订单</view>
+          <view class='other' bindtap='other'>预定其它餐厅</view>
+      </view>
+    </view>
+    <view class='status_btn {{status == 2 ? "show":""}}'>
+      <button class='cancel_button' open-type="share" hover-class="other-button-hover">分享好友</button>
+    </view>
+    <view class='status_btn {{status == 3 ? "show":""}}'>
+      <view class="status_btn_cancel">
+          <view class='delete_order' bindtap='delete_order'>删除订单</view>
+          <view class='other' bindtap='other'>预定其它餐厅</view>
+      </view>
+    </view>
+    <view class='status_btn {{status == 4 ? "show":""}}'>
+      <view class="status_btn_cancel">
+          <view class='delete_order' bindtap='delete_order'>删除订单</view>
+          <view class='other' bindtap='other'>预定其它餐厅</view>
+      </view>
+    </view>
+    <view class='status_btn {{status == 5 ? "show":""}}'>
+      <button class='cancel_button' open-type="share"  hover-class="other-button-hover">分享好友</button>
+    </view>
+    <view class='service'>联系客服 400-6720-579</view>
+</view>
+
+
+
+<!-- //取消预定弹框 -->
+<view class="cancel_pop" hidden='{{cancelOrder}}'>
+  <view class='cancel_pop_box'>
+    <view class='box_title'>请选择取消预订的原因</view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{cancel}}">
+        <text>{{item}}</text> <radio value="{{item}}"  color="#ceb173" />
+      </label>
+    </radio-group>
+    <view class='cancel_btn'>
+      <view class="think" bindtap='think'>我再想想</view>
+      <view class='cancelbtn' bindtap='confirmCancel'>取消订单</view>
+    </view>
+  </view>
+</view>

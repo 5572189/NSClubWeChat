@@ -33,13 +33,13 @@ App({
         }
       }
     })
-      
-    
+
+
   },
 
   globalData: {
     userInfo: null,
-    flag:true,
+    flag: true,
     link: 'http://nt.idea580.com/',
   }
 })

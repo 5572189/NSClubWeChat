@@ -1,4 +1,5 @@
 var md5 = require('md5.js');
+var app = getApp(); 
 function encryption() {
   var time = new Date().getTime();
   var uuid = "1";
@@ -8,7 +9,7 @@ function encryption() {
     "time": time,
     "uuid": "1",
     "from": 'wechat_program',
-    "lang": 'cn'
+    "lang": 'cn' ,
   }
   return token;
 }

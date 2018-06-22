@@ -1,4 +1,3 @@
-
 //获取应用实例
 var comment = require('../../utils/comment.js');
 const app = getApp()
@@ -6,14 +5,19 @@ var link = app.globalData.link;
 Page({
   data: {
     headerImg: "",
-    link:link,
+    link: link,
     swiperIndex: 0,
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
     duration: 1000,
-    color:"#ceb173",
-    colorALL:'#F3F3F3'
+    color: "#ceb173",
+    colorALL: '#F3F3F3',
+    month:"",
+    year:"",
+    businessNumber:"",
+    lifeNumber:"",
+
   },
   swiperChange(e) {
     this.setData({
@@ -22,6 +26,7 @@ Page({
   },
   onLoad: function (options) {
     var token = comment.encryption();
+    var time = new Date();
     var self = this;
     wx.request({
       url: 'http://nt.idea580.com/api.php?s=/index/app_index',
@@ -31,37 +36,22 @@ Page({
       },
       dataType: 'json',
       success: function (res) {
-        if (res.data.data.code == 200){
+        if (res.data.data.code == 200) {
           self.setData({
-            headerImg: res.data.data.result
+            headerImg: res.data.data.result,
+            year: time.getFullYear(),
+            month: time.getMonth() + 1,
+            businessNumber: res.data.data.result.arr_index_cooperation_data.length,
+            lifeNumber: res.data.data.result.arr_index_life_data.length,
           })
         }
-      console.log(res)
+        console.log(res)
       },
       fail: function (res) {
 
       },
     })
-    // wx.request({
-    //   url: 'http://nt.idea580.com/api.php?s=/index/getIndexSlider',
-    //   method: 'POST',
-    //   data:{
-    //     token: token
-    //   },
-    //   dataType: 'json',
-    //   success: function(res) {
-    //     if (res.data.data.code == 200){
-    //       self.setData({
-    //         headerImg: res.data.data.result
-    //       })
-    //     }
-    //     console.log(res)
-    //   },
-    //   fail: function(res) {
 
-    //   },
-    // })
- 
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
@@ -79,15 +69,11 @@ Page({
         });
       },
       fail: function (res) {
-        // 转发失败
-        wx.showToast({
-          title: '系统维护',//提示信息
-          duration: 1000//时间
-        });
+       
       }
     }
   },
 
- 
+
 
 })

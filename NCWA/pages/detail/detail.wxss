@@ -1,34 +1,126 @@
 /* pages/detail/detail.wxss */
+page{
+  background-color: #f8f8f8;
+}
 .banner{
   width: 750rpx;
   position: relative;
   display: flex;
   flex-direction: column;
 }
-.img:nth-of-type(1){
-  width: 750rpx;
-  height: 420rpx;
+.bannerSwiper{
+  width: 100%;
+  height: 500rpx;
 }
-.img:nth-of-type(2){
-  width: 750rpx;
-  height: 380rpx;
+.slide-image{
+  width: 100%;
+  height: 500rpx;
 }
-.img:nth-of-type(3){
-  width: 750rpx;
-  height: 420rpx;
+.shopDetail{
+  width: 100%;
+  background: #fff;
+  margin-top: 30rpx;
+  margin-bottom: 200rpx;
 }
-.img:nth-of-type(4){
-  width: 750rpx;
-  height: 432rpx;
+.shopName{
+  padding: 42rpx 30rpx;
+  font-size: 36rpx;
+  color: #353535;
+  
 }
-.img:nth-of-type(5){
-  width: 750rpx;
-  height: 757rpx;
+.recommend_box{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx 42rpx 30rpx;
 }
-.link_pay{
-  position: absolute;
-  left:85rpx;
-  bottom:45rpx;
-  width: 589rpx;
-  height: 132rpx;
+.recommend-title{
+  padding-right: 20rpx;
+  font-size: 28rpx;
+  color:#333333;
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.recommend_item{
+  font-size: 28rpx;
+  color: #fff;
+}
+.item_bg{
+  width: 205rpx;
+  text-align: center;
+}
+.recommend_item text{
+  color: #888;
+}
+.recommend_item image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+.recommendSwiper{
+  height: 240rpx;
+  margin-bottom: 20rpx;
+}
+.recommendSwiper swiper-item{
+   width: 210rpx !important;
+}
+.recommend-image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.shopMessage{
+  padding: 42rpx 30rpx;
+}
+.shopMessage_title image{
+  width: 46rpx;
+  height: 46rpx;
+  vertical-align: middle;
+  padding: 0 20rpx 0 10rpx;
+}
+.shopMessage_title text{
+  font-size: 32rpx;
+  color: #353535;
+  vertical-align: middle;
+}
+.business{
+  padding: 10rpx 30rpx 60rpx 75rpx;
+  font-size: 28rpx;
+  color: #888888;
+  text-align:justify;
+
+}
+.shopServer{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  padding: 20rpx 0;
+}
+.shopServer_item{
+  width: 690rpx;
+  height: 60rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.shopServer_item view{
+  width: 50%;
+  text-align: center;
+}
+.shopServer_item view:first-child{
+  border-right: 1rpx solid #888;
+}
+.serverImg{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.serverTitele{
+  font-size: 28rpx;
+  color: #353535;
+}
+.serverTitele_gary{
+  font-size: 28rpx;
+  color: #c2c2c2;
 }

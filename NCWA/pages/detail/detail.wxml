@@ -1,11 +1,97 @@
 <!--pages/detail/detail.wxml-->
 <view class='banner'>
-  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-1.jpg'></image>
-  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-2.jpg'></image>
-  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-3.jpg'></image>
-  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-4.jpg'></image>
-  <image class='img' src='http://ns.idea580.com/html/images/activity/grille_20180408/pic-5.jpg'></image>
-  <navigator url='../pay/pay'>
-    <image class='link_pay' src='http://ns.idea580.com/html/images/activity/grille_20180408/icon-get-btn.png'></image>
-  </navigator>  
+  <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" indicator-color="{{colorALL}}" indicator-active-color="{{color}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  
+  <view class='shopDetail'>
+    <view class='shopName'>堡爵仕 （上海国际金融中心）</view>
+    <!-- 推荐菜品 -->
+    <view class='recommend_box'>
+      <view class='recommend_item item_bg' style="background-image: url('../../images/titleBg.png');background-repeat:no-repeat;background-size:203rpx 50rpx;">
+        推荐菜品
+      </view>
+      <view class='recommend_item'>
+        <text>查看全部</text>
+        <image src='../../images/icons_left.png'></image>
+      </view>
+    </view>
+    <!-- 推荐菜品swiper -->
+    <swiper class='recommendSwiper'  previous-margin="{{'30rpx'}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="recommend-image"/>
+          <view class="recommend-title">嘻哈大汉堡</view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 商家信息 -->
+    <view class='recommend_box'>
+      <view class='recommend_item item_bg' style="background-image: url('../../images/titleBg.png');background-repeat:no-repeat;background-size:203rpx 50rpx;">
+        商家信息
+      </view>
+    </view>
+
+    <view class='shopMessage'>
+      <view class='shopMessage_title'>
+        <image src='../../images/icon2_01.png'></image>
+        <text>营业时间</text>
+      </view>
+      <view class='business'>12:00-23:00周一至周日</view>
+
+      <view class='shopMessage_title'>
+        <image src='../../images/icon2_02.png'></image>
+        <text>地址</text>
+      </view>
+      <view class='business'>南京西路1399号（靠近铜仁路，静安嘉里中心旁)</view>
+
+      <view class='shopMessage_title'>
+        <image src='../../images/icon2_04.png'></image>
+        <text>电话</text>
+      </view>
+      <view class='business'>021-60758888</view>
+
+      <view class='shopMessage_title'>
+        <image src='../../images/icon2_06.png'></image>
+        <text>商户介绍</text>
+      </view>
+      <view class='business'>上海第一家堡爵仕位于浦东国金中心商场内 LG135 层，拥有 40 个座位，使用乾式熟成澳洲安格斯牛肉，带给您最优质的汉堡与牛排。本店特色为经典汉堡与鸭油薯条。我们也有提供各式各样的熟成牛排让客人外带，您在家不用出门也能享受到本店的好滋味。</view>
+
+      <view class='shopMessage_title'>
+        <image src='../../images/icon2_05.png'></image>
+        <text>特权</text>
+      </view>
+      <view class='business'>
+        <view>*至樽会员可享堡爵仕用餐15%折扣优惠</view>
+        <view>*金樽会员可享堡爵仕用餐10%折扣优惠</view>
+        <view>*樽享会员可享堡爵仕用餐8%折扣优惠</view>
+        <view>*乐享会员可享堡爵仕用餐5%折扣优惠</view>
+        <view>*请在使用之前联系您的专属顾问为您安排</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="shopServer">
+    <view class='shopServer_item'>
+      <view>
+        <image class="serverImg" src="../../images/icons_kf.png"></image>
+        <text class='serverTitele'>客服</text>
+      </view>
+      <view hidden='{{shopServer}}' bindtap='orderCommon'>
+        <image class="serverImg" src="../../images/icons_table.png"></image>
+        <text class='serverTitele'>订座</text>
+      </view>
+      <view hidden='{{!shopServer}}'>
+        <image class="serverImg" src="../../images/icons_table_gary.png"></image>
+        <text class='serverTitele_gary'>休息中</text>
+      </view>
+    </view>
+  </view>
 </view>

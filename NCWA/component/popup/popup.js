@@ -1,6 +1,7 @@
 var comment = require('../../utils/comment.js');
 var token = comment.encryption();
 var app = getApp();
+var link = app.globalData.link;
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持  
@@ -56,7 +57,7 @@ Component({
         phone:''
       })
       var myEventDetailDelete = {
-        val: '绑定手机号'
+        val: this.properties.title
       }
       this.triggerEvent('myeventDelete', myEventDetailDelete )
     },
@@ -104,11 +105,11 @@ Component({
         return false;
       }
       wx.request({
-        url: 'http://nt.idea580.com/api.php?s=/login/sendCode',
+        url: link+'api.php?s=/login/sendCode',
         data: {
           "token": token,
           "param": {
-            phone: mobile
+            phone: mobile,
           }
         },
         method: 'POST',
@@ -161,7 +162,7 @@ Component({
         return false;
       }
       wx.request({
-        url: 'http://nt.idea580.com/api.php?s=/login/index',
+        url: link+'api.php?s=/login/index',
         data: {
           "token": token,
           "param": {
@@ -181,6 +182,11 @@ Component({
           wx.setStorage({
             key: "user",
             data: res.data.data.result.code
+          })
+          app.globalData.code = res.data.data.result.code;
+          wx.setStorage({
+            key: "phone",
+            data: phone
           })
           if(res.data.data.code == 200){
             that.setData({

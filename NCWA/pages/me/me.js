@@ -2,6 +2,7 @@
 var comment = require('../../utils/comment.js');
 var token = comment.encryption();
 var  app = getApp();
+var link = app.globalData.link;
 Page({
 
   /**
@@ -16,13 +17,6 @@ Page({
     currentTime: 61,
     flag:true 
   },
-  // tapindex:function(e){
-  //   var that = this;
-  //   var num = e.target.dataset.currents;
-  //   wx.navigateTo({
-  //     url: '../detail_list/detail_list?value='+num,
-  //   })
-  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,20 +38,22 @@ Page({
         success: function (res) {
           if (res.data) {
             wx.request({
-              url: 'http://nt.idea580.com/api.php?s=/user/index',
+              url: link+'/api.php?s=/user/index',
               data: {
                 token: token,
-                param: {
+                param:{
                   code: res.data
                 }
               },
               method: 'POST',
               dataType: 'json',
               success: function (res) {
+
                 that.setData({
                   phone: res.data.data.result.mobile,
                   flag: false
                 })
+                console.log(res)
               },
               fail: function (res) {
 
@@ -74,6 +70,20 @@ Page({
         console.log(res)
       }
     })
+  },
+  linkMyaccount:function(){
+    var that = this;
+    if (that.data.phone == '绑定手机号'){
+      wx.showToast({
+        title: '请先绑定手机号',
+        icon: 'none',
+        duration: 2000,
+      });
+    }else{
+      wx.reLaunch({
+        url: '../myAccount/myAccount'
+      }) 
+    }
   },
   // 绑定手机号 弹框
   bindingShow: function () {
@@ -142,10 +152,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return {
-      title: '微信小程序',
-      desc: '最具人气的小程序!',
-      path: '/page/index?id=123'
-    }
+ 
   }
 })
