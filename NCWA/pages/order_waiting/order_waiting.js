@@ -17,6 +17,7 @@ Page({
     time:"",
     note:"",
     status:"",
+    private_room:"",
   },
 
   /**
@@ -47,7 +48,8 @@ Page({
             mobile: data.mobile,
             time:data.time,
             note: data.note,
-            status: data.status
+            status: data.status,
+            private_room: data.private_room,
           })
           
         }

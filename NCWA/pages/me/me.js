@@ -53,7 +53,6 @@ Page({
                   phone: res.data.data.result.mobile,
                   flag: false
                 })
-                console.log(res)
               },
               fail: function (res) {
 

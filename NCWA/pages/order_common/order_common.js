@@ -37,7 +37,8 @@ Page({
     dineTime:'请选择',
     date:"",
     bookTime:"",
-    privateRoom:"",
+    privateRoom:0,
+    hallOptional:0,
     shop_name:"",
     note:"",
   },
@@ -46,10 +47,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.pay = this.selectComponent("#pay");  
     var that = this;
     that.setData({
       phone: wx.getStorageSync('phone'),
-      privateRoom:0
     })
     wx.request({
       url: link+'/api.php?s=/booking/index',
@@ -62,7 +63,6 @@ Page({
       },
       method: 'POST',
       success: function(res) {
-        
         if(res.data.data.code == 200){
           var data = res.data.data.result
           that.setData({
@@ -77,6 +77,7 @@ Page({
             times: data.date_time[0].times,
             date: data.date_time[0].date_value,
           })
+          console.log(data)
         }
       },
       fail: function(res) {},
@@ -117,6 +118,21 @@ Page({
       that.setData({
         hidden: true,
         privateRoom:0,
+      })
+    }
+  },
+  //大厅切换
+  switch2Change:function(e){
+    var that = this;
+    var val = e.detail.value;
+    if (val == true) {
+      that.setData({
+        hallOptional: 1
+      })
+    } else {
+      that.setData({
+        hidden: true,
+        hallOptional: 0,
       })
     }
   },
@@ -208,27 +224,31 @@ Page({
       })
       return false;
     }
-    wx.request({
-      url: link +'api.php?s=/booking/postBooking',
-      data: {
-        token,
-        param:{
-          code,
-          shopId: that.data.shopId,
-          payType:3,
-          bookTime: that.data.bookTime,
-          number:  parseInt(that.data.index) + 1 ,
-          privateRoom : that.data.privateRoom,
-          name:that.data.username,
-          gender : that.data.gender ,
-          mobile :that.data.phone,
-          note: that.data.note,
-        }
-      },
-      method: 'POST',
-      success: function(res) {
-        var book_id = res.data.data.result.book_id;
-          if(res.data.data.code == 200){
+    if (that.data.is_pay == true){
+      that.pay.bindingShow();  
+    }else{
+      wx.request({
+        url: link + 'api.php?s=/booking/postBooking',
+        data: {
+          token,
+          param: {
+            code,
+            shopId: that.data.shopId,
+            payType: 3,
+            bookTime: that.data.bookTime,
+            number: parseInt(that.data.index) + 1,
+            privateRoom: that.data.privateRoom,
+            hallOptional: that.data.hallOptional,
+            name: that.data.username,
+            gender: that.data.gender,
+            mobile: that.data.phone,
+            note: that.data.note,
+          }
+        },
+        method: 'POST',
+        success: function (res) {
+          var book_id = res.data.data.result.book_id;
+          if (res.data.data.code == 200) {
             //预定过，提示框
             // wx.showModal({
             //   content: '您已预订过该时段到店用餐如需重新预订请先取消之前订单',
@@ -244,7 +264,7 @@ Page({
             wx: wx.navigateTo({
               url: '../order_waiting/order_waiting?id=' + book_id,
             })
-          } else if (res.data.data.code == 0){
+          } else if (res.data.data.code == 0) {
             wx.showModal({
               title: '提示',
               content: res.data.data.msg,
@@ -257,11 +277,13 @@ Page({
               }
             })
           }
-         
-        console.log(res)
-      },
-      fail: function(res) {},
-    })
+
+          console.log(res)
+        },
+        fail: function (res) { },
+      })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

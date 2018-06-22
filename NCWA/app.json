@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/pay/pay",
     "pages/me/me",
     "pages/detail/detail",
     "pages/detail_list/detail_list",
@@ -11,7 +10,8 @@
     "pages/order_detail/order_detail",
     "pages/order_waiting/order_waiting",
     "pages/partnerRestaurant/partnerRestaurant",
-    "pages/tasteLife/tasteLife"
+    "pages/tasteLife/tasteLife",
+    "pages/share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",

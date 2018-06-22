@@ -21,6 +21,8 @@ Page({
     cancelOrder:true,   //取消订单弹框
     cancelNote:"",   //取消原因文字
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    share_title:"",
+    share_image:"",
   },
 
   /**
@@ -53,6 +55,8 @@ Page({
             time: data.time,
             note: data.note,
             cancel: data.cancel,
+            share_title: data.share_title,
+            share_image: data.share_image,
           })
         }
         console.log(res)
@@ -157,8 +161,17 @@ Page({
       url: '../partnerRestaurant/partnerRestaurant',
     })
   },
-  onShareAppMessage: function (ops) {
- 
+  onShareAppMessage: function (res) {
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: that.data.share_title,
+      imageUrl: that.data.share_image,
+      path: '/pages/share/share'
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

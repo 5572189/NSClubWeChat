@@ -46,12 +46,13 @@
       <view class='li'>
         <text class="li_tit">就餐人数</text>
         <text class='user_message'>{{usernumber}}</text>
+        <text class=' room {{private_room != 0?"showroom":""}}'>（优先包间）</text>
       </view>
       <view class='li'>
         <text class="li_tit">顾客信息</text>
         <text class='user_message'>{{name}} {{mobile}}</text>
       </view>
-      <view class='li' hidden='{{note == ""?"true":"false"}}'>
+      <view class='li note {{note !== ""?"show":""}}'>
         <text class="li_tit">顾客留言</text>
         <text class='user_message'>{{note}}</text>
       </view>

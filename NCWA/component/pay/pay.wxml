@@ -1,0 +1,14 @@
+<view class="pay" hidden='{{flags}}'>
+    <view class='pay_box'>
+      <view class='pay_title'>订座订金支付说明</view>
+      <view class='pay_item'>1.活动存在特殊性，本次订座需支付订金;</view>
+      <view class='pay_item'>2.订金计算方式：100元/人*人数=总金额；</view>
+      <view class='pay_item'>3.订金支付方式：微信支付；</view>
+      <view class='pay_item'>4.订金支付成功即视为五折用餐订座成功；</view>
+      <view class='pay_item'>5.订金不退还，将转换成等值的NS币在个人账户中，可用于餐厅用餐抵扣；或在商城购物使用。</view>
+      <view class='pay_btn'>
+        <view class='cancel' bindtap='bindinghidden'>取消</view>
+        <view class='affirm_pay' bindtap='affirm_pay'>确认支付</view>
+      </view>
+    </view>
+</view>

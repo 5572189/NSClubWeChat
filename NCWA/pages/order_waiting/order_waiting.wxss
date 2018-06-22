@@ -69,3 +69,17 @@ page{
   padding: 30rpx 0;
   border-radius: 50rpx;
 }
+.room{
+  display: none;
+  font-size: 30rpx;
+  color: #a9a9a9;
+}
+.note{
+  display: none;
+}
+.showroom{
+  display: inline-block;
+}
+.show{
+  display: block;
+}

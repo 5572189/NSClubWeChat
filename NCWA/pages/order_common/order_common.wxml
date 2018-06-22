@@ -35,7 +35,7 @@
     <view class='order_common_item' hidden='{{hidden}}'>
       <view class='order_common_title titleColor'>如订不到包间，可以接受大厅</view>
       <view class='order_common_message'>
-          <switch checked class='switch' bindchange="switch2Change" color="{{switchColor}}"/>
+          <switch  class='switch'  bindchange="switch2Change" color="{{switchColor}}"/>
       </view>
     </view>
   </view>
@@ -99,3 +99,4 @@
     </view>
 </view>
 
+<pay id="pay"></pay>

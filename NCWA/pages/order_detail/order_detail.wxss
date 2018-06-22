@@ -221,8 +221,19 @@ page{
 .cancelbtn{
   color: #ceb173;
 }
+.room{
+  display: none;
+  font-size: 30rpx;
+  color: #a9a9a9;
+}
 .gary{
   color: #fff;
+}
+.note{
+  display: none;
+}
+.showroom{
+  display: inline-block;
 }
 .show{
   display: block;
