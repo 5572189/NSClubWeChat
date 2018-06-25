@@ -15,7 +15,8 @@ Page({
     code:'',
     code_text:'获取验证码',
     currentTime: 61,
-    flag:true 
+    flag:true ,
+    phoneHidden:true,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -48,10 +49,11 @@ Page({
               method: 'POST',
               dataType: 'json',
               success: function (res) {
-
+                console.log(res)
                 that.setData({
                   phone: res.data.data.result.mobile,
-                  flag: false
+                  flag: false,
+                  phoneHidden:false,
                 })
               },
               fail: function (res) {
@@ -86,9 +88,9 @@ Page({
   },
   // 绑定手机号 弹框
   bindingShow: function () {
-    if (app.globalData.flag == true){
+    // if (app.globalData.flag == true){
       this.popup.bindingShow();  
-    }
+    // }
     
   },
   onGetCode: function (e) {

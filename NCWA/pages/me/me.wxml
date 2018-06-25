@@ -17,7 +17,7 @@
       <image class="user_header" src="{{avatarUrl}}"></image>
       <view class='me_header_item'>
         <view class='user_name'>{{nickName}}</view>
-        <view class='user_phone' bindtap='bindingShow'>{{phone}}</view>
+        <view class='user_phone' hidden='{{phoneHidden}}' bindtap='bindingShow'>{{phone}}</view>
       </view>
     </view> 
     <view class='me_header_right' bindtap='scan'>

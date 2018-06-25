@@ -2,6 +2,7 @@ var comment = require('../../utils/comment.js');
 var token = comment.encryption();
 var app = getApp();
 var link = app.globalData.link;
+var interval = "";
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持  
@@ -51,13 +52,25 @@ Component({
       })
     },
     bindingHide: function () {
+      var value = wx.getStorageSync('phone');
       var that = this;
-      that.setData({
-        flags: true,
-        phone:''
-      })
+      var data = "";
+      if (value){
+        that.setData({
+          flags: true,
+          phone: value,
+        })
+        data = value;
+      }else{
+        that.setData({
+          flags: true,
+          phone: '',
+        })
+        data = this.properties.title
+      }
+      
       var myEventDetailDelete = {
-        val: this.properties.title
+        val: data
       }
       this.triggerEvent('myeventDelete', myEventDetailDelete )
     },
@@ -65,7 +78,7 @@ Component({
     getCode: function (options) {
       var that = this;
       var currentTime = that.data.currentTime
-      var interval = setInterval(function () {
+       interval = setInterval(function () {
         currentTime--;
         that.setData({
           code_text: currentTime + '秒',
@@ -190,7 +203,9 @@ Component({
           })
           if(res.data.data.code == 200){
             that.setData({
-              flags: true
+              flags: true,
+              code:'',
+              code_text: '获取验证码',
             })
             wx.showToast({
               title: '绑定成功',
@@ -199,13 +214,16 @@ Component({
             })
           } else if (res.data.data.code == 0){
             that.setData({
-              flags: true
+              flags: true,
+              code:'',
+              code_text: '获取验证码',
             })
             wx.showToast({
               title: res.data.data.msg,
               duration: 2000
             })
           }
+          clearInterval(interval);
           console.log(res)
         },
         fail: function(res) {
