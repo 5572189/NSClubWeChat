@@ -23,7 +23,7 @@ Page({
       data: {
         token,
         param: {
-          code,
+          code:code,
           page:1,
         }
       },
@@ -31,10 +31,16 @@ Page({
       dataType: 'json',
       success: function(res) {
         if(res.statusCode == 200){
-          that.setData({
-            result:res.data.data.result
-            
-          })
+          if (res.data.data.result.length == 0){
+            that.setData({
+              order_record: false
+            })
+          }else{
+            that.setData({
+              result: res.data.data.result
+            })
+          }
+         
         }
         console.log(res)
       },

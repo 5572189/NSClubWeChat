@@ -11,7 +11,8 @@
     "pages/order_waiting/order_waiting",
     "pages/partnerRestaurant/partnerRestaurant",
     "pages/tasteLife/tasteLife",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/shopmenu/shopmenu"
   ],
   "window": {
     "backgroundTextStyle": "light",

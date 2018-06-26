@@ -16,25 +16,34 @@
         <image hidden="{{selectKind}}" class='icon_nav' src='../../images/icon-booking-nav-on.png'></image>
       </view>
       <view>
-        <text> 历史预定</text>
+        <text bindtap='historyBook'> 历史预定</text>
       </view>
     </view>
+    <!-- 城市 -->
     <view class='dataSelect' hidden='{{dataSelect}}'>
       <view class='dataSelect_items'>
-        <view wx:for="{{selectCity}}" wx:key="{{index}}" data-cid="{{item.int_id}}" bindtap='citySelect' class='{{curIndex == index?"selectOn":""}}' data-city="{{item.string_name_short}}">{{item.string_name}}</view>
+        <view  wx:for="{{selectCity}}" wx:key="{{index}}" data-index="{{index}}" data-cid="{{item.int_id}}" bindtap='citySelect' class='{{curIndex == index?"selectOn":""}}' data-city="{{item.string_name_short}}">{{item.string_name}}</view>
       </view>
     </view>
+    <!-- 品类 -->
+    <view class='dataSelect' hidden='{{dataSelectkind}}'>
+      <view class='dataSelect_items'>
+        <view  wx:for="{{select_kind}}" wx:key="{{index}}"  data-index="{{index}}" data-cid="{{item.int_id}}" bindtap='kindSelect' class='{{curIndexkind == index?"selectOn":""}}' data-kind="{{item.string_title_cn}}">{{item.string_title_cn}}</view>
+      </view>
+    </view>
+
   </view>
   <view class='partner_box' hidden='{{!headeritems}}'>
     <view class='li' wx:for="{{headerImg}}" wx:key="{{index}}" data-id="{{item.id}}">
-      <image class='partner_img' src='{{item.pic_logo}}'></image>
+      <image class='partner_img' src='{{link+item.sting_pic_url}}'></image>
       <view class='title'>
-        <image wx:if="{{item.is_recommend}}" class='icon_title' src="../../images/recommend.png"></image>
-        <image wx:if="{{item.is_new}}" class='icon_title' src="../../images/new.png"></image>
-        <text>{{item.title}}</text>
+        <image wx:if="{{item.int_is_recommend ==1}}" class='icon_title' src="../../images/recommend.png"></image>
+        <image wx:if="{{item.int_is_new == 1}}" class='icon_title' src="../../images/new.png"></image>
+        <text>{{item.sting_title}}</text>
       </view>
-
-      <view class='city'>{{item.city}}</view>
+      <view class="id_book book" wx:if="{{item.int_booking_status == 1}}">订座</view>
+      <view class="id_book rest" wx:else>休息</view>
+      <view class='city'>{{item.sting_city}}</view>
     </view>
   </view>
   <view class='partner_no' hidden='{{headeritems}}'>
@@ -43,4 +52,4 @@
   </view>
 </scroll-view>
 
-<selectDate id="timeComponent"></selectDate>
+<selectDate id="timeComponent" time="{{time}}"></selectDate>

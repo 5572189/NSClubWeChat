@@ -132,3 +132,18 @@
 .li:last-child{
   margin-bottom: 0;
 }
+.id_book{
+  position: absolute;
+  right: 40rpx;
+  bottom:45rpx;
+  padding:15rpx 40rpx;
+  border-radius: 20rpx;
+  font-size:24rpx;
+  color: #fff;
+}
+.book{
+  background-color: #ceb173;
+}
+.rest{
+  background: #a9a9a9;
+}

@@ -10,14 +10,13 @@ Page({
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
-    duration: 1000,
+    duration: 500,
     color: "#ceb173",
     colorALL: '#F3F3F3',
     month:"",
     year:"",
     businessNumber:"",
     lifeNumber:"",
-
   },
   swiperChange(e) {
     this.setData({

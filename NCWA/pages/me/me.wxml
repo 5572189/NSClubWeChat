@@ -31,11 +31,11 @@
       <text class='operation_te'>我的账户</text>
       <image class='icons_left' src='../../images/icons_left.png'></image>
     </view>
-    <navigator url='../mybooking/mybooking' class='operation_item'>
+    <view  bindtap='linkMybooking' class='operation_item'>
       <image class='icons' src="../../images/icons_table.png"></image>
       <text class='operation_te'>订座记录</text>
       <image class='icons_left' src='../../images/icons_left.png'></image>
-    </navigator>
+    </view>
     <!-- <view class='operation_item'>
       <image class='icons' src="../../images/icons_discount.png"></image>
       <text class='operation_te'>我的优惠券</text>

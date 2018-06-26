@@ -39,9 +39,9 @@
 
       <view class='time_component_item'>
         <view class='date'>
-          <view  wx:for="{{date_time}}" class='{{curIndex == index ? "on":""}} ' wx:key="{{index}}" >
-            <text class='times' wx:if="{{item.book_status == true}}"  data-date="{{item.date_value}}" data-index="{{index}}" bindtap='changeDate' > {{item.date}}</text>
-            <text class='gary times' wx:else> {{item.date}} （已满）</text>
+          <view  wx:for="{{time}}" class='{{curIndex == index ? "on":""}} ' wx:key="{{index}}" >
+            <text class='times'  data-date="{{item.string_date}}" data-index="{{index}}" bindtap='changeDate' > {{item.string_date}}</text>
+            
           </view>
           
         </view>

@@ -1,0 +1,11 @@
+<view class='menu' hidden='{{flags}}' bindtap='bindinghidden'>
+  <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item.url}}" class="slide-image" />
+      <view class='slide-name'>{{item.name}}</view>
+    </swiper-item>
+  </block>
+</swiper>
+</view>

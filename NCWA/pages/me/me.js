@@ -63,6 +63,10 @@ Page({
           }
         }
       })
+    }else{
+      that.setData({
+        phoneHidden: false,
+      })
     }
   },
   scan:function(){
@@ -84,6 +88,20 @@ Page({
       wx.reLaunch({
         url: '../myAccount/myAccount'
       }) 
+    }
+  },
+  linkMybooking:function(){
+    var that = this;
+    if (that.data.phone == '绑定手机号') {
+      wx.showToast({
+        title: '请先绑定手机号',
+        icon: 'none',
+        duration: 2000,
+      });
+    } else {
+      wx.reLaunch({
+        url: '../mybooking/mybooking'
+      })
     }
   },
   // 绑定手机号 弹框

@@ -14,6 +14,10 @@ Component({
     title: {
       type: String,
       value: ''
+    },
+    time:{
+      type:Array,
+      value: ''
     }
   },
 
@@ -53,28 +57,11 @@ Component({
     //选择时间
     selectTime:function(){
       var that = this;
-      wx.request({
-        url: link + '/api.php?s=/booking/index',
-        data: {
-          token,
-          param: {
-            code,
-            shopId: 15
-          }
-        },
-        method: 'POST',
-        success: function (res) {
-          console.log(res)
-          if (res.data.data.code == 200) {
-            var data = res.data.data.result
-            that.setData({
-              date_time: data.date_time,
-              times: data.date_time[0].times,
-              timeHidden:false,
-            })
-          }
-        },
-        fail: function (res) { },
+      console.log(that.data.time)
+      that.setData({
+        date_time: that.data.time,
+        times: that.data.time[0].arr_times,
+        timeHidden: false,
       })
     },
     //时间弹框关闭
@@ -90,7 +77,7 @@ Component({
       var value = e.currentTarget.dataset.index;
       var date = e.currentTarget.dataset.date;
       that.setData({
-        times: that.data.date_time[value].times,
+        times: that.data.time[value].arr_times,
         curIndex: value,
       })
     },
@@ -102,7 +89,7 @@ Component({
       that.setData({
         curIndexTime: value
       })
-      date = that.data.date_time[that.data.curIndex].date + ' ' + that.data.times[that.data.curIndexTime];
+      date = that.data.time[that.data.curIndex].string_date + ' ' + that.data.times[that.data.curIndexTime];
       that.setData({
         dineTime: date,
         timeHidden: true,

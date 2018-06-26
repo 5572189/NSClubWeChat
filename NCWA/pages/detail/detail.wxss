@@ -37,9 +37,10 @@ page{
   padding-right: 20rpx;
   font-size: 28rpx;
   color:#333333;
-      white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 .recommend_item{
   font-size: 28rpx;

@@ -17,19 +17,19 @@
         推荐菜品
       </view>
       <view class='recommend_item'>
-        <text>查看全部</text>
+        <text bindtap='checkAll'>查看全部</text>
         <image src='../../images/icons_left.png'></image>
       </view>
     </view>
     <!-- 推荐菜品swiper -->
     <swiper class='recommendSwiper'  previous-margin="{{'30rpx'}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
+      <navigator url='../shopmenu/shopmenu'  wx:for="{{imgUrls}}">
         <swiper-item>
           <image src="{{item}}" class="recommend-image"/>
           <view class="recommend-title">嘻哈大汉堡</view>
         </swiper-item>
-      </block>
+      </navigator >
     </swiper>
 
     <!-- 商家信息 -->
