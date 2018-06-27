@@ -3,18 +3,68 @@ var token = comment.encryption();
 const app = getApp()
 var link = app.globalData.link;
 var code = wx.getStorageSync('user');
+var isresult = true;
+function list_search(that,page){
+  
+  if (isresult){
+    wx.request({
+      url: link + 'api.php?s=/booking/booking_list_search',
+      method: 'POST',
+      data: {
+        token: token,
+        param: {
+          code: that.data.code,
+          int_city_id: that.data.int_city_id,
+          int_page: page,
+          int_user_city_id: 1,
+          int_type_id: that.data.int_type_id,
+          string_time: "",
+          int_private_room: 0,
+        }
+      },
+      dataType: 'json',
+      success: function (res) {
+        if (res.data.data.code == 200) {
+          wx.showToast({
+            title: '加载中',
+            icon: 'loading',
+            duration: 500,
+          })
+          var data = res.data.data.result.arr_shop_data,
+            headerdata = that.data.headerdata;
+          for (var i = 0; i < data.length; i++) {
+            headerdata.push(data[i])
+          }
+          that.setData({
+            headerImg: that.data.headerdata
+          })
+          if(data.length == 0){
+            isresult = false;
+          }
+        }
+        console.log(res)
+      },
+      fail: function (res) {
+
+      },
+    });
+  }
+  
+}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    code:code,
     link: link,
     isScroll:true,
     selectAll:true,
     selectKind:true,
     headeritems:true,
-    headerImg: "",
+    headerImg: [],
+    headerdata:[],
     dataSelect:true,
     dataSelectkind:true,
     curIndex:0,
@@ -24,6 +74,11 @@ Page({
     selectCity:"",
     select_kind:"",
     time:"",
+    int_type_id:0,
+    int_city_id:0,
+    condition:"你好，什么时候，几位？",
+    reset:false,
+    page:1,
   },
 
   /**
@@ -31,43 +86,23 @@ Page({
    */
   onLoad: function (options) {
     this.timeComponent = this.selectComponent("#timeComponent");  
-    var token = comment.encryption();
+    this.popup = this.selectComponent("#popup"); 
     var that = this;
-    wx.request({
-      url: link + 'api.php?s=/booking/booking_list_search',
-      method: 'POST',
-      data: {
-        token: token,
-        param:{
-          code,
-          lang:'cn',
-          index : false,
-          cityId: 1
-        }
-      },
-      dataType: 'json',
-      success: function (res) {
-        if (res.data.data.code == 200) {
-          that.setData({
-            headerImg: res.data.data.result.arr_shop_data
-          })
-        }
-        console.log(res)
-      },
-      fail: function (res) {
-
-      },
-    });
+    list_search(that, that.data.page)
+ 
     wx.request({
       url: link + '/api.php?s=/booking/booking_list ',
       method: 'POST',
       data: {
         token: token,
         param: {
-          code,
-          lang: 'cn',
-          index: false,
-          cityId: 1
+          code: that.data.code,
+          int_city_id: that.data.int_city_id,
+          int_page: 1,
+          int_user_city_id: 1,
+          int_type_id: that.data.int_type_id,
+          string_time: "",
+          int_private_room: 0,
         }
       },
       dataType: 'json',
@@ -153,12 +188,15 @@ Page({
     }
   },
   citySelect:function(e){
+    isresult = true;
     let that= this;
-    let cid = e.currentTarget.dataset.index,
+    let id = e.currentTarget.dataset.cid,
+        index = e.currentTarget.dataset.index,
         city = e.currentTarget.dataset.city;
     that.setData({
-      curIndex : cid,
+      curIndex: index,
       city,
+      int_city_id:id,
       dataSelect:true,
       selectAll:true,
     })
@@ -168,34 +206,195 @@ Page({
         token: token,
         param: {
           code,
-          lang: 'cn',
-          cityId: cid
+          int_city_id: that.data.int_city_id,
+          int_page:1,
+          int_user_city_id:1,
+          int_type_id: that.data.int_type_id,
+          string_time:"",
+          int_private_room:0,
+          int_people_num:"",
         }
       },
       method: 'POST',
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        console.log(res)
+        if (res.data.data.code == 200) {
+          
+          var data = res.data.data.result.arr_shop_data;
+          if (data.length == 0) {
+            that.setData({
+              headeritems: false,
+            })
+          }else{
+            that.setData({
+              headeritems: true,
+            })
+          }
+          that.setData({
+            headerImg: res.data.data.result.arr_shop_data,
+            headerdata: res.data.data.result.arr_shop_data,
+            page:1
+          })
+        }
       },
       fail: function(res) {},
     })
   },
   kindSelect:function(e){
+    isresult = true;
     let that = this;
-    let cid = e.currentTarget.dataset.index,
+    let id = e.currentTarget.dataset.cid,
+      index = e.currentTarget.dataset.index,
       kind = e.currentTarget.dataset.kind;
     that.setData({
-      curIndexkind: cid,
+      curIndexkind: index,
       kind,
+      int_type_id: id,
       dataSelectkind: true,
       selectKind: true,
+    })
+    wx.request({
+      url: link + '/api.php?s=/booking/booking_list_search',
+      data: {
+        token: token,
+        param: {
+          code,
+          int_city_id: that.data.int_city_id,
+          int_page: 1,
+          int_user_city_id: 1,
+          int_type_id: that.data.int_type_id,
+          string_time: "",
+          int_private_room: 0,
+          int_people_num:"",
+        }
+      },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        if (res.data.data.code == 200) {
+          var data = res.data.data.result.arr_shop_data;
+          if (data.length == 0){
+            that.setData({
+              headeritems:false,
+            })
+          } else {
+            that.setData({
+              headeritems: true,
+            })
+          }
+          that.setData({
+            headerImg: res.data.data.result.arr_shop_data,
+            headerdata: res.data.data.result.arr_shop_data,
+            page:1
+          })
+        }
+      },
+      fail: function (res) { },
     })
   },
   bindingShow: function () {
     var that = this;
     that.timeComponent.bindingShow();
 
+  },
+  // 组件传值搜索
+  onSeek:function(e){
+    var that = this,
+        headeritems = e.detail.headeritems,
+        headerImg = e.detail.headerImg,
+        condition = e.detail.condition;
+    that.setData({
+      headeritems,
+      headerImg,
+      condition,
+      reset:true,
+      headerdata:headeritems
+    })
+  },
+  //重置条件
+  resetCondition:function(){
+    var that = this;
+    wx.request({
+      url: link + '/api.php?s=/booking/booking_list_search',
+      data: {
+        token: token,
+        param: {
+          code,
+          int_city_id: that.data.int_city_id,
+          int_page: 1,
+          int_user_city_id: 1,
+          int_type_id: that.data.int_type_id,
+          string_time: "",
+          int_private_room: 0,
+          int_people_num: "",
+        }
+      },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        if (res.data.data.code == 200) {
+          var data = res.data.data.result.arr_shop_data;
+          if (data.length == 0) {
+            that.setData({
+              headeritems: false,
+            })
+          } else {
+            that.setData({
+              headeritems: true,
+            })
+          }
+          that.setData({
+            condition: "你好，什么时候，几位？",
+            reset:false,
+            headerImg: res.data.data.result.arr_shop_data
+          })
+        }
+      },
+      fail: function (res) { },
+    })
+  },
+  shopBook:function(e){
+    var code = wx.getStorageSync('user');
+    var that = this,
+        shopid = e.currentTarget.dataset.shopid;
+        console.log(code)
+        if(code == ""){
+          wx.showToast({
+            title: '请先绑定手机号',
+            icon:'none',
+            duration:1000,
+            success:function(){
+              setTimeout(function(){
+                that.popup.bindingShow(); 
+              },1000)
+            }
+          })
+        }else{
+          that.setData({
+            code: code
+          })
+          wx.navigateTo({
+            url: '../order_common/order_common?shopid=' + shopid,
+          })
+        }
+    
+  },
+  /**
+  * 页面上拉触底事件的处理函数
+  */
+  bindscroll: function () {
+    var that = this,
+        page = that.data.page;
+        page++;
+        that.setData({
+          page,
+        })
+       
+        list_search(that, that.data.page)
+        console.log(that.data.headerImg)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -232,12 +431,7 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
+ 
 
   /**
    * 用户点击右上角分享

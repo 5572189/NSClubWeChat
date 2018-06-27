@@ -18,6 +18,14 @@ Component({
     time:{
       type:Array,
       value: ''
+    },
+    int_type_id:{
+      type: Number,
+      value: ''
+    },
+    int_city_id:{
+      type: Number,
+      value: ''
     }
   },
 
@@ -34,6 +42,8 @@ Component({
     curIndex: 0,
     curIndexTime: 0,
     dineTime:"请选择时间",
+    int_private_room:0,
+    room:"",
   },
 
   /** 
@@ -120,7 +130,69 @@ Component({
     },
     //包间选择
     switchChange:function(e){
-      console.log( e.detail.value)
+      var that = this;
+      if (e.detail.value == true){
+        that.setData({
+          int_private_room:1,
+          room:'包间'
+        })
+      }else{
+        that.setData({
+          int_private_room:0,
+          room: ''
+        })
+      }
+    },
+    //查找餐厅
+    seek:function(){
+      var that = this;
+      if(that.data.dineTime == "请选择时间"){
+        wx.showToast({
+          title: '请选择时间',
+          icon:'none'
+        })
+        return false;
+      }
+      wx.request({
+        url: link + '/api.php?s=/booking/booking_list_search',
+        data: {
+          token: token,
+          param: {
+            code,
+            int_city_id: that.data.int_city_id,
+            int_page: 1,
+            int_user_city_id: 1,
+            int_type_id: that.data.int_type_id,
+            string_time: that.data.dineTime,
+            int_private_room: that.data.int_private_room,
+            int_people_num: that.data.peonumber
+          }
+        },
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          if (res.data.data.code == 200) {
+            var data = res.data.data.result.arr_shop_data;
+            var headeritems ="";
+            if (data.length == 0) {
+                headeritems = false;
+            } else {
+                headeritems = true;
+            }
+            var myEventDetail = {
+              condition: that.data.dineTime + ' '+that.data.peonumber+'人 '+that.data.room,
+              headeritems: headeritems,
+              headerImg:data
+            }
+            that.triggerEvent('myevent', myEventDetail);
+            that.setData({
+              flags: true,
+            })
+          }
+        },
+        fail: function (res) { },
+      })
     }
   }
 })  

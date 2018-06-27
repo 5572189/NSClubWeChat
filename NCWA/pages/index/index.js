@@ -8,7 +8,7 @@ Page({
     link: link,
     swiperIndex: 0,
     indicatorDots: false,
-    autoplay: false,
+    autoplay: true,
     interval: 5000,
     duration: 500,
     color: "#ceb173",
@@ -44,7 +44,7 @@ Page({
             lifeNumber: res.data.data.result.arr_index_life_data.length,
           })
         }
-        console.log(res)
+        // console.log(res)
       },
       fail: function (res) {
 

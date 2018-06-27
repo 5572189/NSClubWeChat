@@ -32,6 +32,7 @@ page{
   display: flex;
   justify-content: space-between;
   padding: 0 30rpx 42rpx 30rpx;
+  margin-top: 30rpx;
 }
 .recommend-title{
   padding-right: 20rpx;
@@ -60,7 +61,6 @@ page{
 }
 .recommendSwiper{
   height: 240rpx;
-  margin-bottom: 20rpx;
 }
 .recommendSwiper swiper-item{
    width: 210rpx !important;
@@ -124,4 +124,10 @@ page{
 .serverTitele_gary{
   font-size: 28rpx;
   color: #c2c2c2;
+}
+.hidden{
+  display: none;
+}
+.show{
+  display: block;
 }

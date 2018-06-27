@@ -11,6 +11,7 @@
   background: #fff;
 }
 .partner{
+  position: relative;
   width: 690rpx;
   height: 70rpx;
   line-height: 65rpx;
@@ -28,6 +29,20 @@
   font-size: 28rpx;
   color: #888888;
   margin-left: 20rpx;
+}
+.color{
+  color:#ceb173 !important;
+}
+.partner .reset{
+  position: absolute;
+  right: 40rpx;
+  top: 10rpx;
+  font-size: 25rpx;
+  background-color: #dddddd;
+  color: #333333;
+  height: 50rpx;
+  padding: 0 10rpx;
+  line-height: 50rpx;
 }
 .partnerSelect{
   width: 100%;
@@ -71,11 +86,13 @@
   color: #353535;
   padding: 20rpx 0;
 }
+.box_placeholder{
+  width: 100%;
+  height: 210rpx;
+}
 .partner_box{
   position: relative;
   width: 100%;
-  margin-top: 210rpx;
-  height: 100%;
 }
 .partner_box .li{
   position: relative;
@@ -133,6 +150,7 @@
   margin-bottom: 0;
 }
 .id_book{
+  display: none;
   position: absolute;
   right: 40rpx;
   bottom:45rpx;
@@ -146,4 +164,7 @@
 }
 .rest{
   background: #a9a9a9;
+}
+.status{
+  display: block;
 }

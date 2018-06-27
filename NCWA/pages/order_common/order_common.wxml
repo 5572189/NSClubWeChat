@@ -2,7 +2,7 @@
   <view class='order_common_box'>
     <view class='order_common_item'>
       <view class='order_common_title'>餐厅名称</view>
-      <view class='order_common_message'>{{shop_name}}</view>
+      <view class='order_common_message shop-name'>{{shop_name}}</view>
     </view>
      <view class='order_common_item'>
       <view class='order_common_title'>用餐人数</view>

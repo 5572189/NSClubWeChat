@@ -142,7 +142,9 @@ page{
 .picker{
   display: inline-block;
 }
-
+.shop-name{
+  padding-right: 16rpx;
+}
 
 /* 组件 日期*/
 

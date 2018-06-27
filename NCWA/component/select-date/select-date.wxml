@@ -24,7 +24,7 @@
     </view>
     <view class='btn'>
       <view class='cancel' bindtap='cancel'>取消</view>
-      <view class='seek'>查找餐厅</view>
+      <view class='seek' bindtap='seek'>查找餐厅</view>
     </view>
 </view>
 

@@ -19,7 +19,6 @@ Page({
     username:"",
     index:0,
     gender:'1',
-    shopId:19,
     items: [
       { title: '先生', value: '1', checked: true },
       { title: '女士', value: '2', checked: false },
@@ -48,7 +47,8 @@ Page({
    */
   onLoad: function (options) {
     this.pay = this.selectComponent("#pay");  
-    var that = this;
+    var that = this,
+      shopId = parseInt(options.shopid);
     that.setData({
       phone: wx.getStorageSync('phone'),
     })
@@ -58,7 +58,7 @@ Page({
         token,
         param: {
           code,
-          shopId: that.data.shopId
+          shopId,
         }
       },
       method: 'POST',
@@ -131,7 +131,6 @@ Page({
       })
     } else {
       that.setData({
-        hidden: true,
         hallOptional: 0,
       })
     }

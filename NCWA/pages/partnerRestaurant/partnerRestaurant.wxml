@@ -1,8 +1,9 @@
-<scroll-view scroll-y="{{isScroll}}" class='page'>
+<scroll-view scroll-y="{{isScroll}}" class='page' bindscrolltolower="bindscroll">
   <view class='partnerRestaurant'>
     <view class='partner' bindtap='bindingShow'>
       <image class='icon_edit' src='../../images/icon_input_edit.png'></image>
-      <text>你好，什么时候，几位？</text>
+      <text class='{{reset == true ? "color":""}}'>{{condition}}</text>
+      <view hidden='{{!reset}}' class='reset' catchtap='resetCondition'>重置</view>
     </view>
     <view class='partnerSelect'>
       <view bindtap='selectNav'>
@@ -33,18 +34,19 @@
     </view>
 
   </view>
+  <view class='box_placeholder'></view>
   <view class='partner_box' hidden='{{!headeritems}}'>
-    <view class='li' wx:for="{{headerImg}}" wx:key="{{index}}" data-id="{{item.id}}">
+    <navigator url='../detail/detail?id={{item.int_id}}'  class='li' wx:for="{{headerImg}}" wx:key="{{index}}" data-id="{{item.id}}">
       <image class='partner_img' src='{{link+item.sting_pic_url}}'></image>
       <view class='title'>
         <image wx:if="{{item.int_is_recommend ==1}}" class='icon_title' src="../../images/recommend.png"></image>
         <image wx:if="{{item.int_is_new == 1}}" class='icon_title' src="../../images/new.png"></image>
         <text>{{item.sting_title}}</text>
       </view>
-      <view class="id_book book" wx:if="{{item.int_booking_status == 1}}">订座</view>
-      <view class="id_book rest" wx:else>休息</view>
+      <view class="id_book book {{item.int_booking_status == 3?'status':''}}" data-shopId="{{item.int_shop_id}}" catchtap="shopBook">订座</view>
+      <view class="id_book rest {{item.int_booking_status != 3?'status':''}}" catchtap="shoprest">休息</view>
       <view class='city'>{{item.sting_city}}</view>
-    </view>
+    </navigator >
   </view>
   <view class='partner_no' hidden='{{headeritems}}'>
     <image src='../../images/icon_node.png'></image>
@@ -52,4 +54,7 @@
   </view>
 </scroll-view>
 
-<selectDate id="timeComponent" time="{{time}}"></selectDate>
+<selectDate id="timeComponent" time="{{time}}" int_type_id="{{int_type_id}}" int_city_id="{{int_city_id}}" bind:myevent="onSeek"></selectDate>
+
+
+ <popup id='popup' title='绑定手机号' phone="{{phone}}" bind:myevent="onGetCode" bind:myeventDelete="onGetCodeDelete"></popup> 
