@@ -33,6 +33,7 @@ page{
   justify-content: space-between;
   padding: 0 30rpx 42rpx 30rpx;
   margin-top: 30rpx;
+  margin-bottom: 50rpx;
 }
 .recommend-title{
   padding-right: 20rpx;
@@ -44,17 +45,30 @@ page{
   text-align: center;
 }
 .recommend_item{
-  font-size: 28rpx;
-  color: #fff;
-}
-.item_bg{
+  position: relative;
   width: 205rpx;
-  text-align: center;
 }
 .recommend_item text{
-  color: #888;
+  position: absolute;
+  left: 40rpx;
+  top: 5rpx;
+  font-size: 28rpx;
+  color: #fff !important;
 }
-.recommend_item image{
+.item_bg{
+  position: absolute;
+  left: 0;
+  width: 205rpx !important;
+  height: 50rpx !important;
+  text-align: center;
+}
+.recommend_item .checkall{
+  color: #888 !important;
+}
+.recommend_item .rigth{
+  position: absolute;
+  right: 0;
+  top: 5rpx;
   width: 40rpx;
   height: 40rpx;
   vertical-align: middle;

@@ -24,16 +24,36 @@ Page({
     hasmenu:true,
 
   },
-  orderCommon:function(){
+  orderCommon:function(e){
     var that = this;
-    wx.navigateTo({
-      url: '../order_common/order_common?shopid=' + that.data.arr_shop_detail.int_shop_id,
-    })
+    var code = wx.getStorageSync('user');
+    console.log(code)
+    if (code == "") {
+      wx.showToast({
+        title: '请先绑定手机号',
+        icon: 'none',
+        duration: 1000,
+        success: function () {
+          setTimeout(function () {
+            that.popup.bindingShow();
+          }, 1000)
+        }
+      })
+    } else {
+      that.setData({
+        code: code
+      })
+      wx.navigateTo({
+        url: '../order_common/order_common?shopid=' + that.data.arr_shop_detail.int_shop_id,
+      })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.popup = this.selectComponent("#popup"); 
     var that = this,
         int_id = options.id; 
     wx.request({
@@ -92,6 +112,7 @@ Page({
       phoneNumber: '02160758888' 
     })
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

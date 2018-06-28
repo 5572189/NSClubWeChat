@@ -1,11 +1,11 @@
-<scroll-view scroll-y="{{isScroll}}" class='page' bindscrolltolower="bindscroll">
+<view  class='page' >
   <view class='partnerRestaurant'>
-    <view class='partner' bindtap='bindingShow'>
+    <view class='partner' bindtap='bindingShow' fixed="true">
       <image class='icon_edit' src='../../images/icon_input_edit.png'></image>
       <text class='{{reset == true ? "color":""}}'>{{condition}}</text>
       <view hidden='{{!reset}}' class='reset' catchtap='resetCondition'>重置</view>
     </view>
-    <view class='partnerSelect'>
+    <view class='partnerSelect' >
       <view bindtap='selectNav'>
         <text class='Select_all {{selectAll != true?"selectAll":""}}'>{{city}}</text>
         <image hidden="{{!selectAll}}" class='icon_nav' src='../../images/icon-booking-nav.png'></image>
@@ -21,13 +21,13 @@
       </view>
     </view>
     <!-- 城市 -->
-    <view class='dataSelect' hidden='{{dataSelect}}'>
+    <view class='dataSelect' hidden='{{dataSelect}}' catchtouchmove="preventTouchMove" fixed="true">
       <view class='dataSelect_items'>
         <view  wx:for="{{selectCity}}" wx:key="{{index}}" data-index="{{index}}" data-cid="{{item.int_id}}" bindtap='citySelect' class='{{curIndex == index?"selectOn":""}}' data-city="{{item.string_name_short}}">{{item.string_name}}</view>
       </view>
     </view>
     <!-- 品类 -->
-    <view class='dataSelect' hidden='{{dataSelectkind}}'>
+    <view class='dataSelect' hidden='{{dataSelectkind}}' catchtouchmove="preventTouchMove" fixed="true">
       <view class='dataSelect_items'>
         <view  wx:for="{{select_kind}}" wx:key="{{index}}"  data-index="{{index}}" data-cid="{{item.int_id}}" bindtap='kindSelect' class='{{curIndexkind == index?"selectOn":""}}' data-kind="{{item.string_title_cn}}">{{item.string_title_cn}}</view>
       </view>
@@ -35,7 +35,7 @@
 
   </view>
   <view class='box_placeholder'></view>
-  <view class='partner_box' hidden='{{!headeritems}}'>
+  <scroll-view scroll-y="{{isScroll}}" bindscrolltolower="bindscroll" class='partner_box' hidden='{{!headeritems}}'>
     <navigator url='../detail/detail?id={{item.int_id}}'  class='li' wx:for="{{headerImg}}" wx:key="{{index}}" data-id="{{item.id}}">
       <image class='partner_img' src='{{link+item.sting_pic_url}}'></image>
       <view class='title'>
@@ -47,12 +47,13 @@
       <view class="id_book rest {{item.int_booking_status != 3?'status':''}}" catchtap="shoprest">休息</view>
       <view class='city'>{{item.sting_city}}</view>
     </navigator >
-  </view>
+    <view class='kong'></view>
+  </scroll-view>
   <view class='partner_no' hidden='{{headeritems}}'>
     <image src='../../images/icon_node.png'></image>
     <view>暂无餐厅信息，请修改筛选条件</view>
   </view>
-</scroll-view>
+</view>
 
 <selectDate id="timeComponent" time="{{time}}" int_type_id="{{int_type_id}}" int_city_id="{{int_city_id}}" bind:myevent="onSeek"></selectDate>
 

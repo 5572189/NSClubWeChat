@@ -67,7 +67,7 @@
     <swiper class='partner-list' current='1'  autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}"    bindchange="swiperChange">
       <block wx:for="{{headerImg.arr_index_life_data}}" wx:key="{{index}}">
         <swiper-item>
-          <navigator url="/pages/share/share?book_id=545" hover-class="navigator-hover">
+          <navigator  hover-class="navigator-hover">
             <image src="{{link+item.string_pic_url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
             <image class='shade' src="../../images/mengbg.png" /> 
             <view class='partner_item_title'>{{item.string_title}}</view>

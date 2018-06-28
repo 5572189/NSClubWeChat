@@ -51,6 +51,49 @@ function list_search(that,page){
   }
   
 }
+
+function select(that){
+  wx.request({
+    url: link + '/api.php?s=/booking/booking_list_search',
+    data: {
+      token: token,
+      param: {
+        code,
+        int_city_id: that.data.int_city_id,
+        int_page: 1,
+        int_user_city_id: 1,
+        int_type_id: that.data.int_type_id,
+        string_time: "",
+        int_private_room: 0,
+        int_people_num: "",
+      }
+    },
+    method: 'POST',
+    dataType: 'json',
+    responseType: 'text',
+    success: function (res) {
+      if (res.data.data.code == 200) {
+
+        var data = res.data.data.result.arr_shop_data;
+        if (data.length == 0) {
+          that.setData({
+            headeritems: false,
+          })
+        } else {
+          that.setData({
+            headeritems: true,
+          })
+        }
+        that.setData({
+          headerImg: res.data.data.result.arr_shop_data,
+          headerdata: res.data.data.result.arr_shop_data,
+          page: 1
+        })
+      }
+    },
+    fail: function (res) { },
+  })
+}
 Page({
 
   /**
@@ -91,7 +134,7 @@ Page({
     list_search(that, that.data.page)
  
     wx.request({
-      url: link + '/api.php?s=/booking/booking_list ',
+      url: link + '/api.php?s=/booking/booking_list',
       method: 'POST',
       data: {
         token: token,
@@ -200,46 +243,7 @@ Page({
       dataSelect:true,
       selectAll:true,
     })
-    wx.request({
-      url: link +'/api.php?s=/booking/booking_list_search',
-      data: {
-        token: token,
-        param: {
-          code,
-          int_city_id: that.data.int_city_id,
-          int_page:1,
-          int_user_city_id:1,
-          int_type_id: that.data.int_type_id,
-          string_time:"",
-          int_private_room:0,
-          int_people_num:"",
-        }
-      },
-      method: 'POST',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {
-        if (res.data.data.code == 200) {
-          
-          var data = res.data.data.result.arr_shop_data;
-          if (data.length == 0) {
-            that.setData({
-              headeritems: false,
-            })
-          }else{
-            that.setData({
-              headeritems: true,
-            })
-          }
-          that.setData({
-            headerImg: res.data.data.result.arr_shop_data,
-            headerdata: res.data.data.result.arr_shop_data,
-            page:1
-          })
-        }
-      },
-      fail: function(res) {},
-    })
+    select(that)
   },
   kindSelect:function(e){
     isresult = true;
@@ -254,45 +258,7 @@ Page({
       dataSelectkind: true,
       selectKind: true,
     })
-    wx.request({
-      url: link + '/api.php?s=/booking/booking_list_search',
-      data: {
-        token: token,
-        param: {
-          code,
-          int_city_id: that.data.int_city_id,
-          int_page: 1,
-          int_user_city_id: 1,
-          int_type_id: that.data.int_type_id,
-          string_time: "",
-          int_private_room: 0,
-          int_people_num:"",
-        }
-      },
-      method: 'POST',
-      dataType: 'json',
-      responseType: 'text',
-      success: function (res) {
-        if (res.data.data.code == 200) {
-          var data = res.data.data.result.arr_shop_data;
-          if (data.length == 0){
-            that.setData({
-              headeritems:false,
-            })
-          } else {
-            that.setData({
-              headeritems: true,
-            })
-          }
-          that.setData({
-            headerImg: res.data.data.result.arr_shop_data,
-            headerdata: res.data.data.result.arr_shop_data,
-            page:1
-          })
-        }
-      },
-      fail: function (res) { },
-    })
+    select(that)
   },
   bindingShow: function () {
     var that = this;
@@ -395,6 +361,9 @@ Page({
        
         list_search(that, that.data.page)
         console.log(that.data.headerImg)
+  },
+  preventTouchMove:function(){
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

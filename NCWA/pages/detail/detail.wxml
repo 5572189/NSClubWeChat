@@ -15,12 +15,13 @@
       <!-- 推荐菜品 -->
       <view hidden='{{hasmenu}}'>
         <view class='recommend_box'>
-          <view class='recommend_item item_bg' style="background-image: url('../../images/titleBg.png');background-repeat:no-repeat;background-size:203rpx 50rpx;">
-            推荐菜品
+          <view class='recommend_item'>
+          <image class='item_bg' src='../../images/titleBg.png'></image>
+            <text>推荐菜品</text> 
           </view>
           <view class='recommend_item'>
-            <text bindtap='checkAll'>查看全部</text>
-            <image src='../../images/icons_left.png'></image>
+            <text class='checkall' bindtap='checkAll'>查看全部</text>
+            <image class='rigth' src='../../images/icons_left.png'></image>
           </view>
         </view>
         <!-- 推荐菜品swiper -->
@@ -36,8 +37,9 @@
       </view>
     <!-- 商家信息 -->
     <view class='recommend_box'>
-      <view class='recommend_item item_bg' style="background-image: url('../../images/titleBg.png');background-repeat:no-repeat;background-size:203rpx 50rpx;">
-        商家信息
+      <view class='recommend_item'>
+      <image class='item_bg' src='../../images/titleBg.png'></image>
+         <text>商家信息</text>
       </view>
     </view>
 
@@ -97,3 +99,4 @@
     </view>
   </view>
 </view>
+<popup id='popup' title='绑定手机号' phone="{{phone}}" bind:myevent="onGetCode" bind:myeventDelete="onGetCodeDelete"></popup> 

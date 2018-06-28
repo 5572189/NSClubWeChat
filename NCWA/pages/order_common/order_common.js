@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shopId:0,
     switchColor:'#ceb173',
     placeholderColor:'#c9c9c9',
     hidden:true,
@@ -51,6 +52,7 @@ Page({
       shopId = parseInt(options.shopid);
     that.setData({
       phone: wx.getStorageSync('phone'),
+      shopId,
     })
     wx.request({
       url: link+'/api.php?s=/booking/index',
@@ -267,12 +269,11 @@ Page({
             wx.showModal({
               title: '提示',
               content: res.data.data.msg,
+              showCancel:false,
+              confirmText:'知道了',
+              confirmColor:'#ceb173',
               success: function (res) {
-                if (res.confirm) {
-                  wx: wx.navigateTo({
-                    url: '../order_waiting/order_waiting?id=' + book_id,
-                  })
-                }
+               
               }
             })
           }

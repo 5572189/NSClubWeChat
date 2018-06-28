@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    status:2,   //订单状态
+    status:0,   //订单状态
     shopId:"",
     shopName: "",
     usernumber: "",
@@ -32,6 +32,9 @@ Page({
     var that = this;
     var id = options.shopid;
     var status = options.status;
+    that.setData({
+      status,
+    })
     wx.request({
       url: link + '/api.php?s=/booking/bookingDetail',
       data: {
@@ -96,7 +99,7 @@ Page({
       return false;
     }
     wx.request({
-      url: link + '/api.php?s=/booking/bookingStatus',
+      url: link + '/api.php?s=/booking/bookingCancel',
       data: {
         token,
         param: {
@@ -116,7 +119,7 @@ Page({
             duration: 2000,
             success:function(){
               wx.navigateTo({
-                url: '../order_detail/order_detail',
+                url: '../order_detail/order_detail?shopid=' + that.data.shopId + '&status=1'
               })
             }
           })
@@ -146,7 +149,9 @@ Page({
             icon: 'success',
             duration: 2000,
             success:function(){
-              //这里跳转到  订座记录页面
+              wx.navigateTo({
+                url: '../mybooking/mybooking',
+              })
             }
           })
         }

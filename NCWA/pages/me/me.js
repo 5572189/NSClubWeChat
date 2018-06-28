@@ -82,7 +82,7 @@ Page({
       wx.showToast({
         title: '请先绑定手机号',
         icon: 'none',
-        duration: 2000,
+        duration: 1000,
       });
     }else{
       wx.reLaunch({
@@ -96,7 +96,7 @@ Page({
       wx.showToast({
         title: '请先绑定手机号',
         icon: 'none',
-        duration: 2000,
+        duration: 1000,
       });
     } else {
       wx.reLaunch({

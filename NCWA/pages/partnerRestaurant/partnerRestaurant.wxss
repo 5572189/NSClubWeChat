@@ -76,8 +76,11 @@
   height:calc(100% - 180rpx);
   background: rgba(0,0,0,.5);
   text-align: center;
+  z-index: 9998;
 }
 .dataSelect_items{
+  display: block;
+  width: 100%;
   background: #fff;
   border-top: 1rpx solid #b2b2b2;
 }
@@ -88,16 +91,21 @@
 }
 .box_placeholder{
   width: 100%;
-  height: 210rpx;
+  height: 190rpx;
 }
 .partner_box{
   position: relative;
   width: 100%;
+  height: 100%;
 }
 .partner_box .li{
   position: relative;
   margin-bottom: 20rpx;
   height: 400rpx;
+}
+.kong{
+  width: 100%;
+  height: 200rpx;
 }
 .title{
   position: absolute;
@@ -132,7 +140,8 @@
 .partner_no{
   width: 100%;
   text-align: center;
-  margin-top: 400rpx;
+  margin-top: 250rpx;
+  padding-left: 20%;
 }
 .partner_no image{
   width: 200rpx;
