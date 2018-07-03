@@ -24,6 +24,7 @@ Page({
     hasmenu:true,
 
   },
+  //订座按钮事件
   orderCommon:function(e){
     var that = this;
     var code = wx.getStorageSync('user');

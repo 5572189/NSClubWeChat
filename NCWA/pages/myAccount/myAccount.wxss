@@ -136,5 +136,19 @@ page{
   font-size: 30rpx;
   color: #fff;
   border-radius: 50rpx;
-  margin: 435rpx auto 0;
+  margin: 260rpx auto 0;
+}
+.picker_birthday{
+  position: relative;
+}
+.shade{
+  position: absolute;
+  left: 150rpx;
+  top: 37rpx;
+  width: 220rpx;
+  height: 50rpx;
+}
+.picker{
+  height: 50rpx;
+  line-height: 50rpx;
 }

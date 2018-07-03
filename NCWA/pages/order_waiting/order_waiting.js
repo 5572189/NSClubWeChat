@@ -58,6 +58,8 @@ function status(that,id){
               })
             }
           })
+        } else if (data.status == 1){
+          clearInterval(setStatus)
         }
       }
 

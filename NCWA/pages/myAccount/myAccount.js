@@ -64,7 +64,7 @@ Page({
             if(userInfo.birthday == null){
               that.setData({
                 user_birthday: "",
-                disabled:false
+                disabled:true
               })
               wx.showModal({
                 content: '您可以点击上方的编辑来修改信息',
@@ -78,7 +78,7 @@ Page({
             }else{
               that.setData({
                 user_birthday: userInfo.birthday ,
-                disabled: true
+                disabled: false
               })
             }
             if(userInfo.gender == 0){
@@ -200,7 +200,7 @@ Page({
       duration: 2000,
       success: function () {
         setTimeout(function () {
-          wx.reLaunch({
+          wx.switchTab({
             url: '../me/me'
           })
         }, 2000)
@@ -244,6 +244,11 @@ Page({
     var that = this;
     that.setData({
       user_mailbox: e.detail.value
+    })
+  },
+  bindDateChange: function (e) {
+    this.setData({
+      user_birthday: e.detail.value
     })
   },
   /**

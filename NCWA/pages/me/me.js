@@ -3,12 +3,14 @@ var comment = require('../../utils/comment.js');
 var token = comment.encryption();
 var  app = getApp();
 var link = app.globalData.link;
+var value = wx.getStorageSync('user');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    
     nickName:"",
     avatarUrl:"",
     phone:'绑定手机号',
@@ -22,6 +24,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var value = wx.getStorageSync('user');
+    console.log(app.globalData.userInfo)
     this.popup = this.selectComponent("#popup");  
     wx.getUserInfo({
       success: function (res) {
@@ -29,10 +33,10 @@ Page({
           nickName: res.userInfo.nickName,
           avatarUrl: res.userInfo.avatarUrl,
         })
+       
       },
     })
     var that = this;
-    var value = wx.getStorageSync('user');
     if (value) {
       wx.getStorage({
         key: 'user',
@@ -57,7 +61,9 @@ Page({
                 })
               },
               fail: function (res) {
-
+                that.setData({
+                  phoneHidden: false,
+                })
               },
             })
           }
@@ -69,39 +75,49 @@ Page({
       })
     }
   },
+
+
+  //扫一扫
   scan:function(){
     wx.scanCode({
       success: (res) => {
-        console.log(res)
+        console.log(res.result)
+        wx.navigateTo({
+          url: '../link/link?link='+res.result,
+        })
       }
     })
   },
   linkMyaccount:function(){
+    var value = wx.getStorageSync('user');
     var that = this;
-    if (that.data.phone == '绑定手机号'){
-      wx.showToast({
-        title: '请先绑定手机号',
-        icon: 'none',
-        duration: 1000,
-      });
-    }else{
+    if (value){
+     
       wx.reLaunch({
         url: '../myAccount/myAccount'
       }) 
-    }
-  },
-  linkMybooking:function(){
-    var that = this;
-    if (that.data.phone == '绑定手机号') {
+    }else{
       wx.showToast({
         title: '请先绑定手机号',
         icon: 'none',
         duration: 1000,
       });
-    } else {
+    }
+  },
+  linkMybooking:function(){
+    var value = wx.getStorageSync('user');
+    var that = this;
+    if (value) {
       wx.reLaunch({
         url: '../mybooking/mybooking'
       })
+    } else {
+     
+      wx.showToast({
+        title: '请先绑定手机号',
+        icon: 'none',
+        duration: 1000,
+      });
     }
   },
   // 绑定手机号 弹框

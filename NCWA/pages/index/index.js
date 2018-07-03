@@ -28,7 +28,7 @@ Page({
     var time = new Date();
     var self = this;
     wx.request({
-      url: 'http://nt.idea580.com/api.php?s=/index/app_index',
+      url: link+'/api.php?s=/index/app_index',
       method: 'POST',
       data: {
         token: token
@@ -72,7 +72,12 @@ Page({
       }
     }
   },
-
+  //链接外部
+  // link:function(){
+  //   wx.navigateTo({
+  //     url: '/pages/link/link',
+  //   })
+  // }
 
 
 })

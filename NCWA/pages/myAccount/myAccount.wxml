@@ -56,10 +56,15 @@
           </label>
         </radio-group>
       </view>
-      <view class='li'>
+      <view class='li picker_birthday'>
         <text class="li_tit">生日</text>
-        <input class='inp_birthday' disabled="{{disabled}}" bindchange="bindChangeBirthday" value="{{user_birthday}}"></input>
+        <picker class='inp_birthday'  mode="date" value="{{date}}"  bindchange="bindDateChange">
+          <view class="picker">
+            {{user_birthday}}
+          </view>
+        </picker>
         <text class='li_de'>(填写后不可修改)</text>
+        <view class='shade' hidden='{{disabled}}'></view>
       </view>
       <view class='li'>
         <text class="li_tit">邮箱</text>

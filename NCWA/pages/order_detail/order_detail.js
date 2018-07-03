@@ -11,7 +11,7 @@ Page({
   data: {
     status:0,   //订单状态
     shopId:"",
-    shopName: "",
+    shopName: "", 
     usernumber: "",
     name: "",
     mobile: "",
@@ -23,6 +23,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     share_title:"",
     share_image:"",
+    int_uid:"",
   },
 
   /**
@@ -60,9 +61,11 @@ Page({
             cancel: data.cancel,
             share_title: data.share_title,
             share_image: data.share_image,
+            int_uid:data.int_uid, 
           })
         }
         console.log(res)
+        console.log(that.data.shopId)
       },
       fail: function (res) { },
     })
@@ -175,7 +178,8 @@ Page({
     return {
       title: that.data.share_title,
       imageUrl: that.data.share_image,
-      path: '/pages/share/share'
+      path: '/pages/share/share?book_id=' + that.data.shopId + '&int_uid' + that.data.int_uid
+      // path:'/pages/share/share?book_id=647&int_uid=2112'
     }
   },
   /**

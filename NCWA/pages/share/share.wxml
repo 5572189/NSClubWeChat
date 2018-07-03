@@ -1,7 +1,7 @@
 <view class="share">
     <image class='share_bg' src='../../images/booking_share_bg.jpg'></image>
 
-    <view class='share_box' >
+     <view class='share_box' >
       <view class='share_title'>{{share_title}}</view>
       <image class='share_img' src='{{share_image}}'></image>
       <view class='share_shopName'>{{shop_name}}</view>
@@ -19,5 +19,5 @@
         <image src='../../images/i_phone.png'></image>
         <view>{{name}}:{{mobile}}</view>
       </view>
-    </view>
+    </view> 
 </view>

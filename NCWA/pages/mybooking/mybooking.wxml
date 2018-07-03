@@ -1,7 +1,7 @@
 <view class="order_record">
     <view class="order_record_have" hidden='{{!order_record}}'>
       <view class='order_ul' wx:for="{{result}}" wx:key="{{index}}">
-        <navigator url='../order_detail/order_detail?shopid={{item.id}}&status={{item.status}}' class='order_li' data-id="{{item.id}}">
+        <navigator hover-class="navigator-hover" url='../order_detail/order_detail?shopid={{item.id}}&status={{item.status}}' class='order_li' data-id="{{item.id}}">
           <view class='order_li_img'>
             <image src='{{item.pic}}'></image>
           </view>

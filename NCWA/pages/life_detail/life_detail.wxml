@@ -1,0 +1,7 @@
+<view class="life_detail">
+  <view class='life_detail_box'>
+    <view class='title'>{{string_title}}</view>
+    <view class='time'>{{string_update_time}} <text>NobleSpirits樽尚汇</text></view>
+    <image src="{{link+img}}" mode="widthFix"></image>
+  </view>
+</view>

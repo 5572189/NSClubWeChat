@@ -3,6 +3,9 @@ var token = comment.encryption();
 var app = getApp();
 var link = app.globalData.link;
 var code = wx.getStorageSync('user');
+if (!code){
+  code = "";
+}
 Page({
 
   /**
@@ -24,19 +27,33 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var id = options.book_id;
+    var id = options.book_id,
+      int_uid = options.int_uid;
+    wx.showModal({
+      title: '提示',
+      content: id + "///"+int_uid+"///" + code,
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
       wx.request({
         url: link +'api.php?s=/booking/bookingDetail',
         data: {
           token,
           param: {
             code,
+            int_uid: int_uid,
             id,
           }
         },
         method: 'POST',
         dataType: 'json',
         success: function(res) {
+          console.log(res)
           if(res.statusCode == 200){
             var result = res.data.data.result
             that.setData({
@@ -50,7 +67,7 @@ Page({
               id:result.id,
             })
           }
-          console.log(result)
+          
         },
         fail: function(res) {},
       })

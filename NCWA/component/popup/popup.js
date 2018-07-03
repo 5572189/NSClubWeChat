@@ -197,6 +197,7 @@ Component({
             data: res.data.data.result.code
           })
           app.globalData.code = res.data.data.result.code;
+          app.globalData.phone = phone;
           wx.setStorage({
             key: "phone",
             data: phone
@@ -224,6 +225,7 @@ Component({
             })
           }
           clearInterval(interval);
+          
           console.log(res)
         },
         fail: function(res) {

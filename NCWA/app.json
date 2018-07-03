@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/authorization/authorization",
     "pages/index/index",
     "pages/me/me",
     "pages/detail/detail",
-    "pages/detail_list/detail_list",
+    "pages/life_detail/life_detail",
     "pages/myAccount/myAccount",
     "pages/mybooking/mybooking",
     "pages/order_common/order_common",
@@ -12,7 +13,8 @@
     "pages/partnerRestaurant/partnerRestaurant",
     "pages/tasteLife/tasteLife",
     "pages/share/share",
-    "pages/shopmenu/shopmenu"
+    "pages/shopmenu/shopmenu",
+    "pages/link/link"
   ],
   "window": {
     "backgroundTextStyle": "light",

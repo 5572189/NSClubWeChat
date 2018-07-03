@@ -48,4 +48,5 @@
     </view> -->
   </view>
 </view>
+
  <popup id='popup' title='绑定手机号' phone="{{phone}}" bind:myevent="onGetCode" bind:myeventDelete="onGetCodeDelete"></popup> 
