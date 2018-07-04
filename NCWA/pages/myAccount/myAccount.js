@@ -15,6 +15,7 @@ Page({
     cancle:true,
     user_id:'',
     user_name:'',
+    name:"",
     user_sex:'',
     items:[
       { title:'男',value: '1', checked:true},
@@ -22,7 +23,9 @@ Page({
     ],
     gender:'1',
     user_birthday:'',
+    birthday:"",
     user_mailbox:'',
+    mailbox:"",
     disabled:true,
   },
 
@@ -57,13 +60,13 @@ Page({
             var userInfo = res.data.data.result.userInfo;
             that.setData({
               phone:userInfo.mobile,
-              user_name: userInfo.nickname,
-              user_mailbox:userInfo.email,
+              name: userInfo.nickname,
+              mailbox:userInfo.email,
               user_id: userInfo.id
             })
             if(userInfo.birthday == null){
               that.setData({
-                user_birthday: "",
+                birthday: "",
                 disabled:true
               })
               wx.showModal({
@@ -77,7 +80,7 @@ Page({
               })
             }else{
               that.setData({
-                user_birthday: userInfo.birthday ,
+                birthday: userInfo.birthday ,
                 disabled: false
               })
             }
@@ -156,6 +159,10 @@ Page({
       method: 'POST',
       dataType: 'json',
       success: function(res) {
+        that.setData({
+          name:that.data.user_name,
+          mailbox: that.data.user_mailbox
+        })
         console.log(res)
         if(res.data.data.code == 200){
           wx.showToast({
@@ -210,7 +217,22 @@ Page({
   },
   editing:function(){
     var  that = this;
+    console.log(that.data.user_sex)
+    if (that.data.user_sex == '男'){
+      that.setData({
+        'items[1].checked':false,
+        'items[0].checked' : true
+      })
+    }else{
+      that.setData({
+        'items[1].checked': true,
+        'items[0].checked': false
+      })
+    }
     that.setData({
+      user_name:that.data.name,
+      user_birthday: that.data.birthday,
+      user_mailbox: that.data.mailbox,
       editing: true,
       cancle: false,
     })
@@ -222,35 +244,37 @@ Page({
       cancle: true,
     })
   },
+  //改变性别
   radioChange: function (e) {
     var that = this;
     that.setData({
       gender: e.detail.value
     })
+    console.log(e.detail.value)
   },
+  //改变名字
   bindChangeName: function (e) {
     var that = this;
     that.setData({
       user_name: e.detail.value
     })
   },
+  //生日选择
   bindChangeBirthday: function (e) {
     var that = this;
     that.setData({
       user_birthday: e.detail.value
     })
+    console.log(e.detail.valuee)
   },
   bindChangeMailbox: function (e) {
     var that = this;
     that.setData({
       user_mailbox: e.detail.value
     })
+   
   },
-  bindDateChange: function (e) {
-    this.setData({
-      user_birthday: e.detail.value
-    })
-  },
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -67,7 +67,6 @@ Component({
     //选择时间
     selectTime:function(){
       var that = this;
-      console.log(that.data.time)
       that.setData({
         date_time: that.data.time,
         times: that.data.time[0].arr_times,

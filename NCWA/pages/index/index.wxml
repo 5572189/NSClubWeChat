@@ -77,5 +77,4 @@
     </swiper>
   </view>
    <navigator url='/pages/tasteLife/tasteLife' class="more">更多</navigator>
-
 </view>

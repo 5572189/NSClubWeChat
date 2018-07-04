@@ -20,7 +20,7 @@
     <view class='ul'>
       <view class='li'>
         <text class="li_tit">姓名</text>
-        <text class='li_tit'>{{user_name}}</text>
+        <text class='li_tit'>{{name}}</text>
       </view>
       <view class='li'>
         <text class="li_tit">性别</text>
@@ -28,12 +28,12 @@
       </view>
       <view class='li'>
         <text class="li_tit">生日</text>
-        <text class='li_tit'>{{user_birthday}}</text>
+        <text class='li_tit'>{{birthday}}</text>
         <text class='li_de'>(填写后不可修改)</text>
       </view>
       <view class='li'>
         <text class="li_tit">邮箱</text>
-        <text class='li_tit'>{{user_mailbox}}</text>
+        <text class='li_tit'>{{mailbox}}</text>
       </view>
     </view>
     <view class='exit' bindtap='userExit'>
@@ -58,7 +58,7 @@
       </view>
       <view class='li picker_birthday'>
         <text class="li_tit">生日</text>
-        <picker class='inp_birthday'  mode="date" value="{{date}}"  bindchange="bindDateChange">
+        <picker class='inp_birthday'  mode="date" value="{{date}}"  bindchange="bindChangeBirthday">
           <view class="picker">
             {{user_birthday}}
           </view>

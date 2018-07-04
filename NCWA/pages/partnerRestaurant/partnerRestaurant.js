@@ -42,7 +42,6 @@ function list_search(that,page){
             isresult = false;
           }
         }
-        console.log(res)
       },
       fail: function (res) {
 
@@ -150,7 +149,6 @@ Page({
       },
       dataType: 'json',
       success: function (res) {
-        console.log(res)
         if (res.data.data.code == 200) {
           var arr = {
             "int_id": 0,
@@ -276,12 +274,13 @@ Page({
       headerImg,
       condition,
       reset:true,
-      headerdata:headeritems
+      headerdata: headerImg
     })
   },
   //重置条件
   resetCondition:function(){
     var that = this;
+    isresult = true;
     wx.request({
       url: link + '/api.php?s=/booking/booking_list_search',
       data: {
@@ -315,7 +314,8 @@ Page({
           that.setData({
             condition: "你好，什么时候，几位？",
             reset:false,
-            headerImg: res.data.data.result.arr_shop_data
+            headerImg: res.data.data.result.arr_shop_data,
+            page:1,
           })
         }
       },
@@ -360,7 +360,6 @@ Page({
         })
        
         list_search(that, that.data.page)
-        console.log(that.data.headerImg)
   },
   preventTouchMove:function(){
 

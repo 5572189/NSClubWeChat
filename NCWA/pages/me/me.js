@@ -92,8 +92,7 @@ Page({
     var value = wx.getStorageSync('user');
     var that = this;
     if (value){
-     
-      wx.reLaunch({
+      wx.navigateTo({
         url: '../myAccount/myAccount'
       }) 
     }else{
@@ -108,7 +107,7 @@ Page({
     var value = wx.getStorageSync('user');
     var that = this;
     if (value) {
-      wx.reLaunch({
+      wx.navigateTo({
         url: '../mybooking/mybooking'
       })
     } else {

@@ -2,6 +2,7 @@
   "pages": [
     "pages/authorization/authorization",
     "pages/index/index",
+    
     "pages/me/me",
     "pages/detail/detail",
     "pages/life_detail/life_detail",

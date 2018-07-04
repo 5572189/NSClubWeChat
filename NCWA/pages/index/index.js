@@ -24,6 +24,8 @@ Page({
     })
   },
   onLoad: function (options) {
+    
+    
     var token = comment.encryption();
     var time = new Date();
     var self = this;
@@ -44,7 +46,7 @@ Page({
             lifeNumber: res.data.data.result.arr_index_life_data.length,
           })
         }
-        // console.log(res)
+        console.log(res)
       },
       fail: function (res) {
 
@@ -52,6 +54,7 @@ Page({
     })
 
   },
+
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
