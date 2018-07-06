@@ -129,6 +129,7 @@ page {
     bottom: 0;
     background: #fff;
     padding: 20rpx 0;
+    border-top: 1rpx solid #f8f8f8;
 }
 
 .shopServer_item {
