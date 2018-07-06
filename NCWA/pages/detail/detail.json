@@ -1,6 +1,6 @@
 {
-  "usingComponents": {
-    "popup": "/component/popup/popup"
-  },
-  "navigationBarTitleText": "详情页"
+    "usingComponents": {
+        "popup": "/component/popup/popup"
+    },
+    "navigationBarTitleText": "详情页"
 }

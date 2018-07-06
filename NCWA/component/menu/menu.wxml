@@ -1,11 +1,10 @@
 <view class='menu' hidden='{{flags}}' bindtap='bindinghidden'>
-  <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
-  <block wx:for="{{imgUrls}}">
-    <swiper-item>
-      <image src="{{link+item.string_pic_url}}" class="slide-image" />
-      <view class='slide-name'>{{item.string_title_cn}}</view>
-    </swiper-item>
-  </block>
-</swiper>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+                <image src="{{link+item.string_pic_url}}" class="slide-image" />
+                <view class='slide-name'>{{item.string_title_cn}}</view>
+            </swiper-item>
+        </block>
+    </swiper>
 </view>

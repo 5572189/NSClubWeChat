@@ -1,36 +1,41 @@
-page{
-  background: #f8f8f8;
+page {
+    background: #f8f8f8;
 }
-.authorization{
-  width: 100%;
+
+.authorization {
+    width: 100%;
 }
-.authorization image{
-  display: block;
-  width: 162rpx;
-  height: 187rpx;
-  margin: 0 auto;
-  padding-top: 287rpx;
+
+.authorization image {
+    display: block;
+    width: 162rpx;
+    height: 187rpx;
+    margin: 0 auto;
+    padding-top: 287rpx;
 }
-.title{
-  text-align: center;
-  font-size: 30rpx;
-  color: #bebebe;
-  padding: 30rpx 0 55rpx 0;
-  padding-left: 25rpx;
+
+.title {
+    text-align: center;
+    font-size: 30rpx;
+    color: #bebebe;
+    padding: 30rpx 0 55rpx 0;
+    padding-left: 25rpx;
 }
-.authorization button{
-  display: block;
-  font-size: 30rpx;
-  color: #fff;
-  background-color: #ceb173;
-  width: 315rpx;
-  height: 85rpx;
-  line-height: 85rpx;
-  text-align: center;
+
+.authorization button {
+    display: block;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #ceb173;
+    width: 315rpx;
+    height: 85rpx;
+    line-height: 85rpx;
+    text-align: center;
 }
-.message{
-  text-align: center;
-  font-size: 30rpx;
-  color: #bebebe;
-  padding-top: 350rpx;
+
+.message {
+    text-align: center;
+    font-size: 30rpx;
+    color: #bebebe;
+    padding-top: 350rpx;
 }

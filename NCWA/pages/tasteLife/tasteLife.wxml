@@ -1,6 +1,6 @@
 <view class="taste_life">
     <navigator class='li' wx:for="{{headerImg}}" url="../life_detail/life_detail?int_id={{item.int_id}}">
-      <image src='{{link + item.string_pic_url}}'></image>
-      <view>{{item.string_title}}</view>
+        <image src='{{link + item.string_pic_url}}'></image>
+        <view>{{item.string_title}}</view>
     </navigator>
 </view>

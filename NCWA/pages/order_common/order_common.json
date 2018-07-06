@@ -1,6 +1,6 @@
 {
-  "usingComponents": {
-    "pay": "/component/pay/pay"
-  },
-  "navigationBarTitleText": "餐厅订座"
+    "usingComponents": {
+        "pay": "/component/pay/pay"
+    },
+    "navigationBarTitleText": "餐厅订座"
 }

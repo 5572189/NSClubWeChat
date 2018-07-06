@@ -1,46 +1,45 @@
 {
-  "pages": [
-    "pages/authorization/authorization",
-    "pages/index/index",
-    
-    "pages/me/me",
-    "pages/detail/detail",
-    "pages/life_detail/life_detail",
-    "pages/myAccount/myAccount",
-    "pages/mybooking/mybooking",
-    "pages/order_common/order_common",
-    "pages/order_detail/order_detail",
-    "pages/order_waiting/order_waiting",
-    "pages/partnerRestaurant/partnerRestaurant",
-    "pages/tasteLife/tasteLife",
-    "pages/share/share",
-    "pages/shopmenu/shopmenu",
-    "pages/link/link"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "樽尚汇",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#000000",
-    "backgroundColor": "#fff",
-    "borderStyle": "white",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "images/ico_index.png",
-        "selectedIconPath": "images/ico_index_se.png"
-      },
-      {
-        "pagePath": "pages/me/me",
-        "text": "我的",
-        "iconPath": "images/ico_me.png",
-        "selectedIconPath": "images/ico_me_se.png"
-      }
-    ]
-  }
+    "pages": [
+        "pages/authorization/authorization",
+        "pages/index/index",
+        "pages/me/me",
+        "pages/detail/detail",
+        "pages/life_detail/life_detail",
+        "pages/myAccount/myAccount",
+        "pages/mybooking/mybooking",
+        "pages/order_common/order_common",
+        "pages/order_detail/order_detail",
+        "pages/order_waiting/order_waiting",
+        "pages/partnerRestaurant/partnerRestaurant",
+        "pages/tasteLife/tasteLife",
+        "pages/share/share",
+        "pages/shopmenu/shopmenu",
+        "pages/link/link"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "樽尚汇",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#000000",
+        "selectedColor": "#000000",
+        "backgroundColor": "#fff",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/ico_index.png",
+                "selectedIconPath": "images/ico_index_se.png"
+            },
+            {
+                "pagePath": "pages/me/me",
+                "text": "我的",
+                "iconPath": "images/ico_me.png",
+                "selectedIconPath": "images/ico_me_se.png"
+            }
+        ]
+    }
 }

@@ -3,131 +3,137 @@ var token = comment.encryption();
 var app = getApp();
 var link = app.globalData.link;
 Component({
-  options: {
-    multipleSlots: true // 在组件定义时的选项中启用多slot支持  
-  },
-  /** 
-   * 组件的属性列表 
-   */
-  properties: {
-    title: {
-      type: String,
-      value: ''
-    }
-  },
-
-  /** 
-   * 组件的初始数据 
-   */
-  data: {
-    flags: true,
-  },
-
-  /** 
-   * 组件的方法列表 
-   */
-  methods: {
-    //组件显示
-    bindingShow: function () {
-      var that = this;
-      that.setData({
-        flags: false,
-      })
+    options: {
+        multipleSlots: true // 在组件定义时的选项中启用多slot支持  
     },
-    bindinghidden:function(){
-      var that = this;
-      that.setData({
+    /** 
+     * 组件的属性列表 
+     */
+    properties: {
+        title: {
+            type: String,
+            value: ''
+        }
+    },
+
+    /** 
+     * 组件的初始数据 
+     */
+    data: {
         flags: true,
-      })
     },
-    affirm_pay:function(){
-      var that = this
-      //登陆获取code
-      wx.login({
-        success: function (res) {
-          //获取openid
-          that.getOpenId(res.code)
+
+    /** 
+     * 组件的方法列表 
+     */
+    methods: {
+        //组件显示
+        bindingShow: function() {
+            var that = this;
+            that.setData({
+                flags: false,
+            })
+        },
+        bindinghidden: function() {
+            var that = this;
+            that.setData({
+                flags: true,
+            })
+        },
+        affirm_pay: function() {
+            var that = this
+            //登陆获取code
+            wx.login({
+                success: function(res) {
+                    //获取openid
+                    that.getOpenId(res.code)
+                }
+            });
+
+        },
+        getOpenId: function(code) {
+            var that = this;
+            wx.request({
+                url: "https://api.weixin.qq.com/sns/jscode2session?appid=wxb42e67f6ade789cb&secret=0c9545d437bebe2d5f7ec27eb3da813c&js_code=" + code + "&grant_type=authorization_code",
+                data: {},
+                method: 'GET',
+                success: function(res) {
+                    console.log(res)
+                    // that.generateOrder(res.data.openid)
+                },
+                fail: function() {
+                    // fail
+                },
+                complete: function() {
+                    // complete
+                }
+            })
+        },
+        /**生成商户订单 */
+        generateOrder: function(openid) {
+            var that = this
+            //统一支付
+            wx.request({
+                url: '后台路径',
+                method: 'POST',
+                data: {
+                    gfee: '商品价钱',
+                    gname: '商品名称',
+                    openId: openid
+                    // （商品价钱和商品名称根据自身需要是否传值, openid为必传）
+                },
+                success: function(res) {
+                    var pay = res.data;
+                    //发起支付
+                    var timeStamp = pay[0].timeStamp;
+                    var packages = pay[0].package;
+                    var paySign = pay[0].paySign;
+                    var nonceStr = pay[0].nonceStr;
+                    var param = {
+                        "timeStamp": timeStamp,
+                        "package": packages,
+                        "paySign": paySign,
+                        "signType": "MD5",
+                        "nonceStr": nonceStr
+                    };
+                    that.pay(param)
+                },
+            })
+        },
+        /* 支付   */
+        pay: function(param) {
+            wx.requestPayment({
+                timeStamp: param.timeStamp,
+                nonceStr: param.nonceStr,
+                package: param.package,
+                signType: param.signType,
+                paySign: param.paySign,
+                success: function(res) {
+                    // success
+                    wx.navigateBack({
+                        delta: 1, // 回退前 delta(默认为1) 页面
+                        success: function(res) {
+                            wx.showToast({
+                                title: '支付成功',
+                                icon: 'success',
+                                duration: 2000
+                            })
+                        },
+                        fail: function() {
+                            // fail
+                        },
+                        complete: function() {
+                            // complete
+                        }
+                    })
+                },
+                fail: function(res) {
+                    // fail
+                },
+                complete: function() {
+                    // complete
+                }
+            })
         }
-      });
-     
-    },
-    getOpenId: function (code) {
-      var that = this;
-      wx.request({
-        url: "https://api.weixin.qq.com/sns/jscode2session?appid=wxb42e67f6ade789cb&secret=0c9545d437bebe2d5f7ec27eb3da813c&js_code=" + code + "&grant_type=authorization_code",
-        data: {},
-        method: 'GET',
-        success: function (res) {
-          console.log(res)
-          // that.generateOrder(res.data.openid)
-        },
-        fail: function () {
-          // fail
-        },
-        complete: function () {
-          // complete
-        }
-      })
-    },
-    /**生成商户订单 */
-    generateOrder: function (openid) {
-      var that = this
-      //统一支付
-      wx.request({
-        url: '后台路径',
-        method: 'POST',
-        data: {
-          gfee: '商品价钱',
-          gname: '商品名称',
-          openId: openid
-          // （商品价钱和商品名称根据自身需要是否传值, openid为必传）
-        },
-        success: function (res) {
-          var pay = res.data;
-          //发起支付
-          var timeStamp = pay[0].timeStamp;
-          var packages = pay[0].package;
-          var paySign = pay[0].paySign;
-          var nonceStr = pay[0].nonceStr;
-          var param = { "timeStamp": timeStamp, "package": packages, "paySign": paySign, "signType": "MD5", "nonceStr": nonceStr };
-          that.pay(param)
-        },
-      })
-    },
-    /* 支付   */
-    pay: function (param) {
-      wx.requestPayment({
-        timeStamp: param.timeStamp,
-        nonceStr: param.nonceStr,
-        package: param.package,
-        signType: param.signType,
-        paySign: param.paySign,
-        success: function (res) {
-          // success
-          wx.navigateBack({
-            delta: 1, // 回退前 delta(默认为1) 页面
-            success: function (res) {
-              wx.showToast({
-                title: '支付成功',
-                icon: 'success',
-                duration: 2000
-              })
-            },
-            fail: function () {
-              // fail
-            },
-            complete: function () {
-              // complete
-            }
-          })
-        },
-        fail: function (res) {
-          // fail
-        },
-        complete: function () {
-          // complete
-        }
-      })
     }
-  }
-})  
+})

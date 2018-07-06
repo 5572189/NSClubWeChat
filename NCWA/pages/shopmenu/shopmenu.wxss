@@ -1,34 +1,40 @@
-.shopmenu{
-  width: 100%;
+.shopmenu {
+    width: 100%;
 }
-.shopmenu .ul{
-  width: 100%;
+
+.shopmenu .ul {
+    width: 100%;
 }
-.shopmenu .ul::after{
-  content: "";
-  display: block;
-  clear: both;
+
+.shopmenu .ul::after {
+    content: "";
+    display: block;
+    clear: both;
 }
-.shopmenu .ul::before{
-  content: "";
-  display: block;
-  clear: both;
+
+.shopmenu .ul::before {
+    content: "";
+    display: block;
+    clear: both;
 }
-.ul .li{
-  float: left;
-  width: 50%;
-  margin-bottom: 35rpx;
+
+.ul .li {
+    float: left;
+    width: 50%;
+    margin-bottom: 35rpx;
 }
-.shopmenu_img{
-  width: 100%;
-  height: 400rpx;
+
+.shopmenu_img {
+    width: 100%;
+    height: 400rpx;
 }
-.shopmenu_name{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 25rpx;
-  text-align: center;
-  font-size: 30rpx;
-  color: #333333;
+
+.shopmenu_name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 25rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
 }

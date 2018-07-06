@@ -1,23 +1,23 @@
 <view class="share">
     <image class='share_bg' src='../../images/booking_share_bg.jpg'></image>
 
-     <view class='share_box' >
-      <view class='share_title'>{{share_title}}</view>
-      <image class='share_img' src='{{share_image}}'></image>
-      <view class='share_shopName'>{{shop_name}}</view>
-      <view class='share_number'>共{{number}}人 | 大厅位置</view>
-      <navigator url='/pages/detail/detail?id={{id}}' class="share_shopDetail">查看餐厅介绍</navigator>
-      <view class='share_message'>
-        <image src='../../images/i_time.png'></image>
-        <view>{{time}}</view>
-      </view>
-      <view class='share_message'>
-        <image src='../../images/i_address.png'></image>
-        <view>{{string_shop_address}}</view>
-      </view>
-      <view class='share_message'>
-        <image src='../../images/i_phone.png'></image>
-        <view>{{name}}:{{mobile}}</view>
-      </view>
-    </view> 
+    <view class='share_box'>
+        <view class='share_title'>{{share_title}}</view>
+        <image class='share_img' src='{{share_image}}'></image>
+        <view class='share_shopName'>{{shop_name}}</view>
+        <view class='share_number'>共{{number}}人 | 大厅位置</view>
+        <navigator url='/pages/detail/detail?id={{id}}' class="share_shopDetail">查看餐厅介绍</navigator>
+        <view class='share_message'>
+            <image src='../../images/i_time.png'></image>
+            <view>{{time}}</view>
+        </view>
+        <view class='share_message'>
+            <image src='../../images/i_address.png'></image>
+            <view>{{string_shop_address}}</view>
+        </view>
+        <view class='share_message'>
+            <image src='../../images/i_phone.png'></image>
+            <view>{{name}}:{{mobile}}</view>
+        </view>
+    </view>
 </view>

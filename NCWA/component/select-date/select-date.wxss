@@ -1,168 +1,197 @@
-.timeComponent{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #f7f7f7;
-  z-index: 9999;
+.timeComponent {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    z-index: 9999;
 }
-.li{
-  width: 690rpx;
-  margin: 0 auto;
-  padding-top: 50rpx;
-  margin-bottom: 100rpx;
+
+.li {
+    width: 690rpx;
+    margin: 0 auto;
+    padding-top: 50rpx;
+    margin-bottom: 100rpx;
 }
-.li .title{
-  font-size: 32rpx;
-  color: #353535;
-  text-align: center;
-  padding-bottom: 30rpx;
+
+.li .title {
+    font-size: 32rpx;
+    color: #353535;
+    text-align: center;
+    padding-bottom: 30rpx;
 }
-.userSelect{
-  width: 100%;
-  height: 90rpx;
-  line-height: 90rpx;
-  background: #fff;
-  border-radius: 10rpx;
-  display: flex;
-  justify-content: space-between;
+
+.userSelect {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    display: flex;
+    justify-content: space-between;
 }
-.dateData{
-  font-size: 30rpx;
-  color: #888888;
-  padding-left: 55rpx;
+
+.dateData {
+    font-size: 30rpx;
+    color: #888;
+    padding-left: 55rpx;
 }
-.select{
-  font-size: 30rpx;
-  color: #ceb173;
-  padding: 0 50rpx;
-  border-left: 1rpx solid #b2b2b2;
-}  
-.arithmetic{
-  width: 110rpx;
-  text-align: center;
-  font-size: 40rpx;
+
+.select {
+    font-size: 30rpx;
+    color: #ceb173;
+    padding: 0 50rpx;
+    border-left: 1rpx solid #b2b2b2;
 }
-.subtract{
-  border-right: 1rpx solid #b2b2b2;
+
+.arithmetic {
+    width: 110rpx;
+    text-align: center;
+    font-size: 40rpx;
 }
-.number{
-  font-size: 36rpx;
-  color: #ceb173;
+
+.subtract {
+    border-right: 1rpx solid #b2b2b2;
 }
-.add{
-  border-left: 1rpx solid #b2b2b2;
+
+.number {
+    font-size: 36rpx;
+    color: #ceb173;
 }
-.room{
-  font-size: 30rpx;
-  color: #333333;
-  padding-left: 55rpx;
+
+.add {
+    border-left: 1rpx solid #b2b2b2;
 }
-.switch{
-   transform:scale(0.7) !important;
+
+.room {
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 55rpx;
 }
-.btn{
-  width: 640rpx;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  padding-top:70rpx;
+
+.switch {
+    transform: scale(0.7) !important;
 }
-.btn view{
-  width: 295rpx;
-  height: 90rpx;
-  text-align: center;
-  line-height: 90rpx;
-  font-size: 30rpx;
-  color: #fff;
-  border-radius: 50rpx;
+
+.btn {
+    width: 640rpx;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 70rpx;
 }
-.cancel{
-  background: #888888;
+
+.btn view {
+    width: 295rpx;
+    height: 90rpx;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    color: #fff;
+    border-radius: 50rpx;
 }
-.seek{
-  background: #ceb173;
+
+.cancel {
+    background: #888;
+}
+
+.seek {
+    background: #ceb173;
 }
 
 /* 组件 日期*/
 
-.time_component{
-  position: fixed;
-  top:0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,.5);
-  z-index: 9999;
+.time_component {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
 }
-.time_component_box{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 730rpx;
+
+.time_component_box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 730rpx;
 }
-.time_component-title{
-  position: relative;
-  width: 100%;
-  height: 120rpx;
-  line-height: 120rpx;
-  background: #fff;
-  text-align: center;
+
+.time_component-title {
+    position: relative;
+    width: 100%;
+    height: 120rpx;
+    line-height: 120rpx;
+    background: #fff;
+    text-align: center;
 }
-.time_component-title text{
-  text-align: center;
-  font-size: 34rpx;
-  color: #141414;
+
+.time_component-title text {
+    text-align: center;
+    font-size: 34rpx;
+    color: #141414;
 }
-.time_component-title image{
-  position: absolute;
-  right: 32rpx;
-  top: 30rpx;
-  width: 50rpx;
-  height: 50rpx;
+
+.time_component-title image {
+    position: absolute;
+    right: 32rpx;
+    top: 30rpx;
+    width: 50rpx;
+    height: 50rpx;
 }
-.time_component_item{
-  width: 100%;
-  height: 100%;
+
+.time_component_item {
+    width: 100%;
+    height: 100%;
 }
-.time_component_item::after{
-  display: block;
-  content: "";
-  clear: both;
+
+.time_component_item::after {
+    display: block;
+    content: "";
+    clear: both;
 }
-.time_component_item .date,.time{
-  float: left;
-  width: 50%;
-  height: 610rpx;
-  overflow: auto;
+
+.time_component_item .date, .time {
+    float: left;
+    width: 50%;
+    height: 610rpx;
+    overflow: auto;
 }
-.time_component_item .date{
-  background-color: #dddddd;
-  padding-bottom: 50rpx;
+
+.time_component_item .date {
+    background-color: #ddd;
+    padding-bottom: 50rpx;
 }
-.time_component_item .time{
-  background-color: #fff;
+
+.time_component_item .time {
+    background-color: #fff;
 }
-.time view{
-  width: 100%;
-  text-align: center;
-  padding: 30rpx 0;
-  font-size: 30rpx;
-  color: #353535;
+
+.time view {
+    width: 100%;
+    text-align: center;
+    padding: 30rpx 0;
+    font-size: 30rpx;
+    color: #353535;
 }
-.times{
-  display: block;
-  width: 100%;
-  font-size: 30rpx;
-  text-align: center;
-  padding: 30rpx 0;
-  color: #353535;
+
+.times {
+    display: block;
+    width: 100%;
+    font-size: 30rpx;
+    text-align: center;
+    padding: 30rpx 0;
+    color: #353535;
 }
-.gary{
-  color: #888;
+
+.gary {
+    color: #888;
 }
+
 .on {
-  background: #fff;
+    background: #fff;
 }
-.on text{
-  color: #ceb173;
+
+.on text {
+    color: #ceb173;
 }

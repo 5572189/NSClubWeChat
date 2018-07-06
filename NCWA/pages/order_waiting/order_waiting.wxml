@@ -1,36 +1,35 @@
-
 <view class='order_waiting'>
 
     <view class='order_status'>
-      <image class='status_img' src='../../images/wait.png'></image>
-      <view class='status_title'>请稍等片刻，正在为您安排...</view>
-      <view class='status_message'>预计将在10:00分钟内，短信告知您的订座结果</view>
+        <image class='status_img' src='../../images/wait.png'></image>
+        <view class='status_title'>请稍等片刻，正在为您安排...</view>
+        <view class='status_message'>预计将在10:00分钟内，短信告知您的订座结果</view>
     </view>
 
 
     <view class='order_date'>
-      <view class='shop_name'>{{shopName}}</view>
-      <view class='li'>
-        <text class="li_tit">就餐时间</text>
-        <text class='user_message'>{{time}}</text>
-      </view>
-      <view class='li'>
-        <text class="li_tit">就餐人数</text>
-        <text class='user_message'>{{usernumber}}</text>
-        <text class=' room {{private_room != 0?"showroom":""}}'>（优先包间）</text>
-      </view>
-      <view class='li'>
-        <text class="li_tit">顾客信息</text>
-        <text class='user_message'>{{name}} {{mobile}}</text>
-      </view>
-      <view class='li note {{note !== ""?"show":""}}'>
-        <text class="li_tit">顾客留言</text>
-        <text class='user_message'>{{note}}</text>
-      </view>
+        <view class='shop_name'>{{shopName}}</view>
+        <view class='li'>
+            <text class="li_tit">就餐时间</text>
+            <text class='user_message'>{{time}}</text>
+        </view>
+        <view class='li'>
+            <text class="li_tit">就餐人数</text>
+            <text class='user_message'>{{usernumber}}</text>
+            <text class=' room {{private_room != 0?"showroom":""}}'>（优先包间）</text>
+        </view>
+        <view class='li'>
+            <text class="li_tit">顾客信息</text>
+            <text class='user_message'>{{name}} {{mobile}}</text>
+        </view>
+        <view class='li note {{note !== ""?"show":""}}'>
+            <text class="li_tit">顾客留言</text>
+            <text class='user_message'>{{note}}</text>
+        </view>
     </view>
 
 
-    <view class='status_btn' >
-      <view class='check' bindtap='check'>查看订单</view>
+    <view class='status_btn'>
+        <view class='check' bindtap='check'>查看订单</view>
     </view>
 </view>

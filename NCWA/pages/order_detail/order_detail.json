@@ -1,6 +1,5 @@
-
 {
-  "navigationBarTitleText": "餐厅订座",
-  "navigationBarBackgroundColor": "#333",
-  "navigationBarTextStyle": "#fff"
+    "navigationBarTitleText": "餐厅订座",
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTextStyle": "#fff"
 }

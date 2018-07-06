@@ -1,147 +1,172 @@
 /* pages/detail/detail.wxss */
-page{
-  background-color: #f8f8f8;
-}
-.banner{
-  width: 750rpx;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.bannerSwiper{
-  width: 100%;
-  height: 500rpx;
-}
-.slide-image{
-  width: 100%;
-  height: 500rpx;
-}
-.shopDetail{
-  width: 100%;
-  background: #fff;
-  margin-top: 30rpx;
-  margin-bottom: 200rpx;
-}
-.shopName{
-  padding: 42rpx 30rpx;
-  font-size: 36rpx;
-  color: #353535;
-  
-}
-.recommend_box{
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30rpx 42rpx 30rpx;
-  margin-top: 30rpx;
-  margin-bottom: 50rpx;
-}
-.recommend-title{
-  padding-right: 20rpx;
-  font-size: 28rpx;
-  color:#333333;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-}
-.recommend_item{
-  position: relative;
-  width: 205rpx;
-}
-.recommend_item text{
-  position: absolute;
-  left: 40rpx;
-  top: 5rpx;
-  font-size: 28rpx;
-  color: #fff !important;
-}
-.item_bg{
-  position: absolute;
-  left: 0;
-  width: 205rpx !important;
-  height: 50rpx !important;
-  text-align: center;
-}
-.recommend_item .checkall{
-  color: #888 !important;
-}
-.recommend_item .rigth{
-  position: absolute;
-  right: 0;
-  top: 5rpx;
-  width: 40rpx;
-  height: 40rpx;
-  vertical-align: middle;
-}
-.recommendSwiper{
-  height: 240rpx;
-}
-.recommendSwiper swiper-item{
-   width: 210rpx !important;
-}
-.recommend-image{
-  width: 180rpx;
-  height: 180rpx;
-}
-.shopMessage{
-  padding: 42rpx 30rpx;
-}
-.shopMessage_title image{
-  width: 46rpx;
-  height: 46rpx;
-  vertical-align: middle;
-  padding: 0 20rpx 0 10rpx;
-}
-.shopMessage_title text{
-  font-size: 32rpx;
-  color: #353535;
-  vertical-align: middle;
-}
-.business{
-  padding: 10rpx 30rpx 60rpx 75rpx;
-  font-size: 28rpx;
-  color: #888888;
-  text-align:justify;
 
+page {
+    background-color: #f8f8f8;
 }
-.shopServer{
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background: #fff;
-  padding: 20rpx 0;
+
+.banner {
+    width: 750rpx;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
-.shopServer_item{
-  width: 690rpx;
-  height: 60rpx;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+
+.bannerSwiper {
+    width: 100%;
+    height: 500rpx;
 }
-.shopServer_item view{
-  width: 50%;
-  text-align: center;
+
+.slide-image {
+    width: 100%;
+    height: 500rpx;
 }
-.shopServer_item view:first-child{
-  border-right: 1rpx solid #888;
+
+.shopDetail {
+    width: 100%;
+    background: #fff;
+    margin-top: 30rpx;
+    margin-bottom: 200rpx;
 }
-.serverImg{
-  width: 50rpx;
-  height: 50rpx;
-  vertical-align: middle;
-  margin-right: 20rpx;
+
+.shopName {
+    padding: 42rpx 30rpx;
+    font-size: 36rpx;
+    color: #353535;
 }
-.serverTitele{
-  font-size: 28rpx;
-  color: #353535;
+
+.recommend_box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30rpx 42rpx 30rpx;
+    margin-top: 30rpx;
+    margin-bottom: 50rpx;
 }
-.serverTitele_gary{
-  font-size: 28rpx;
-  color: #c2c2c2;
+
+.recommend-title {
+    padding-right: 20rpx;
+    font-size: 28rpx;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
-.hidden{
-  display: none;
+
+.recommend_item {
+    position: relative;
+    width: 205rpx;
 }
-.show{
-  display: block;
+
+.recommend_item text {
+    position: absolute;
+    left: 40rpx;
+    top: 5rpx;
+    font-size: 28rpx;
+    color: #fff !important;
+}
+
+.item_bg {
+    position: absolute;
+    left: 0;
+    width: 205rpx !important;
+    height: 50rpx !important;
+    text-align: center;
+}
+
+.recommend_item .checkall {
+    color: #888 !important;
+}
+
+.recommend_item .rigth {
+    position: absolute;
+    right: 0;
+    top: 5rpx;
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+}
+
+.recommendSwiper {
+    height: 240rpx;
+}
+
+.recommendSwiper swiper-item {
+    width: 210rpx !important;
+}
+
+.recommend-image {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.shopMessage {
+    padding: 42rpx 30rpx;
+}
+
+.shopMessage_title image {
+    width: 46rpx;
+    height: 46rpx;
+    vertical-align: middle;
+    padding: 0 20rpx 0 10rpx;
+}
+
+.shopMessage_title text {
+    font-size: 32rpx;
+    color: #353535;
+    vertical-align: middle;
+}
+
+.business {
+    padding: 10rpx 30rpx 60rpx 75rpx;
+    font-size: 28rpx;
+    color: #888;
+    text-align: justify;
+}
+
+.shopServer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    padding: 20rpx 0;
+}
+
+.shopServer_item {
+    width: 690rpx;
+    height: 60rpx;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopServer_item view {
+    width: 100%;
+    text-align: center;
+}
+
+
+.serverImg {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+.serverTitele {
+    font-size: 28rpx;
+    color: #353535;
+}
+
+.serverTitele_gary {
+    font-size: 28rpx;
+    color: #c2c2c2;
+}
+
+.hidden {
+    display: none;
+     border-left: 1rpx solid #888;
+}
+
+.show {
+    display: block;
 }

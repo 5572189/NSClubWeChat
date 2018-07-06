@@ -1,102 +1,92 @@
 <!--pages/detail/detail.wxml-->
 <view class='banner'>
-  <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" indicator-color="{{colorALL}}" indicator-active-color="{{color}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{arr_shop_detail.arr_banner_pic}}">
-      <swiper-item>
-        <image src="{{link+item}}" class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
-  
-  <view class='shopDetail'>
-    
-      <view class='shopName'>{{arr_shop_detail.string_title}}</view>
-      <!-- 推荐菜品 -->
-      <view hidden='{{hasmenu}}'>
-        <view class='recommend_box'>
-          <view class='recommend_item'>
-          <image class='item_bg' src='../../images/titleBg.png'></image>
-            <text>推荐菜品</text> 
-          </view>
-          <view class='recommend_item'>
-            <text class='checkall' bindtap='checkAll'>查看全部</text>
-            <image class='rigth' src='../../images/icons_left.png'></image>
-          </view>
-        </view>
-        <!-- 推荐菜品swiper -->
-        <swiper class='recommendSwiper'  previous-margin="{{'30rpx'}}"
-          autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-          <navigator url='../shopmenu/shopmenu?shopid={{item.int_shop_id}}'  wx:for="{{arr_shop_menu}}">
+    <swiper class='bannerSwiper' indicator-dots="{{indicatorDots}}" indicator-color="{{colorALL}}" indicator-active-color="{{color}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{arr_shop_detail.arr_banner_pic}}">
             <swiper-item>
-              <image src="{{link+item.string_pic_url}}" class="recommend-image"/>
-              <view class="recommend-title">{{item.string_title_cn}}</view>
+                <image src="{{link+item}}" class="slide-image" />
             </swiper-item>
-          </navigator >
-        </swiper>
-      </view>
-    <!-- 商家信息 -->
-    <view class='recommend_box'>
-      <view class='recommend_item'>
-      <image class='item_bg' src='../../images/titleBg.png'></image>
-         <text>商家信息</text>
-      </view>
+        </block>
+    </swiper>
+
+    <view class='shopDetail'>
+
+        <view class='shopName'>{{arr_shop_detail.string_title}}</view>
+        <!-- 推荐菜品 -->
+        <view hidden='{{hasmenu}}'>
+            <view class='recommend_box'>
+                <view class='recommend_item'>
+                    <image class='item_bg' src='../../images/titleBg.png'></image>
+                    <text>推荐菜品</text>
+                </view>
+                <view class='recommend_item'>
+                    <text class='checkall' bindtap='checkAll'>查看全部</text>
+                    <image class='rigth' src='../../images/icons_left.png'></image>
+                </view>
+            </view>
+            <!-- 推荐菜品swiper -->
+            <swiper class='recommendSwiper' previous-margin="{{'30rpx'}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                <navigator url='../shopmenu/shopmenu?shopid={{item.int_shop_id}}' wx:for="{{arr_shop_menu}}">
+                    <swiper-item>
+                        <image src="{{link+item.string_pic_url}}" class="recommend-image" />
+                        <view class="recommend-title">{{item.string_title_cn}}</view>
+                    </swiper-item>
+                </navigator>
+            </swiper>
+        </view>
+        <!-- 商家信息 -->
+        <view class='recommend_box'>
+            <view class='recommend_item'>
+                <image class='item_bg' src='../../images/titleBg.png'></image>
+                <text>商家信息</text>
+            </view>
+        </view>
+
+        <view class='shopMessage'>
+            <view class='shopMessage_title'>
+                <image src='../../images/icon2_01.png'></image>
+                <text>营业时间</text>
+            </view>
+            <view class='business'>{{arr_shop_detail.string_open_time}}</view>
+
+            <view class='shopMessage_title'>
+                <image src='../../images/icon2_02.png'></image>
+                <text>地址</text>
+            </view>
+            <view class='business'>{{arr_shop_detail.string_address}}</view>
+
+            <view class='shopMessage_title'>
+                <image src='../../images/icon2_04.png'></image>
+                <text>电话</text>
+            </view>
+            <view class='business'>{{arr_shop_detail.string_telphone}}</view>
+
+            <view class='shopMessage_title'>
+                <image src='../../images/icon2_06.png'></image>
+                <text>商户介绍</text>
+            </view>
+            <view class='business'>{{arr_shop_detail.string_introduction}}</view>
+
+            <view class='shopMessage_title'>
+                <image src='../../images/icon2_05.png'></image>
+                <text>特权</text>
+            </view>
+            <view class='business'>
+                <view wx:for="{{arr_shop_detail.arr_power}}">{{item}}</view>
+            </view>
+        </view>
     </view>
 
-    <view class='shopMessage'>
-      <view class='shopMessage_title'>
-        <image src='../../images/icon2_01.png'></image>
-        <text>营业时间</text>
-      </view>
-      <view class='business'>{{arr_shop_detail.string_open_time}}</view>
-
-      <view class='shopMessage_title'>
-        <image src='../../images/icon2_02.png'></image>
-        <text>地址</text>
-      </view>
-      <view class='business'>{{arr_shop_detail.string_address}}</view>
-
-      <view class='shopMessage_title'>
-        <image src='../../images/icon2_04.png'></image>
-        <text>电话</text>
-      </view>
-      <view class='business'>{{arr_shop_detail.string_telphone}}</view>
-
-      <view class='shopMessage_title'>
-        <image src='../../images/icon2_06.png'></image>
-        <text>商户介绍</text>
-      </view>
-      <view class='business'>{{arr_shop_detail.string_introduction}}</view>
-
-      <view class='shopMessage_title'>
-        <image src='../../images/icon2_05.png'></image>
-        <text>特权</text>
-      </view>
-      <view class='business'>
-        <view wx:for="{{arr_shop_detail.arr_power}}">{{item}}</view>
-      </view>
+    <view class="shopServer">
+        <view class='shopServer_item'>
+            <view bindtap='server'>
+                <image class="serverImg" src="../../images/icons_kf.png"></image>
+                <text class='serverTitele'>客服</text>
+            </view>
+            <view class='hidden {{shopServer == 3?"show":""}}' bindtap='orderCommon'>
+                <image class="serverImg" src="../../images/icons_table.png"></image>
+                <text class='serverTitele'>订座</text>
+            </view>
+        </view>
     </view>
-  </view>
-
-  <view class="shopServer">
-    <view class='shopServer_item'>
-      <view bindtap='server'>
-        <image class="serverImg" src="../../images/icons_kf.png"></image>
-        <text class='serverTitele'>客服</text>
-      </view>
-      <view class='hidden {{shopServer == 3?"show":""}}' bindtap='orderCommon'>
-        <image class="serverImg" src="../../images/icons_table.png"></image>
-        <text class='serverTitele'>订座</text>
-      </view>
-      <view class='hidden {{shopServer == 1?"show":""}}'>
-        <image class="serverImg" src="../../images/icons_table_gary.png"></image>
-        <text class='serverTitele_gary'>敬请期待</text>
-      </view>
-      <view class='hidden {{shopServer == 2?"show":""}}'>
-            <image class="serverImg" src="../../images/icons_table_gary.png"></image>
-        <text class='serverTitele_gary'>休息中</text>
-      </view>
-    </view>
-  </view>
 </view>
-<popup id='popup' title='绑定手机号' phone="{{phone}}" bind:myevent="onGetCode" bind:myeventDelete="onGetCodeDelete"></popup> 
+<popup id='popup' title='绑定手机号' phone="{{phone}}" bind:myevent="onGetCode" bind:myeventDelete="onGetCodeDelete"></popup>

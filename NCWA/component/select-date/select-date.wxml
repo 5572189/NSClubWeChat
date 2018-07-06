@@ -1,30 +1,30 @@
 <view class='timeComponent' hidden="{{flags}}">
 
     <view class='li'>
-      <view class="title">选择日期</view>
-      <view class='selectDate userSelect'>
-        <view class="dateData">{{dineTime}}</view>
-        <view class='select' bindtap='selectTime'>选择时间</view>
-      </view>
+        <view class="title">选择日期</view>
+        <view class='selectDate userSelect'>
+            <view class="dateData">{{dineTime}}</view>
+            <view class='select' bindtap='selectTime'>选择时间</view>
+        </view>
     </view>
     <view class='li'>
-      <view class="title">就餐人数</view>
-      <view class='peoNumber userSelect'>
-        <view class='arithmetic subtract' bindtap='subtract'>-</view>
-        <view class='number'>{{peonumber}}</view>
-        <view class='arithmetic add' bindtap='add'>+</view>
-      </view>
+        <view class="title">就餐人数</view>
+        <view class='peoNumber userSelect'>
+            <view class='arithmetic subtract' bindtap='subtract'>-</view>
+            <view class='number'>{{peonumber}}</view>
+            <view class='arithmetic add' bindtap='add'>+</view>
+        </view>
     </view>
     <view class='li'>
-      <view class="title">筛选</view>
-      <view class='selectRoom userSelect'>
-        <view class="room">需要包间</view>
-        <switch class='switch' bindchange="switchChange" color="{{colorColor}}"></switch>
-      </view>
+        <view class="title">筛选</view>
+        <view class='selectRoom userSelect'>
+            <view class="room">需要包间</view>
+            <switch class='switch' bindchange="switchChange" color="{{colorColor}}"></switch>
+        </view>
     </view>
     <view class='btn'>
-      <view class='cancel' bindtap='cancel'>取消</view>
-      <view class='seek' bindtap='seek'>查找餐厅</view>
+        <view class='cancel' bindtap='cancel'>取消</view>
+        <view class='seek' bindtap='seek'>查找餐厅</view>
     </view>
 </view>
 
@@ -32,24 +32,24 @@
 <!-- /* 组件 日期*/ -->
 <view class='time_component' hidden='{{timeHidden}}'>
     <view class='time_component_box'>
-      <view class='time_component-title'>
-        <text>选择用餐时间</text>
-        <image src='../../images/icons_close_com.png' bindtap='dineTimeClose'></image>
-      </view>
+        <view class='time_component-title'>
+            <text>选择用餐时间</text>
+            <image src='../../images/icons_close_com.png' bindtap='dineTimeClose'></image>
+        </view>
 
-      <view class='time_component_item'>
-        <view class='date'>
-          <view  wx:for="{{time}}" class='{{curIndex == index ? "on":""}} ' wx:key="{{index}}" >
-            <text class='times'  data-date="{{item.string_date}}" data-index="{{index}}" bindtap='changeDate' > {{item.string_date}}</text>
-            
-          </view>
-          
+        <view class='time_component_item'>
+            <view class='date'>
+                <view wx:for="{{time}}" class='{{curIndex == index ? "on":""}} ' wx:key="{{index}}">
+                    <text class='times' data-date="{{item.string_date}}" data-index="{{index}}" bindtap='changeDate'> {{item.string_date}}</text>
+
+                </view>
+
+            </view>
+            <view class='time'>
+                <view wx:for="{{times}}" wx:key="{{index}}" class='{{curIndexTime == index ? "on":""}}' data-index="{{index}}" bindtap='changeTimes'>
+                    <text>{{item}}</text>
+                </view>
+            </view>
         </view>
-        <view class='time'>
-          <view wx:for="{{times}}" wx:key="{{index}}" class='{{curIndexTime == index ? "on":""}}' data-index="{{index}}"  bindtap='changeTimes'>
-            <text>{{item}}</text>
-          </view>
-        </view>
-      </view>
     </view>
 </view>

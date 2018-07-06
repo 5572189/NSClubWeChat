@@ -1,10 +1,10 @@
 <view class="shopmenu">
-  <view class='ul'>
-    <view class='li' wx:for="{{arr_shop_menu}}" wx:key="{{index}}" data-index="{{index}}" bindtap='menuShow'> 
-      <image class='shopmenu_img' src='{{link+item.string_pic_url}}'></image>
-      <view class='shopmenu_name'>{{item.string_title_cn}}</view>
+    <view class='ul'>
+        <view class='li' wx:for="{{arr_shop_menu}}" wx:key="{{index}}" data-index="{{index}}" bindtap='menuShow'>
+            <image class='shopmenu_img' src='{{link+item.string_pic_url}}'></image>
+            <view class='shopmenu_name'>{{item.string_title_cn}}</view>
+        </view>
     </view>
-  </view>
 </view>
 
 <menu id='menu' menuImg="{{arr_shop_menu}}" index="{{index}}"></menu>

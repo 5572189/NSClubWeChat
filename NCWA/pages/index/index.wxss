@@ -7,154 +7,176 @@
     margin: 0 auto;
     padding-bottom: 30rpx;
 }
+
 swiper {
-        width: 100%;
-        height: 554rpx;
-}
-.slide-image{
-  width: 750rpx;
-  height: 554rpx;
-}
-.header{
-  position: relative;
-}
-.search{
-  width: 690rpx;
-  height: 60rpx;
-  display: flex;
-  z-index: 9999;
-  position: absolute;
-  left: 30rpx;
-  top: 30rpx;
-  font-size: 26rpx;
-  border: 1rpx solid #dcdcdc;
-  justify-content: space-around;
-  background: #fff;
-  opacity: .7;
-  border-radius: 30rpx;
-  overflow: hidden;
-}
-.search icon{
-  padding-left: 20rpx;
-  padding-top: 12rpx;
-  width: 75rpx;
-  height: 60rpx;
-  display: inline-block;
-  vertical-align: middle;
-}
-.search input{
-  width: 685rpx;
-  height: 60rpx;
-  line-height: 60rpx;
+    width: 100%;
+    height: 554rpx;
 }
 
+.slide-image {
+    width: 750rpx;
+    height: 554rpx;
+}
+
+.header {
+    position: relative;
+}
+
+.search {
+    width: 690rpx;
+    height: 60rpx;
+    display: flex;
+    z-index: 9999;
+    position: absolute;
+    left: 30rpx;
+    top: 30rpx;
+    font-size: 26rpx;
+    border: 1rpx solid #dcdcdc;
+    justify-content: space-around;
+    background: #fff;
+    opacity: 0.7;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+
+.search icon {
+    padding-left: 20rpx;
+    padding-top: 12rpx;
+    width: 75rpx;
+    height: 60rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.search input {
+    width: 685rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+}
 
 /* 合作商家 */
-.business-partner{
-  width: 690rpx;
-  margin: 80rpx auto 40rpx;
-  display: flex;
-  justify-content: space-between;
-}
-.partner-title-item{
-  font-size: 40rpx;
-  font-weight: bolder;
-}
-.partner-title-index{
-  font-size: 24rpx;
-  color: #898989;
-}
-.partner-title-time{
-  width: 265rpx;
-  border-left: 1rpx solid #dcdcdc;
-}
-.partner-title-month{
-  font-size: 30rpx;
-}
-.partner-title-year{
-  font-size: 25rpx;
-}
-.partner-title-time .time{
-  margin-left: 55rpx;
-  padding-top: 7rpx;
-  padding-right: 50rpx;
-} 
-.partner-title-time .partner-title-number{
-  padding-top: 10rpx;
-  font-size: 50rpx;
-  text-align: right;
-}
-.partner-title-time .partner-title-add{
-  position: absolute;
-  top: 0;
-  right: -25rpx;
-}
-.partner_name{
-  position: absolute;
-  left: 16rpx;
-  bottom: 60rpx;
-  font-size: 24rpx;
-  color: #fff;
-  width: 120rpx;
-  padding: 20rpx 0;
-  background: rgba(0,0,0,.7);
-  text-align: center;
 
+.business-partner {
+    width: 690rpx;
+    margin: 80rpx auto 40rpx;
+    display: flex;
+    justify-content: space-between;
 }
+
+.partner-title-item {
+    font-size: 40rpx;
+    font-weight: bolder;
+}
+
+.partner-title-index {
+    font-size: 24rpx;
+    color: #898989;
+}
+
+.partner-title-time {
+    width: 265rpx;
+    border-left: 1rpx solid #dcdcdc;
+}
+
+.partner-title-month {
+    font-size: 30rpx;
+}
+
+.partner-title-year {
+    font-size: 25rpx;
+}
+
+.partner-title-time .time {
+    margin-left: 55rpx;
+    padding-top: 7rpx;
+    padding-right: 50rpx;
+}
+
+.partner-title-time .partner-title-number {
+    padding-top: 10rpx;
+    font-size: 50rpx;
+    text-align: right;
+}
+
+.partner-title-time .partner-title-add {
+    position: absolute;
+    top: 0;
+    right: -25rpx;
+}
+
+.partner_name {
+    position: absolute;
+    left: 17rpx;
+    bottom: 60rpx;
+    font-size: 24rpx;
+    color: #fff;
+    width: 120rpx;
+    padding: 20rpx 0;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
 /* 合作商家滑动 */
-.partner-list{
-  width: 750rpx;
-  height: 400rpx;
-}
-.number{
-  width: 60rpx;
-  position: relative;
-}
-.partner-list image{
-  width: 520rpx !important ;
-  height: 400rpx !important;
 
+.partner-list {
+    width: 750rpx;
+    height: 400rpx;
 }
-.partner-list swiper-item{
-  position: relative;
-  max-width: 600rpx;
-  text-align: center;
-  overflow: hidden;
-  padding: 20rpx 0;
-  border-radius: 15% 15% 21% 22%;
+
+.number {
+    width: 60rpx;
+    position: relative;
 }
-.partner_item_title{
-  width: 485rpx;
-  position: absolute;
-  left: 30rpx;
-  bottom:65rpx;
-  font-size: 24rpx;
-  color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
+
+.partner-list image {
+    width: 520rpx !important;
+    height: 400rpx !important;
 }
-.shade{
-  position: absolute;
-  left: 16rpx;
-  top: 20rpx
+
+.partner-list swiper-item {
+    position: relative;
+    max-width: 600rpx;
+    text-align: center;
+    overflow: hidden;
+    padding: 20rpx 0;
+    border-radius: 15% 15% 21% 22%;
 }
+
+.partner_item_title {
+    width: 485rpx;
+    position: absolute;
+    left: 30rpx;
+    bottom: 65rpx;
+    font-size: 24rpx;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.shade {
+    position: absolute;
+    left: 16rpx;
+    top: 20rpx;
+}
+
 /* 主题 */
-.theme-title-time{
-  position: relative;
-  width: 330rpx;
-  border-left: 1px solid #dcdcdc;
-}
-.clock image{
-  width: 40rpx;
-  height: 45rpx;
-  padding-top: 20rpx;
-  padding-right: 20rpx;
-  padding-left: 20rpx;
+
+.theme-title-time {
+    position: relative;
+    width: 330rpx;
+    border-left: 1px solid #dcdcdc;
 }
 
+.clock image {
+    width: 40rpx;
+    height: 45rpx;
+    padding-top: 20rpx;
+    padding-right: 20rpx;
+    padding-left: 20rpx;
+}
 
-.theme-title-time .time{
-  padding: 5rpx 18rpx;
+.theme-title-time .time {
+    padding: 5rpx 18rpx;
 }

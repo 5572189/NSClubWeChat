@@ -1,8 +1,8 @@
 {
- "usingComponents": {
-    "selectDate": "/component/select-date/select-date",
-    "popup": "/component/popup/popup"
-  },
-  "navigationBarTitleText": "合作餐厅",
-  "enablePullDownRefresh ":false
+    "usingComponents": {
+        "selectDate": "/component/select-date/select-date",
+        "popup": "/component/popup/popup"
+    },
+    "navigationBarTitleText": "合作餐厅",
+    "enablePullDownRefresh ": false
 }

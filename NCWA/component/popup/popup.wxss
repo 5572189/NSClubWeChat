@@ -1,87 +1,100 @@
-.shade_phone{
-  position: fixed;
-  top:0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
+.shade_phone {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
 }
-.shade_box{
-  position: absolute;
-  left: 50%;
-  top: 22%;
-  margin-left: -280rpx;
-  width: 475rpx;
-  height: 390rpx;
-  background-color: #fff;
-  border-radius: 10rpx;
-  padding: 50rpx;
+
+.shade_box {
+    position: absolute;
+    left: 50%;
+    top: 22%;
+    margin-left: -280rpx;
+    width: 475rpx;
+    height: 390rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    padding: 50rpx;
 }
-.box_title{
-  display: flex;
-  justify-content: space-between
+
+.box_title {
+    display: flex;
+    justify-content: space-between;
 }
-.box_title .tit{
-  font-size: 36rpx;
-  color: #000;
+
+.box_title .tit {
+    font-size: 36rpx;
+    color: #000;
 }
-.close{
-  width: 40rpx;
-  height: 40rpx;
+
+.close {
+    width: 40rpx;
+    height: 40rpx;
 }
-.phcolor{
-  color: #999999;
+
+.phcolor {
+    color: #999;
 }
-.import_ph{
-  margin-top: 40rpx;
+
+.import_ph {
+    margin-top: 40rpx;
 }
-.import_ph input{
-  width: scale(100%-10rpx);
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 28rpx;
-  color: #000;
-  border: 1rpx solid #999;
-  border-radius: 10rpx;
-  padding-left: 10rpx;
+
+.import_ph input {
+    width: scale(100%-10rpx);
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #000;
+    border: 2rpx solid #999;
+    border-radius: 10rpx;
+    padding-left: 10rpx;
 }
-.import_code{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20rpx;
+
+.import_code {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
 }
-.import_code input{
-  width: 250rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 28rpx;
-  color: #000;
-  border: 1rpx solid #999;
-  border-radius: 10rpx;
-  padding-left: 10rpx;
+
+.import_code input {
+    width: 250rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #000;
+    border: 2rpx solid #999;
+    border-radius: 10rpx;
+    padding-left: 10rpx;
 }
-.import_code text{
-  display: block;
-  width: 190rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 28rpx;
-  color: #ceb173;
-  border: 1rpx solid #ceb173;
-  text-align: center;
-  border-radius: 10rpx;
+
+.import_code button {
+    display: block;
+    width: 190rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #ceb173;
+    border: 1rpx solid #ceb173;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #fff;
 }
-.btn button{
-  width: 100%;
-  margin-top: 40rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 28rpx;
-  background-color: #ceb173;
-  color: #fff;
-  border: 1rpx solid #ceb173;
-  text-align: center;
-  border-radius: 10rpx;
+
+.btn button {
+    width: 100%;
+    margin-top: 40rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    background-color: #ceb173;
+    color: #fff;
+    border: 1rpx solid #ceb173;
+    text-align: center;
+    border-radius: 10rpx;
 }
-.active{
-  display: block;
+
+.active {
+    display: block;
 }
