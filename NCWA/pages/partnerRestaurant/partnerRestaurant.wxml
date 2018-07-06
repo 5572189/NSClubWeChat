@@ -11,11 +11,11 @@
                 <image hidden="{{!selectAll}}" class='icon_nav' src='../../images/icon-booking-nav.png'></image>
                 <image hidden="{{selectAll}}" class='icon_nav' src='../../images/icon-booking-nav-on.png'></image>
             </view>
-            <view bindtap='selectKind'>
+            <!-- <view bindtap='selectKind'>
                 <text class='Select_kind {{selectKind != true?"selectKind":""}}'>{{kind}}</text>
                 <image hidden="{{!selectKind}}" class='icon_nav' src='../../images/icon-booking-nav.png'></image>
                 <image hidden="{{selectKind}}" class='icon_nav' src='../../images/icon-booking-nav-on.png'></image>
-            </view>
+            </view> -->
             <view>
                 <text bindtap='historyBook'> 历史预定</text>
             </view>
@@ -27,11 +27,11 @@
             </view>
         </view>
         <!-- 品类 -->
-        <view class='dataSelect' hidden='{{dataSelectkind}}' catchtouchmove="preventTouchMove" fixed="true">
+        <!-- <view class='dataSelect' hidden='{{dataSelectkind}}' catchtouchmove="preventTouchMove" fixed="true">
             <view class='dataSelect_items'>
                 <view wx:for="{{select_kind}}" wx:key="{{index}}" data-index="{{index}}" data-cid="{{item.int_id}}" bindtap='kindSelect' class='{{curIndexkind == index?"selectOn":""}}' data-kind="{{item.string_title_cn}}">{{item.string_title_cn}}</view>
             </view>
-        </view>
+        </view> -->
 
     </view>
     <view class='box_placeholder'></view>
@@ -44,7 +44,7 @@
                 <text>{{item.sting_title}}</text>
             </view>
             <view class="id_book book {{item.int_booking_status == 3?'status':''}}" data-shopId="{{item.int_shop_id}}" catchtap="shopBook">订座</view>
-            <view class="id_book rest {{item.int_booking_status != 3?'status':''}}" catchtap="shoprest">休息</view>
+            <!-- <view class="id_book rest {{item.int_booking_status != 3?'status':''}}" catchtap="shoprest">休息</view> -->
             <view class='city'>{{item.sting_city}}</view>
         </navigator>
         <view class='kong'></view>
