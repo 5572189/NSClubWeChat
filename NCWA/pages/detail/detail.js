@@ -14,6 +14,7 @@ Page({
         arr_shop_menu: '',
         indicatorDots: true,
         autoplay: true,
+        autoplayRecommend:false,
         interval: 5000,
         duration: 1000,
         color: "#ceb173",

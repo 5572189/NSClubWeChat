@@ -24,7 +24,7 @@
                 </view>
             </view>
             <!-- 推荐菜品swiper -->
-            <swiper class='recommendSwiper' previous-margin="{{'30rpx'}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <swiper class='recommendSwiper' previous-margin="{{'30rpx'}}" autoplay="{{autoplayRecommend}}" interval="{{interval}}" duration="{{duration}}">
                 <navigator url='../shopmenu/shopmenu?shopid={{item.int_shop_id}}' wx:for="{{arr_shop_menu}}">
                     <swiper-item>
                         <image src="{{link+item.string_pic_url}}" class="recommend-image" />
