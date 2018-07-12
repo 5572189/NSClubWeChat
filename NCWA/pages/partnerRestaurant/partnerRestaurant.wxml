@@ -36,7 +36,7 @@
     </view>
     <view class='box_placeholder'></view>
     <scroll-view scroll-y="{{isScroll}}" scroll-top="{{scrollTop}}" bindscrolltolower="bindscroll" class='partner_box' hidden='{{!headeritems}}'>
-        <navigator url='../detail/detail?id={{item.int_id}}' class='li' wx:for="{{headerImg}}" wx:key="{{index}}" data-id="{{item.id}}">
+        <navigator url='../detail/detail?id={{item.int_id}}' class='li' wx:for="{{headerImg}}" wx:key="{{index}}" data-id="{{item.id}}" hover-class="none">
             <image class='partner_img' src='{{link+item.sting_pic_url}}'></image>
             <view class='title'>
                 <image wx:if="{{item.int_is_recommend ==1}}" class='icon_title' src="../../images/recommend.png"></image>

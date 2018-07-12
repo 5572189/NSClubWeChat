@@ -20,9 +20,9 @@
                 <view class='user_phone' hidden='{{phoneHidden}}' bindtap='bindingShow'>{{phone}}</view>
             </view>
         </view>
-        <view class='me_header_right' bindtap='scan'>
+        <!-- <view class='me_header_right' bindtap='scan'>
             <image class='scan' src="../../images/icons_scan.png"></image>
-        </view>
+        </view> -->
     </view>
 
     <view class='me_operation'>

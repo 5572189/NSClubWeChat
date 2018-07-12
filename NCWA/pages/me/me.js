@@ -48,7 +48,6 @@ Page({
                     nickName: res.userInfo.nickName,
                     avatarUrl: res.userInfo.avatarUrl,
                 })
-
             },
         })
         var that = this;

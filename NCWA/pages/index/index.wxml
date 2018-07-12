@@ -35,7 +35,7 @@
         <swiper class='partner-list' current='1' autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}" bindchange="swiperChange">
             <block wx:for="{{headerImg.arr_index_cooperation_data}}" wx:key="{{index}}">
                 <swiper-item>
-                    <navigator url="/pages/detail/detail?id={{item.int_id}}" hover-class="navigator-hover">
+                    <navigator url="/pages/detail/detail?id={{item.int_id}}"  hover-class="none">
                         <image src="{{link+item.string_pic_url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
                         <view class='partner_name'>{{item.string_city_name}}</view>
                     </navigator>
@@ -66,7 +66,7 @@
         <swiper class='partner-list' current='1' autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}" bindchange="swiperChange">
             <block wx:for="{{headerImg.arr_index_life_data}}" wx:key="{{index}}">
                 <swiper-item>
-                    <navigator url='../life_detail/life_detail?int_id={{item.int_id}}' hover-class="navigator-hover">
+                    <navigator url='../life_detail/life_detail?int_id={{item.int_id}}' hover-class="none">
                         <image src="{{link+item.string_pic_url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
                         <image class='shade' src="../../images/mengbg.png" />
                         <view class='partner_item_title'>{{item.string_title}}</view>

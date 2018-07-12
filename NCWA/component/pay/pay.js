@@ -13,6 +13,42 @@ Component({
         title: {
             type: String,
             value: ''
+        },
+        shopId:{
+            type:Number,
+            value:""
+        },
+        bookTime:{
+            type: String,
+            value: ''
+        },
+        number:{
+            type: Number,
+            value: ""
+        },
+        privateRoom:{
+            type: Number,
+            value: "" 
+        },
+        hallOptional:{
+            type: Number,
+            value: "" 
+        },
+        name:{
+            type: String,
+            value: '' 
+        },
+        gender:{
+            type: String,
+            value: '' 
+        },
+        mobile:{
+            type: String,
+            value: '' 
+        },
+        note:{
+            type: String,
+            value: '' 
         }
     },
 
@@ -42,98 +78,73 @@ Component({
         },
         affirm_pay: function() {
             var that = this
-            //登陆获取code
+            var code = wx.getStorageSync('user');
+            // that.getOpenId(res.code)
             wx.login({
-                success: function(res) {
-                    //获取openid
-                    that.getOpenId(res.code)
+                success: res => {
+                    // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                    wx.request({
+                        url: link + '/api.php?s=/booking/postBooking',
+                        data: {
+                            token,
+                            param: {
+                                code,
+                                js_code: res.code,
+                                shopId: that.data.shopId,
+                                payType: 3,
+                                bookTime: that.data.bookTime,
+                                number: parseInt(that.data.number) + 1,
+                                privateRoom: that.data.privateRoom,
+                                hallOptional: that.data.hallOptional,
+                                name: that.data.name,
+                                gender: that.data.gender,
+                                mobile: that.data.phone,
+                                note: that.data.note,
+                            }
+
+                        },
+                        method: 'POST',
+                        success: function (res) {
+                            console.log(res)
+                            var book_id = res.data.data.result.book_id;
+                            if(res.data.data.code == 200){
+                                var data = JSON.parse(res.data.data.result.string_wechat_program);
+                                wx.requestPayment({
+                                    'timeStamp': data.timeStamp,
+                                    'nonceStr': data.nonceStr,
+                                    'package': data.package,
+                                    'signType': data.signType,
+                                    'paySign': data.paySign,
+                                    'success': function (res) {
+                                        wx: wx.navigateTo({
+                                            url: '../order_waiting/order_waiting?id=' + book_id,
+                                        })
+                                        console.log(res)
+                                    },
+                                    'fail': function (res) {
+
+                                    }
+                                })
+                            } else if (res.data.data.code == 0){
+                                wx.showModal({
+                                    title: '提示',
+                                    content: res.data.data.msg,
+                                    showCancel: false,
+                                    confirmText: '知道了',
+                                    confirmColor: '#ceb173',
+                                    success: function (res) {
+
+                                    }
+                                })
+                            }
+                            
+                        },
+                        fail: function (res) { },
+                    })   
                 }
-            });
+            })
+            
 
         },
-        getOpenId: function(code) {
-            var that = this;
-            wx.request({
-                url: "https://api.weixin.qq.com/sns/jscode2session?appid=wxb42e67f6ade789cb&secret=0c9545d437bebe2d5f7ec27eb3da813c&js_code=" + code + "&grant_type=authorization_code",
-                data: {},
-                method: 'GET',
-                success: function(res) {
-                    console.log(res)
-                    // that.generateOrder(res.data.openid)
-                },
-                fail: function() {
-                    // fail
-                },
-                complete: function() {
-                    // complete
-                }
-            })
-        },
-        /**生成商户订单 */
-        generateOrder: function(openid) {
-            var that = this
-            //统一支付
-            wx.request({
-                url: '后台路径',
-                method: 'POST',
-                data: {
-                    gfee: '商品价钱',
-                    gname: '商品名称',
-                    openId: openid
-                    // （商品价钱和商品名称根据自身需要是否传值, openid为必传）
-                },
-                success: function(res) {
-                    var pay = res.data;
-                    //发起支付
-                    var timeStamp = pay[0].timeStamp;
-                    var packages = pay[0].package;
-                    var paySign = pay[0].paySign;
-                    var nonceStr = pay[0].nonceStr;
-                    var param = {
-                        "timeStamp": timeStamp,
-                        "package": packages,
-                        "paySign": paySign,
-                        "signType": "MD5",
-                        "nonceStr": nonceStr
-                    };
-                    that.pay(param)
-                },
-            })
-        },
-        /* 支付   */
-        pay: function(param) {
-            wx.requestPayment({
-                timeStamp: param.timeStamp,
-                nonceStr: param.nonceStr,
-                package: param.package,
-                signType: param.signType,
-                paySign: param.paySign,
-                success: function(res) {
-                    // success
-                    wx.navigateBack({
-                        delta: 1, // 回退前 delta(默认为1) 页面
-                        success: function(res) {
-                            wx.showToast({
-                                title: '支付成功',
-                                icon: 'success',
-                                duration: 2000
-                            })
-                        },
-                        fail: function() {
-                            // fail
-                        },
-                        complete: function() {
-                            // complete
-                        }
-                    })
-                },
-                fail: function(res) {
-                    // fail
-                },
-                complete: function() {
-                    // complete
-                }
-            })
-        }
     }
 })
