@@ -1,1 +1,1 @@
-<web-view src="{{link}}"></web-view>
+<web-view src="{{link}}">此链接在小程序内不可打开</web-view>
