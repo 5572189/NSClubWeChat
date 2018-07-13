@@ -68,7 +68,7 @@ Page({
         context.setFontSize(18);
         context.setFillStyle('#ffe200');
         context.setTextAlign('center');
-        context.fillText(this.data.shopName, 200, 430);
+        context.fillText(this.data.shopName, 188, 430,600);
         context.stroke();
         //绘制左下角文字背景图
         context.drawImage(path4, 25, 520, 184, 82);
