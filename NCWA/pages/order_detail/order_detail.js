@@ -62,7 +62,7 @@ Page({
         context.setTextAlign('center');
         context.fillText("邀请您一起用餐", 185, 370);
         context.stroke();
-        //绘制验证码背景
+        //绘制商店名背景
         context.drawImage(path3, 48, 390, 280, 84);
         //绘制code码
         context.setFontSize(18);
