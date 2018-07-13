@@ -1,7 +1,8 @@
 <view class="authorization">
     <view wx:if="{{canIUse}}">
-        <image src='../../images/icon_authorization.png'></image>
-        <view class='title'>需要您的授权才能使用！</view>
+        <image animation="{{animationTop}}" src='../../images/icon_authorization.png'></image>
+        <view  animation="{{animationLeft}}"  class='tit'>欢迎来到樽尚汇小程序,</view>
+        <view  class='title'>需要您的授权才能使用！</view>
         <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
     </view>
 

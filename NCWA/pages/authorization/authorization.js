@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+      animationLeft: {},
+      animationTop:{},
+      animationRigth:{},
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   /**
@@ -51,7 +54,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+      var option = {
+          duration: 3000,
+          timingFunction: 'ease',
+      }
+      var animationleft = wx.createAnimation(option)
+      this.animationLeft = animationleft;
+      animationleft.translateX(375).step()
+      
+      var animationtop = wx.createAnimation(option)
+      this.animationTop = animationtop;
+      animationtop.translateY(250).step()
 
+    //   var animationrigths = wx.createAnimation(option)
+    //   this.animationRigth = animationrigths;
+    //   animationrigths.translateX(375).step()
+
+      this.setData({
+          animationLeft: animationleft.export(),
+          animationTop: animationtop.export(),
+        //   animationRigth: animationrigths.export(),
+      })
   },
 
   /**

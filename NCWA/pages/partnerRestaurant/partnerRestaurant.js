@@ -177,6 +177,7 @@ Page({
         that.setData({
             selectAll: !that.data.selectAll,
             selectKind: true,
+            scrollTop: 0,
         })
         if (that.data.selectAll == true) {
             that.setData({

@@ -85,7 +85,7 @@
     <view class='status_btn {{status == 5 ? "show":""}}'>
         <button class='cancel_button' open-type="share" hover-class="other-button-hover">分享好友</button>
     </view>
-    <view class='service'>联系客服 400-6720-579</view>
+    <view class='service' bindtap='formSubmit'>联系客服 400-6720-579</view>
 </view>
 
 
@@ -105,4 +105,16 @@
             <view class='cancelbtn' bindtap='confirmCancel'>取消订单</view>
         </view>
     </view>
+</view>
+
+
+<!-- 生成海报 -->
+
+<view class='imagePathBox' hidden="{{maskHidden == false}}">
+    <image src="{{imagePath}}" class='shengcheng'></image>
+    <button class='baocun' bindtap='baocun'>保存相册，分享到朋友圈</button>
+</view>
+<view hidden="{{maskHidden == false}}" class="mask"></view>
+<view class="canvas-box">
+    <canvas style="width: 375px;height: 667px;position:fixed;top:9999px" canvas-id="mycanvas" />
 </view>
