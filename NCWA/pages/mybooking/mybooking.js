@@ -18,6 +18,7 @@ Page({
      */
     onLoad: function(options) {
         var that = this;
+        var code = wx.getStorageSync('user');
         wx.request({
             url: link + '/api.php?s=/booking/myBooking',
             data: {

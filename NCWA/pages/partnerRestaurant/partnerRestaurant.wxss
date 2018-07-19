@@ -154,10 +154,10 @@
     position: absolute;
     left: 0;
     bottom: 45rpx;
-    font-size: 24rpx;
+    font-size: 26rpx;
     color: #f7f7f7;
-    padding: 18rpx 14rpx;
-    background: rgba(0, 0, 0, 0.7);
+    padding: 18rpx 14rpx 18rpx 35rpx;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 0 10rpx 10rpx 0;
 }
 
@@ -191,8 +191,8 @@
     right: 40rpx;
     bottom: 45rpx;
     padding: 15rpx 40rpx;
-    border-radius: 20rpx;
-    font-size: 24rpx;
+    border-radius: 5rpx;
+    font-size: 26rpx;
     color: #fff;
 }
 

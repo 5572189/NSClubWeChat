@@ -4,9 +4,11 @@ const app = getApp()
 var link = app.globalData.link;
 var code = wx.getStorageSync('user');
 var isresult = true;
-
+var status = false;
+var arry = [];
 function list_search(that, page) {
-
+    var token = comment.encryption();
+    var code = wx.getStorageSync('user');
     if (isresult) {
         wx.request({
             url: link + 'api.php?s=/booking/booking_list_search',
@@ -33,12 +35,23 @@ function list_search(that, page) {
                     })
                     var data = res.data.data.result.arr_shop_data,
                         headerdata = that.data.headerdata;
+                    
                     for (var i = 0; i < data.length; i++) {
                         headerdata.push(data[i])
+                        if (data[i].int_booking_status == 3){
+                            arry.push(data[i])
+                        }
                     }
-                    that.setData({
-                        headerImg: that.data.headerdata
-                    })
+                    if (status){
+                        that.setData({
+                            headerImg: arry 
+                        })
+                    }else{
+                        that.setData({
+                            headerImg: that.data.headerdata
+                        })
+                    }
+                    
                     if (data.length == 0) {
                         isresult = false;
                     }
@@ -53,6 +66,8 @@ function list_search(that, page) {
 }
 
 function select(that) {
+    var token = comment.encryption();
+    var code = wx.getStorageSync('user');
     wx.request({
         url: link + '/api.php?s=/booking/booking_list_search',
         data: {
@@ -75,18 +90,12 @@ function select(that) {
             if (res.data.data.code == 200) {
 
                 var data = res.data.data.result.arr_shop_data;
-                if (data.length == 0) {
-                    that.setData({
-                        headeritems: false,
-                    })
-                } else {
-                    that.setData({
-                        headeritems: true,
-                    })
-                }
                 that.setData({
-                    headerImg: res.data.data.result.arr_shop_data,
-                    headerdata: res.data.data.result.arr_shop_data,
+                    headeritems: true,
+                })
+                that.setData({
+                    headerImg: data,
+                    headerdata: data,
                     page: 1
                 })
             }
@@ -95,7 +104,6 @@ function select(that) {
     })
 }
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -129,6 +137,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        var code = wx.getStorageSync('user');
+        var token = comment.encryption();
         this.timeComponent = this.selectComponent("#timeComponent");
         this.popup = this.selectComponent("#popup");
         var that = this;
@@ -233,6 +243,7 @@ Page({
     },
     citySelect: function(e) {
         isresult = true;
+        arr = false;
         let that = this;
         let id = e.currentTarget.dataset.cid,
             index = e.currentTarget.dataset.index,
@@ -248,6 +259,7 @@ Page({
     },
     kindSelect: function(e) {
         isresult = true;
+        
         let that = this;
         let id = e.currentTarget.dataset.cid,
             index = e.currentTarget.dataset.index,
@@ -268,10 +280,13 @@ Page({
     },
     // 组件传值搜索
     onSeek: function(e) {
+        
+        isresult = true;
         var that = this,
             headeritems = e.detail.headeritems,
             headerImg = e.detail.headerImg,
             condition = e.detail.condition;
+            status = true;
         that.setData({
             headeritems,
             headerImg,
@@ -286,6 +301,8 @@ Page({
     resetCondition: function() {
         var that = this;
         isresult = true;
+        arry = [];
+        status = false;
         wx.request({
             url: link + '/api.php?s=/booking/booking_list_search',
             data: {
@@ -380,21 +397,24 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        isresult = true;
+        arry = [];
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {
-
+        isresult = true;
+        arry = [];
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function() {
-
+        isresult = true;
+        arry = [];
     },
 
     /**
@@ -403,8 +423,6 @@ Page({
     onPullDownRefresh: function() {
 
     },
-
-
 
     /**
      * 用户点击右上角分享

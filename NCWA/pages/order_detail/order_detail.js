@@ -16,6 +16,7 @@ Page({
         name: "",
         mobile: "",
         time: "",
+        id:"",
         note: "",
         cancel: "",
         cancelOrder: true, //取消订单弹框
@@ -26,6 +27,7 @@ Page({
         int_uid: "",
         maskHidden: false,
         touxiang: "",
+        private_room:0,
     },
     //将canvas转换为图片保存到本地，然后将图片路径传给image图片的src
     createNewImg: function() {
@@ -124,8 +126,8 @@ Page({
                 wx.showModal({
                     content: '图片已保存到相册，赶紧晒一下吧~',
                     showCancel: false,
-                    confirmText: '好的',
-                    confirmColor: '#333',
+                    confirmText: '知道啦',
+                    confirmColor: '#ceb173',
                     success: function(res) {
                         if (res.confirm) {
                             /* 该隐藏的隐藏 */
@@ -170,6 +172,8 @@ Page({
         var that = this;
         var id = options.shopid;
         var status = options.status;
+        var code = wx.getStorageSync('user');
+        var token = comment.encryption();
         that.setData({
             status,
         })
@@ -195,10 +199,12 @@ Page({
                         mobile: data.mobile,
                         time: data.time,
                         note: data.note,
+                        private_room: parseInt(data.private_room),
                         cancel: data.cancel,
                         share_title: data.share_title,
                         share_image: data.share_image,
                         int_uid: data.int_uid,
+                        id: data.int_adver_id,
                     })
                 }
             },
@@ -332,7 +338,6 @@ Page({
                 wx.downloadFile({
                     url: res.userInfo.avatarUrl,
                     success: function (res) {
-                        console.log(res);
                         that.setData({
                             touxiang: res.tempFilePath
                         })

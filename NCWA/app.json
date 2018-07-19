@@ -13,8 +13,7 @@
         "pages/partnerRestaurant/partnerRestaurant",
         "pages/tasteLife/tasteLife",
         "pages/share/share",
-        "pages/shopmenu/shopmenu",
-        "pages/link/link"
+        "pages/shopmenu/shopmenu"
     ],
     "window": {
         "backgroundTextStyle": "light",

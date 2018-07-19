@@ -7,11 +7,11 @@
             </view>
         </view>
         <view class='import_ph'>
-            <input placeholder-class="phcolor" bindinput="bindCode" maxlength="11" bindchange="bindChangephone" type='text' placeholder='输入手机号' value='{{phone}}'></input>
+            <input placeholder-class="phcolor" bindinput="bindCode" maxlength="11" bindchange="bindChangephone" type='text' placeholder='请输入您的手机号' value='{{phone}}'></input>
         </view>
         <view class='import_code'>
             <view>
-                <input placeholder-class="phcolor" type='text' bindinput="bindChangeCode" placeholder='输入验证码' value='{{code}}'></input>
+                <input placeholder-class="phcolor" type='text' bindinput="bindChangeCode" placeholder='请输入验证码' value='{{code}}'></input>
             </view>
             <view>
                 <button disabled="{{disabled}}" style="background-color:{{color}}" bindtap='codeAcquire'>{{code_text}}</button>
@@ -21,6 +21,7 @@
             <button>
                 确定
             </button>
+            <view class='hint'>未注册手机号将自动注册成会员</view>
         </view>
     </view>
 </view>

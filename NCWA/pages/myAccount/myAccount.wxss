@@ -89,9 +89,14 @@ page {
 .li_tit {
     font-size: 30rpx;
     color: #353535;
-    margin-right: 60rpx;
+    margin-right: 35rpx;
 }
-
+.li_title{
+    display: inline-block;
+    width: 400rpx;
+    color: #808080;
+    vertical-align: middle;
+}
 .li_de {
     font-size: 30rpx;
     color: #b2b2b2;
@@ -118,7 +123,7 @@ page {
 
 .inp_na {
     display: inline-block;
-    width: 480rpx;
+    width: 550rpx;
     font-size: 30rpx;
     color: #353535;
     vertical-align: middle;
@@ -167,14 +172,16 @@ page {
 }
 
 .shade {
-    position: absolute;
-    left: 150rpx;
-    top: 37rpx;
-    width: 220rpx;
-    height: 50rpx;
+    position:absolute;
+    left:105rpx;
+    top:25rpx;
+    width:330rpx;
+    height:80rpx;
+
 }
 
 .picker {
     height: 50rpx;
     line-height: 50rpx;
+    color: #808080;
 }

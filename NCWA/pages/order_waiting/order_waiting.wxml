@@ -3,7 +3,7 @@
     <view class='order_status'>
         <image class='status_img' src='../../images/wait.png'></image>
         <view class='status_title'>请稍等片刻，正在为您安排...</view>
-        <view class='status_message'>预计将在10:00分钟内，短信告知您的订座结果</view>
+        <view class='status_message'>预计将在10分钟内，短信告知您的订座结果</view>
     </view>
 
 
@@ -31,5 +31,20 @@
 
     <view class='status_btn'>
         <view class='check' bindtap='check'>查看订单</view>
+    </view>
+</view>
+
+
+<view class='shareMessage' hidden='{{shareMessage}}'>
+    <view class='shareMessage_box'>
+        <view class='header_hint'>预定成功啦!</view>
+        <view class='conter_hint'>恭候您光临就餐</view>
+        <view class='conter_hint'>座位最长可保留 <text>30分钟</text></view>
+        <view class='btn_message'>
+            <view class='confirm_btn' bindtap='confirm_btn'>确定</view>
+            <view class='share_btn'>
+                <button style='background-color: #cfb173;'  open-type="share" hover-class="other-button-hover">告诉好友</button>
+            </view>
+        </view>
     </view>
 </view>

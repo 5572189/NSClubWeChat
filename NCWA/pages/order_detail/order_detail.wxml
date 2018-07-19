@@ -37,7 +37,7 @@
         </view>
     </view>
     <view class='order_date'>
-        <view class='shop_name'>{{shopName}}</view>
+        <navigator url="/pages/detail/detail?id={{id}}"  hover-class="none" class='shop_name' >{{shopName}}</navigator>
         <view class='li'>
             <text class="li_tit">就餐时间</text>
             <text class='user_message'>{{time}}</text>
@@ -85,7 +85,7 @@
     <view class='status_btn {{status == 5 ? "show":""}}'>
         <button class='cancel_button' open-type="share" hover-class="other-button-hover">分享好友</button>
     </view>
-    <view class='service' bindtap='formSubmit'>联系客服 400-6720-579</view>
+    <view class='service'>联系客服 400-6720-579</view>
 </view>
 
 

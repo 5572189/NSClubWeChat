@@ -2,6 +2,7 @@
 var comment = require('../../utils/comment.js');
 const app = getApp()
 var link = app.globalData.link;
+
 Page({
     data: {
         headerImg: "",
@@ -11,6 +12,7 @@ Page({
         autoplay: true,
         interval: 5000,
         duration: 500,
+        indicatorDots:true,
         color: "#ceb173",
         colorALL: '#F3F3F3',
         month: "",
@@ -20,7 +22,8 @@ Page({
     },
    
     onLoad: function(options) {
-        
+
+
         var token = comment.encryption();
         var time = new Date();
         var self = this;
@@ -34,6 +37,11 @@ Page({
             dataType: 'json',
             success: function(res) {
                 if (res.data.data.code == 200) {
+                    if (res.data.data.result.arr_index_banner_data.length == 1){
+                        self.setData({
+                            indicatorDots:false
+                        })
+                    }
                     self.setData({
                         headerImg: res.data.data.result,
                         year: time.getFullYear(),
@@ -48,7 +56,6 @@ Page({
                 console.log(res)
             },
         })
-
     },
     swiperChange(e) {
         this.setData({

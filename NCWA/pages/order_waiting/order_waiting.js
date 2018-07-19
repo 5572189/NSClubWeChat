@@ -6,6 +6,7 @@ var code = wx.getStorageSync('user');
 var setStatus = "";
 
 function status(that, id) {
+    var code = wx.getStorageSync('user');
     wx.request({
         url: link + '/api.php?s=/booking/bookingDetail',
         data: {
@@ -30,20 +31,15 @@ function status(that, id) {
                     note: data.note,
                     status: data.status,
                     private_room: data.private_room,
+                    share_title: data.share_title,
+                    share_image: data.share_image,
+                    int_uid: data.int_uid,
                 })
                 if (data.status == 2) {
                     clearInterval(setStatus)
-                    wx.showModal({
-                        title: '提示',
-                        content: '店小二恭迎您光临用餐',
-                        showCancel: false,
-                        confirmText: '确定',
-                        confirmColor: '#ceb173',
-                        success: function(res) {
-                            wx.navigateTo({
-                                url: '../order_detail/order_detail?shopid=' + id + '&status=' + data.status
-                            })
-                        }
+                    that.setData({
+                        shareMessage:false
+                        
                     })
                 } else if (data.status == 3) {
                     clearInterval(setStatus)
@@ -83,6 +79,10 @@ Page({
         note: "",
         status: "",
         private_room: "",
+        shareMessage:true,
+        share_title:"",
+        share_image:"",
+        int_uid:"",
     },
 
     /**
@@ -96,6 +96,11 @@ Page({
             status(that, id)
         }, 2000)
 
+    },
+    confirm_btn:function(){
+        wx.navigateTo({
+            url: '../order_detail/order_detail?shopid=' + this.data.shopid + '&status=' + this.data.status
+        })
     },
     check: function() {
         var that = this;
@@ -150,6 +155,12 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function() {
-
+        var that = this;
+       
+        return {
+            title: that.data.share_title,
+            imageUrl: that.data.share_image,
+            path: '/pages/share/share?book_id=' + that.data.shopid + '&int_uid=' + that.data.int_uid
+        }
     }
 })

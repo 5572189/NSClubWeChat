@@ -7,8 +7,6 @@ page {
 }
 
 .authorization image {
-    position: relative;
-    top: -500rpx; 
     display: block;
     width: 162rpx;
     height: 187rpx;
@@ -17,8 +15,6 @@ page {
 }
 
 .title {
-    position: relative;
-    right: 0;
     text-align: center;
     font-size: 30rpx;
     color: #bebebe;
@@ -26,13 +22,8 @@ page {
     padding-left: 25rpx;
     animation: mymove 3s ease;
 }
-@keyframes mymove{
-    from {right:-100%;}
-    to {right:0px;}
-}
+
 .tit{
-    position: relative;
-    left: -100%;
     text-align: center;
     font-size: 30rpx;
     color: #bebebe;

@@ -45,7 +45,7 @@ Page({
         date: "",
         bookTime: "",
         privateRoom: 0,
-        hallOptional: 0,
+        hallOptional: 1,
         shop_name: "",
         note: "",
     },
@@ -74,7 +74,13 @@ Page({
             method: 'POST',
             success: function(res) {
                 if (res.data.data.code == 200) {
-                    var data = res.data.data.result
+                    var data = res.data.data.result;
+                    var j = 0;
+                    for (var i = 0; i < data.date_time.length;i++){
+                        if (data.date_time[i].book_status == false){
+                            j++;
+                        }
+                    }
                     that.setData({
                         is_pay: data.is_pay,
                         deposit: data.deposit,
@@ -84,8 +90,10 @@ Page({
                         arrayNumber: data.people_num,
                         date_time: data.date_time,
                         shop_name: data.shop_name,
-                        times: data.date_time[0].times,
-                        date: data.date_time[0].date_value,
+                        times: data.date_time[j].times,
+                        date: data.date_time[j].date_value,
+                        index:j,
+                        curIndex:j,
                     })
                 }
             },
@@ -102,8 +110,9 @@ Page({
     //姓名绑定事件
     bindChangeName: function(e) {
         var that = this;
+        var name = e.detail.value.replace(/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g, "")
         that.setData({
-            username: e.detail.value
+            username: name
         })
     },
     //男女切换
@@ -209,6 +218,7 @@ Page({
     },
     bindChangeMailbox: function(e) {
         var that = this;
+
         that.setData({
             note: e.detail.value
         })
@@ -225,7 +235,7 @@ Page({
             })
             return false;
         }
-        if (that.data.username == '') {
+        if (that.data.username.trim() == '') {
             wx.showToast({
                 title: '姓名不能为空',
                 icon: 'none',

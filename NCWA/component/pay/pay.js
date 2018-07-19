@@ -116,13 +116,17 @@ Component({
                                     'signType': data.signType,
                                     'paySign': data.paySign,
                                     'success': function (res) {
-                                        wx: wx.navigateTo({
-                                            url: '../order_waiting/order_waiting?id=' + book_id,
+                                        wx.showLoading({
+                                            title: '加载中',
                                         })
-                                        console.log(res)
+                                        setTimeout(function(){
+                                            wx: wx.navigateTo({
+                                                url: '../order_waiting/order_waiting?id=' + book_id,
+                                            })
+                                        },2000)
                                     },
                                     'fail': function (res) {
-
+                                        console.log(res)
                                     }
                                 })
                             } else if (res.data.data.code == 0){

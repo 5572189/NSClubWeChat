@@ -72,7 +72,7 @@ Page({
                         })
                         if (userInfo.birthday == null) {
                             that.setData({
-                                birthday: "",
+                                birthday: "填写后不可更改",
                                 disabled: true
                             })
                             wx.showModal({
@@ -103,7 +103,6 @@ Page({
                                 user_sex: "女",
                             })
                         }
-                        console.log(userInfo)
                     }
                 },
                 fail: function(res) {},
@@ -116,7 +115,7 @@ Page({
         var that = this;
         var value = wx.getStorageSync('user');
         var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-        if (that.data.user_name == "") {
+        if (that.data.user_name.trim() == "") {
             wx.showToast({
                 title: '请填写您的姓名',
                 icon: 'none',
@@ -169,7 +168,6 @@ Page({
                     name: that.data.user_name,
                     mailbox: that.data.user_mailbox
                 })
-                console.log(res)
                 if (res.data.data.code == 200) {
                     wx.showToast({
                         title: res.data.data.msg,
@@ -206,24 +204,28 @@ Page({
 
     },
     userExit: function() {
-        wx.clearStorageSync();
-        wx.showToast({
-            title: '退出成功',
-            icon: 'none',
-            duration: 2000,
-            success: function() {
-                setTimeout(function() {
+        wx.showModal({
+            content: '是否退出当前账号',
+            cancelText:'取消',
+            cancelColor:'#999',
+            confirmText:'确定',
+            confirmColor:'#ceb173',
+            success: function (res) {
+                if (res.confirm) {
+                    wx.clearStorageSync();
                     wx.switchTab({
                         url: '../me/me'
                     })
-                }, 2000)
-
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
             }
-        });
+        })
+
+        
     },
     editing: function() {
         var that = this;
-        console.log(that.data.user_sex)
         if (that.data.user_sex == '男') {
             that.setData({
                 'items[1].checked': false,
@@ -256,13 +258,13 @@ Page({
         that.setData({
             gender: e.detail.value
         })
-        console.log(e.detail.value)
     },
     //改变名字
     bindChangeName: function(e) {
         var that = this;
+        var name = e.detail.value.replace(/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g, "")
         that.setData({
-            user_name: e.detail.value
+            user_name: name
         })
     },
     //生日选择

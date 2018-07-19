@@ -98,7 +98,7 @@ page {
     color: #ceb173;
     padding: 2rpx 6rpx;
     border-radius: 10rpx;
-    border: 1rpx solid #ceb173;
+    border: 2rpx solid #ceb173;
     margin-left: 70rpx;
 }
 

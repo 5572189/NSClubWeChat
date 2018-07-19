@@ -5,19 +5,15 @@ var app = getApp();
 var link = app.globalData.link;
 var value = wx.getStorageSync('user');
 
-function linkChirld(link){
+function linkChirld(link,that){
     var value = wx.getStorageSync('user');
-    var that = this;
+    
     if (value) {
         wx.navigateTo({
             url: link
         })
     } else {
-        wx.showToast({
-            title: '请先绑定手机号',
-            icon: 'none',
-            duration: 1000,
-        });
+        that.popup.bindingShow();
     }
 }
 Page({
@@ -29,7 +25,7 @@ Page({
 
         nickName: "",
         avatarUrl: "",
-        phone: '绑定手机号',
+        phone: '手机登录/注册',
         code: '',
         code_text: '获取验证码',
         currentTime: 61,
@@ -85,36 +81,32 @@ Page({
         } else {
             that.setData({
                 phoneHidden: false,
-                phone: '绑定手机号',
+                phone: '手机登录/注册',
             })
         }
     },
 
 
-    //扫一扫
-    scan: function() {
-        wx.scanCode({
-            success: (res) => {
-                console.log(res.result)
-                wx.navigateTo({
-                    url: '../link/link?link=' + res.result,
-                })
-            }
-        })
-    },
+   
     //我的账户
     linkMyaccount: function() {
+        var that = this;
         var link = '../myAccount/myAccount';
-        linkChirld(link)
+        linkChirld(link, that)
     },
     //订座记录
     linkMybooking: function() {
+        var that = this;
         var link = '../mybooking/mybooking';
-        linkChirld(link)
+        linkChirld(link, that)
     },
     // 绑定手机号 弹框
     bindingShow: function() {
-        this.popup.bindingShow();
+        var that = this;
+        if (that.data.phone == '手机登录/注册'){
+            this.popup.bindingShow();
+        }
+        
     },
     //组件事件
     onGetCode: function(e) {
@@ -144,7 +136,7 @@ Page({
         var that = this;
         if (!value) {
             that.setData({
-                phone: '绑定手机号',
+                phone: '手机登录/注册',
             })
         }
     },

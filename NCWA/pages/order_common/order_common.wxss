@@ -30,7 +30,11 @@ page {
     font-size: 30rpx;
     color: #b2b2b2;
 }
-
+.order_common_message text{
+    display: inline-block;
+    width: 400rpx;
+    text-align: right;
+}
 .shadeSwitch {
     position: absolute;
     right: 0;
@@ -106,6 +110,8 @@ page {
 }
 .li_birthday{
     float:left;
+    font-size:30rpx;
+    color:#353535;
 }
 .exitImg {
     width: 36rpx;
@@ -121,14 +127,14 @@ page {
 
 .inp_na {
     display: inline-block;
-    width: 480rpx;
+    width: 550rpx;
     font-size: 30rpx;
     color: #353535;
     vertical-align: middle;
 }
 
 .inp_birthday {
-    display: inline-block;
+    float: left;
     font-size: 30rpx;
     color: #353535;
     vertical-align: middle;
@@ -177,10 +183,13 @@ page {
     padding: 20rpx 0;
 }
 
-.picker {
+.picker{
+    width: 400rpx;
     display: inline-block;
 }
-
+.picker view{
+    text-align: right;
+}
 .shop-name {
     padding-right: 16rpx;
 }

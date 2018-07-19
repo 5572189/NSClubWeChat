@@ -117,7 +117,7 @@ page {
 }
 
 .business {
-    padding: 10rpx 30rpx 60rpx 75rpx;
+    padding: 10rpx 30rpx 30rpx 75rpx;
     font-size: 28rpx;
     color: #888;
     text-align: justify;

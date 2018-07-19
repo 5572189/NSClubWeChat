@@ -173,6 +173,12 @@ Component({
                 success: function(res) {
                     if (res.data.data.code == 200) {
                         var data = res.data.data.result.arr_shop_data;
+                        var arry = [];
+                        for(var i =0;i<data.length;i++){
+                            if (data[i].int_booking_status == 3){
+                                arry.push(data[i]);
+                            }
+                        }
                         var headeritems = "";
                         if (data.length == 0) {
                             headeritems = false;
@@ -182,8 +188,9 @@ Component({
                         var myEventDetail = {
                             condition: that.data.dineTime + ' ' + that.data.peonumber + '人 ' + that.data.room,
                             headeritems: headeritems,
-                            headerImg: data
+                            headerImg: arry,
                         }
+                        console.log(arry)
                         that.triggerEvent('myevent', myEventDetail);
                         that.setData({
                             flags: true,

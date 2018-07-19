@@ -5,7 +5,7 @@
         <!-- <view class='search'>
       <icon type="search" size="20"/><input type='text' placeholder='请输入商家名称或活动'></input>
     </view> -->
-        <swiper indicator-dots="{{true}}" indicator-color="{{colorALL}}" indicator-active-color="{{color}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+        <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{colorALL}}" indicator-active-color="{{color}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
             <block wx:for="{{headerImg.arr_index_banner_data}}">
                 <swiper-item bindtap="link">
                     <image src="{{link+item.string_pic_url}}" class="slide-image" width="355" height="150" />

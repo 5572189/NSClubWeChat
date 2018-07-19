@@ -20,20 +20,23 @@
         <view class='ul'>
             <view class='li'>
                 <text class="li_tit">姓名</text>
-                <text class='li_tit'>{{name}}</text>
+                <input class='li_tit li_title' type="text" disabled value="{{name}}" placeholder='请填写您的真实姓名'></input>
+                <!-- <text class='li_tit li_title'>{{name}}</text> -->
             </view>
             <view class='li'>
                 <text class="li_tit">性别</text>
-                <text class='li_tit'>{{user_sex}}</text>
+                <input class='li_tit li_title' type="text" disabled value="{{user_sex}}" placeholder='男/女'></input>
+              
             </view>
             <view class='li'>
                 <text class="li_tit">生日</text>
-                <text class='li_tit'>{{birthday}}</text>
-                <text class='li_de'>(填写后不可修改)</text>
+                <text class='li_tit li_title'>{{birthday}}</text>
+                <!-- <text class='li_de'>(填写后不可修改)</text> -->
             </view>
             <view class='li'>
                 <text class="li_tit">邮箱</text>
-                <text class='li_tit'>{{mailbox}}</text>
+                <input class='li_tit li_title' type="text" disabled value="{{mailbox}}" placeholder='请填写您的常用邮箱'></input>
+                
             </view>
         </view>
         <view class='exit' bindtap='userExit'>
@@ -46,7 +49,7 @@
         <view class='ul'>
             <view class='li'>
                 <text class="li_tit">姓名</text>
-                <input class='inp_na' type="text" bindchange="bindChangeName" value="{{user_name}}"></input>
+                <input class='inp_na' type="text" bindchange="bindChangeName" value="{{user_name}}" placeholder='请填写您的真实姓名'></input>
             </view>
             <view class='li'>
                 <text class="li_tit">性别</text>
@@ -63,12 +66,12 @@
                         {{user_birthday}}
                     </view>
                 </picker>
-                <text class='li_de'>(填写后不可修改)</text>
+                 <!-- <text class='li_de'>填写后不可修改</text>  -->
                 <view class='shade' hidden='{{disabled}}'></view>
             </view>
             <view class='li'>
                 <text class="li_tit">邮箱</text>
-                <input type="text" class='inp_na' bindchange="bindChangeMailbox" value='{{user_mailbox}}'></input>
+                <input type="text" class='inp_na' bindchange="bindChangeMailbox" value='{{user_mailbox}}' placeholder='请填写您的常用邮箱'></input>
             </view>
         </view>
         <view class="btn_save" bindtap='btnSave'>保存</view>

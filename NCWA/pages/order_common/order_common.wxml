@@ -38,7 +38,7 @@
         <view class='order_common_item' hidden='{{hidden}}'>
             <view class='order_common_title titleColor'>如订不到包间，可以接受大厅</view>
             <view class='order_common_message'>
-                <switch class='switch' bindchange="switch2Change" color="{{switchColor}}" />
+                <switch class='switch' checked  bindchange="switch2Change" color="{{switchColor}}" />
             </view>
         </view>
     </view>
@@ -59,7 +59,7 @@
             </view>
             <view class='li'>
                 <text class="li_tit li_phone">电话</text>
-                <input class='inp_birthday li_birthday' disabled="true" placeholder='请填写用餐人电话' placeholder-class='{{placeholderColor}}' bindchange="bindChangePhone" value="{{phone}}"></input>
+                <text class='li_birthday'>{{phone}}</text>
             </view>
             <view class="li_bg"></view>
             <view class='li'>
@@ -89,7 +89,7 @@
             <view class='date'>
                 <view wx:for="{{date_time}}" class='{{curIndex == index ? "on":""}} ' wx:key="{{index}}">
                     <text class='times' wx:if="{{item.book_status == true}}" data-date="{{item.date_value}}" data-index="{{index}}" bindtap='changeDate'> {{item.date}}</text>
-                    <text class='gary times' wx:else> {{item.date}} （已满）</text>
+                     <text class='gary times' wx:else> {{item.date}} （已满）</text> 
                 </view>
 
             </view>
