@@ -227,8 +227,8 @@ Page({
             })
         } else {
             wx.showModal({
-                title: '提示',
                 content: '请先绑定手机号',
+                confirmColor:"#ceb173",
                 success: function(res) {
                     if (res.confirm) {
                         wx.switchTab({

@@ -102,4 +102,4 @@
     </view>
 </view>
 
-<pay id="pay" shopId="{{shopId}}" bookTime="{{bookTime}}" number="{{index}}" privateRoom="{{privateRoom}}" hallOptional="{{hallOptional}}" name="{{username}}" gender="{{gender}}" mobile="{{mobile}}" note="{{note}}"></pay>
+<pay id="pay" shopId="{{shopId}}" bookTime="{{bookTime}}" number="{{index}}" privateRoom="{{privateRoom}}" hallOptional="{{hallOptional}}" name="{{username}}" gender="{{gender}}" mobile="{{phone}}" note="{{note}}"></pay>

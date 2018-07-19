@@ -26,6 +26,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        var code = wx.getStorageSync('user');
         var that = this;
         var id = options.book_id,
             int_uid = options.int_uid;

@@ -98,7 +98,7 @@ Component({
                                 hallOptional: that.data.hallOptional,
                                 name: that.data.name,
                                 gender: that.data.gender,
-                                mobile: that.data.phone,
+                                mobile: that.data.mobile,
                                 note: that.data.note,
                             }
 
