@@ -70,7 +70,7 @@ Page({
                             mailbox: userInfo.email,
                             user_id: userInfo.id
                         })
-                        if (userInfo.birthday == null) {
+                        if (userInfo.birthday == "") {
                             that.setData({
                                 birthday: "填写后不可更改",
                                 disabled: true
