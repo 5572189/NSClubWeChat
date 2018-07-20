@@ -114,6 +114,7 @@ swiper {
     padding: 20rpx 0;
     background: rgba(0, 0, 0, 0.7);
     text-align: center;
+    border-radius: 0 4rpx 4rpx 0;
 }
 
 /* 合作商家滑动 */
