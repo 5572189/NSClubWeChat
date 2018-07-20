@@ -220,25 +220,14 @@ Page({
         }
     },
     historyBook: function() {
+        var that = this;
         var value = wx.getStorageSync('user');
         if (value) {
             wx.navigateTo({
                 url: '../mybooking/mybooking'
             })
         } else {
-            wx.showModal({
-                content: '请先绑定手机号',
-                confirmColor:"#ceb173",
-                success: function(res) {
-                    if (res.confirm) {
-                        wx.switchTab({
-                            url: '../me/me'
-                        })
-                    } else if (res.cancel) {
-
-                    }
-                }
-            })
+            that.popup.bindingShow();
         }
     },
     citySelect: function(e) {

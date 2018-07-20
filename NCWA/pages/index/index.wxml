@@ -11,7 +11,7 @@
                     <image src="{{link+item.string_pic_url}}" class="slide-image" width="355" height="150" />
                 </swiper-item>
             </block> -->
-             <navigator url='../aboutus/aboutus'>
+             <navigator url='../aboutus/aboutus' hover-class='none'>
                 <swiper-item bindtap="link">
                     <image src="../../images/banner.png" class="slide-image" width="355" height="150" />
                 </swiper-item>
