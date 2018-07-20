@@ -172,22 +172,22 @@ Component({
                 })
                 return false;
             }
-            // if (user_code == "") {
-            //     wx.showToast({
-            //         title: '验证码有误！',
-            //         icon: 'loading',
-            //         duration: 2000
-            //     })
-            //     return false;
-            // }
-            // if (verify_code != user_code) {
-            //     wx.showToast({
-            //         title: '验证码有误！',
-            //         icon: 'loading',
-            //         duration: 2000
-            //     })
-            //     return false;
-            // }
+            if (user_code == "") {
+                wx.showToast({
+                    title: '验证码有误！',
+                    icon: 'loading',
+                    duration: 2000
+                })
+                return false;
+            }
+            if (verify_code != user_code) {
+                wx.showToast({
+                    title: '验证码有误！',
+                    icon: 'loading',
+                    duration: 2000
+                })
+                return false;
+            }
             wx.request({
                 url: link + 'api.php?s=/login/index',
                 data: {

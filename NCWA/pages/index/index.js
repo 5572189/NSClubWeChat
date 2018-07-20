@@ -54,6 +54,16 @@ Page({
             },
             fail: function(res) {
                 console.log(res)
+                wx.showModal({
+                    title: '提示',
+                    content: '网络异常！',
+                    showCancel:false,
+                    confirmText:"知道了",
+                    confirmColor:"#ceb173",
+                    success: function (res) {
+                        
+                    }
+                })
             },
         })
     },
