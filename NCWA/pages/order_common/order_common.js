@@ -19,6 +19,7 @@ Page({
         phone: "",
         username: "",
         index: 0,
+        indexPeo:0,
         gender: '1',
         items: [{
                 title: '先生',
@@ -199,7 +200,7 @@ Page({
         var that = this;
         var val = that.data.deposit * (parseInt(e.detail.value) + 1);
         that.setData({
-            index: e.detail.value,
+            indexPeo: e.detail.value,
             deposit_num: val
         })
         if ((that.data.room_min) <= (parseInt(e.detail.value) + 1) && (parseInt(e.detail.value) + 1) <= (that.data.room_max)) {
@@ -262,6 +263,7 @@ Page({
                         gender: that.data.gender,
                         mobile: that.data.phone,
                         note: that.data.note,
+                        from: 'wechat_program',
                     }
                 },
                 method: 'POST',

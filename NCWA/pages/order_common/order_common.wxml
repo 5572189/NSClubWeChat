@@ -7,9 +7,9 @@
         <view class='order_common_item'>
             <view class='order_common_title'>用餐人数</view>
             <view class='order_common_message'>
-                <picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{arrayNumber}}">
+                <picker class="picker" bindchange="bindPickerChange" value="{{indexPeo}}" range="{{arrayNumber}}">
                     <view>
-                        {{arrayNumber[index]}}人
+                        {{arrayNumber[indexPeo]}}人
                     </view>
                 </picker>
                 <image class='icons_left' src="../../images/icons_left.png"></image>

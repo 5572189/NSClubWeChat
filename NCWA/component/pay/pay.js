@@ -100,6 +100,7 @@ Component({
                                 gender: that.data.gender,
                                 mobile: that.data.mobile,
                                 note: that.data.note,
+                                from: 'wechat_program',
                             }
 
                         },

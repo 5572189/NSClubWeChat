@@ -40,6 +40,6 @@ App({
         phone: "",
         userInfo: null,
         flag: true,
-        link: 'https://nt.idea580.com/',
+        link: 'https://www.noble-spirits.com/',
     }
 })

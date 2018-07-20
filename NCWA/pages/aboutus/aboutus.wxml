@@ -1,0 +1,13 @@
+<view class="abouts">
+    <image mode="widthFix" src='../../images/abouts01.jpg'></image>
+    <image mode="widthFix" src='../../images/abouts02.jpg'></image>
+    <image mode="widthFix" src='../../images/abouts03.jpg'></image>
+    <image mode="widthFix" src='../../images/abouts04.jpg'></image>
+    <image mode="widthFix" src='../../images/abouts05.jpg'></image>
+    <image mode="widthFix" src='../../images/abouts06.jpg'></image>
+    <image mode="widthFix" src='../../images/abouts07.jpg'></image>
+    <navigator url='../partnerRestaurant/partnerRestaurant' hover-class="none">
+        <image mode="widthFix" src='../../images/abouts08.png'></image>
+    </navigator>
+    <image mode="widthFix" src='../../images/abouts09.jpg'></image>
+</view>

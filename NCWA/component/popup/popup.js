@@ -221,6 +221,7 @@ Component({
                             flags: true,
                             code: '',
                             code_text: '获取验证码',
+                            disabled:false,
                         })
                         wx.showToast({
                             title: '绑定成功',

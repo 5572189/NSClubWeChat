@@ -1,0 +1,6 @@
+.abouts{
+    width: 100%;
+}
+.abouts image{
+    width: 100%;
+}

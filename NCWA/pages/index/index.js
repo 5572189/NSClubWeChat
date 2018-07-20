@@ -8,7 +8,6 @@ Page({
         headerImg: "",
         link: link,
         swiperIndex: 0,
-        indicatorDots: false,
         autoplay: true,
         interval: 5000,
         duration: 500,
