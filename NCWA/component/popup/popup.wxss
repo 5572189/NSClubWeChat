@@ -90,8 +90,8 @@
     font-size: 28rpx;
     background-color: #ceb173;
     color: #fff;
-    border: 1rpx solid #ceb173;
     text-align: center;
+    border: 0;
     border-radius: 10rpx;
 }
 

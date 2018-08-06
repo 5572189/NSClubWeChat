@@ -37,7 +37,7 @@
     </view>
     <!-- 合作商家滑动 -->
     <view class='list'>
-        <swiper class='partner-list' current='1' autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}" bindchange="swiperChange">
+        <swiper class='partner-list_box' current='1' autoplay="{{false}}" previous-margin="{{'80rpx'}}" next-margin="{{'80rpx'}}" bindchange="swiperChange">
             <block wx:for="{{headerImg.arr_index_cooperation_data}}" wx:key="{{index}}">
                 <swiper-item>
                     <navigator url="/pages/detail/detail?id={{item.int_id}}"  hover-class="none">
@@ -68,10 +68,10 @@
         </view>
     </view>
     <view class='list'>
-        <swiper class='partner-list' current='1' autoplay="{{false}}" previous-margin="{{'100rpx'}}" next-margin="{{'100rpx'}}" bindchange="swiperChange">
+        <swiper class='partner-list' current='1' autoplay="{{false}}"  next-margin="{{'20rpx'}}" bindchange="swiperChange">
             <block wx:for="{{headerImg.arr_index_life_data}}" wx:key="{{index}}">
                 <swiper-item>
-                    <navigator url='../life_detail/life_detail?int_id={{item.int_id}}' hover-class="none">
+                    <navigator url='../life_detail/life_detail?int_id={{item.int_id}}' hover-class="none" class="navigator_list">
                         <image src="{{link+item.string_pic_url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
                         <image class='shade' src="../../images/mengbg.png" />
                         <view class='partner_item_title'>{{item.string_title}}</view>

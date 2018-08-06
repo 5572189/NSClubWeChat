@@ -1,4 +1,6 @@
-
+var comment = require('../../utils/comment.js');
+var app = getApp();
+var link = app.globalData.link;
 Page({
 
   /**
@@ -8,7 +10,7 @@ Page({
       animationLeft: {},
       animationTop:{},
       animationRigth:{},
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+      canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   /**
    * 生命周期函数--监听页面加载
@@ -28,6 +30,34 @@ Page({
           })
         }
       }
+    })
+    wx.login({
+        success: res => {
+           wx.getUserInfo({
+               success: function (data) {
+                   var token = comment.encryption();
+                   wx.request({
+                       url: link+'/api.php?s=/wechat/wechat_user_info',
+                       data: {
+                           "token": token,
+                           "param": {
+                               "string_js_code": res.code,
+                               "rawData": data.rawData,
+                               "signature": data.signature,
+                               "iv": data.iv,
+                               "encryptedData": data.encryptedData
+                           }
+                       },
+                       method: 'POST',
+                       success: function (res) {
+                           var code = res.data.data.result.string_open_id;
+                           wx.setStorageSync('open_id', code)
+                       }
+
+                   })
+               }
+           })
+        }
     })
   },
   bindGetUserInfo: function () {

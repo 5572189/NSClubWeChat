@@ -29,8 +29,8 @@ page {
 }
 
 .shopName {
-    padding: 42rpx 30rpx;
-    font-size: 36rpx;
+    padding: 42rpx 30rpx 20rpx 30rpx;
+    font-size: 38rpx;
     color: #353535;
 }
 

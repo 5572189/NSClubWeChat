@@ -161,7 +161,6 @@ Component({
             var phone = that.data.phone;
             var verify_code = that.data.code;
             var user_code = that.data.user_code;
-
           
             //phone 验证
             if (!/^1[34578]\d{9}$/.test(phone)) {
@@ -188,6 +187,7 @@ Component({
                 })
                 return false;
             }
+            
             wx.request({
                 url: link + 'api.php?s=/login/index',
                 data: {
@@ -199,12 +199,13 @@ Component({
                         company_name: "",
                         taxpayer_id: "",
                         login_type: "",
-                        pass_word: ""
+                        pass_word: "",
+                        string_open_id: wx.getStorageSync('open_id'),
                     }
                 },
                 method: 'POST',
                 dataType: 'json',
-                success: function(res) {
+                success: function (res) {
                     app.globalData.flag = false;
                     wx.setStorage({
                         key: "user",
@@ -221,7 +222,7 @@ Component({
                             flags: true,
                             code: '',
                             code_text: '获取验证码',
-                            disabled:false,
+                            disabled: false,
                         })
                         wx.showToast({
                             title: '绑定成功',
@@ -241,10 +242,12 @@ Component({
                     }
                     clearInterval(interval);
                 },
-                fail: function(res) {
+                fail: function (res) {
 
                 },
             })
+             
+            
         },
     }
 })

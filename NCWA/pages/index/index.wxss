@@ -16,6 +16,7 @@ swiper {
 .slide-image {
     width: 750rpx;
     height: 430rpx;
+
 }
 
 .header {
@@ -106,8 +107,8 @@ swiper {
 
 .partner_name {
     position: absolute;
-    left: 17rpx;
-    bottom: 60rpx;
+    left: 8rpx;
+    bottom: 35rpx;
     font-size: 24rpx;
     color: #fff;
     width: 120rpx;
@@ -123,30 +124,45 @@ swiper {
     width: 750rpx;
     height: 400rpx;
 }
-
+.partner-list_box{
+    width: 750rpx;
+    height: 400rpx;
+}
 .number {
     width: 60rpx;
     position: relative;
 }
-
+.navigator_list{
+    width: 673rpx;
+    overflow: hidden;
+}
 .partner-list image {
-    width: 520rpx !important;
+      width: 100% !important;  
     height: 400rpx !important;
     border-radius: 15rpx;
 }
-
+.partner-list_box image{
+ width: 575rpx!important;  
+    height: 400rpx !important;
+    border-radius: 15rpx;
+}
 .partner-list swiper-item {
     position: relative;
-    max-width: 600rpx;
+    max-width: 673rpx;
     text-align: center;
     overflow: hidden;
 }
-
+.partner-list_box swiper-item {
+    position: relative;
+    max-width: 673rpx;
+    text-align: center;
+    overflow: hidden;
+}
 .partner_item_title {
     width: 485rpx;
     position: absolute;
     left: 30rpx;
-    bottom: 65rpx;
+    bottom: 35rpx;
     font-size: 24rpx;
     color: #fff;
     white-space: nowrap;
@@ -157,7 +173,7 @@ swiper {
 
 .shade {
     position: absolute;
-    left: 16rpx;
+    left: 0;
     top: 0;
     border-radius: 15rpx;
 }

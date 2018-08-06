@@ -79,75 +79,70 @@ Component({
         affirm_pay: function() {
             var that = this
             var code = wx.getStorageSync('user');
-            // that.getOpenId(res.code)
-            wx.login({
-                success: res => {
-                    // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                    wx.request({
-                        url: link + '/api.php?s=/booking/postBooking',
-                        data: {
-                            token,
-                            param: {
-                                code,
-                                js_code: res.code,
-                                shopId: that.data.shopId,
-                                payType: 3,
-                                bookTime: that.data.bookTime,
-                                number: parseInt(that.data.number) + 1,
-                                privateRoom: that.data.privateRoom,
-                                hallOptional: that.data.hallOptional,
-                                name: that.data.name,
-                                gender: that.data.gender,
-                                mobile: that.data.mobile,
-                                note: that.data.note,
-                                from: 'wechat_program',
-                            }
 
-                        },
-                        method: 'POST',
-                        success: function (res) {
-                            console.log(res)
-                            var book_id = res.data.data.result.book_id;
-                            if(res.data.data.code == 200){
-                                var data = JSON.parse(res.data.data.result.string_wechat_program);
-                                wx.requestPayment({
-                                    'timeStamp': data.timeStamp,
-                                    'nonceStr': data.nonceStr,
-                                    'package': data.package,
-                                    'signType': data.signType,
-                                    'paySign': data.paySign,
-                                    'success': function (res) {
-                                        wx.showLoading({
-                                            title: '加载中',
-                                        })
-                                        setTimeout(function(){
-                                            wx: wx.navigateTo({
-                                                url: '../order_waiting/order_waiting?id=' + book_id,
-                                            })
-                                        },2000)
-                                    },
-                                    'fail': function (res) {
-                                        console.log(res)
-                                    }
-                                })
-                            } else if (res.data.data.code == 0){
-                                wx.showModal({
-                                    title: '提示',
-                                    content: res.data.data.msg,
-                                    showCancel: false,
-                                    confirmText: '知道了',
-                                    confirmColor: '#ceb173',
-                                    success: function (res) {
+            wx.request({
+                url: link + '/api.php?s=/booking/postBooking',
+                data: {
+                    token,
+                    param: {
+                        code,
+                        shopId: that.data.shopId,
+                        payType: 3,
+                        bookTime: that.data.bookTime,
+                        number: parseInt(that.data.number) + 1,
+                        privateRoom: that.data.privateRoom,
+                        hallOptional: that.data.hallOptional,
+                        name: that.data.name,
+                        gender: that.data.gender,
+                        mobile: that.data.mobile,
+                        note: that.data.note,
+                        from: 'wechat_program',
+                    }
 
-                                    }
+                },
+                method: 'POST',
+                success: function (res) {
+                    console.log(res)
+                    var book_id = res.data.data.result.book_id;
+                    if(res.data.data.code == 200){
+                        var data = JSON.parse(res.data.data.result.string_wechat_program);
+                        wx.requestPayment({
+                            'timeStamp': data.timeStamp,
+                            'nonceStr': data.nonceStr,
+                            'package': data.package,
+                            'signType': data.signType,
+                            'paySign': data.paySign,
+                            'success': function (res) {
+                                wx.showLoading({
+                                    title: '加载中',
                                 })
+                                setTimeout(function(){
+                                    wx: wx.navigateTo({
+                                        url: '../order_waiting/order_waiting?id=' + book_id,
+                                    })
+                                },2000)
+                            },
+                            'fail': function (res) {
+                                console.log(res)
                             }
-                            
-                        },
-                        fail: function (res) { },
-                    })   
-                }
-            })
+                        })
+                    } else if (res.data.data.code == 0){
+                        wx.showModal({
+                            title: '提示',
+                            content: res.data.data.msg,
+                            showCancel: false,
+                            confirmText: '知道了',
+                            confirmColor: '#ceb173',
+                            success: function (res) {
+
+                            }
+                        })
+                    }
+                    
+                },
+                fail: function (res) { },
+            })   
+              
             
 
         },
